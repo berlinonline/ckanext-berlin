@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: ckanext-berlin
+Version: 0.9
+Summary: Berlin Open Data Portal CKAN extension (custom theme and dataset form)
+Home-page: https://github.com/knudmoeller/ckanext-berlin
+Author: Knud Möller
+Author-email: knud@datalysator.com
+License: UNKNOWN
+Description: 	
+Platform: UNKNOWN

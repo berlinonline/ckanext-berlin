@@ -1,0 +1,10 @@
+setup.py
+ckanext/__init__.py
+ckanext/berlin/__init__.py
+ckanext_berlin.egg-info/PKG-INFO
+ckanext_berlin.egg-info/SOURCES.txt
+ckanext_berlin.egg-info/dependency_links.txt
+ckanext_berlin.egg-info/entry_points.txt
+ckanext_berlin.egg-info/namespace_packages.txt
+ckanext_berlin.egg-info/not-zip-safe
+ckanext_berlin.egg-info/top_level.txt
