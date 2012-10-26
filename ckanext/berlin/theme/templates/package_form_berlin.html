@@ -1,0 +1,448 @@
+<form id="package-edit" class="package_create_form ckan" method="post" onsubmit="return validateForm()"
+  py:attrs="{'class':'has-errors'} if errors else {}"
+  xmlns:i18n="http://genshi.edgewall.org/i18n"
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+
+ <py:def function="optional_head">
+    <link rel="stylesheet" href="${g.site_url}/css/forms.css" type="text/css" media="screen, print" />
+
+    <!-- Reveal instructions --> 
+    <script type="text/javascript" src="${g.site_url}/scripts/reveal_instructions.js"></script> 
+    <link rel="stylesheet" href="${g.site_url}/css/reveal_instructions.css" /> 
+
+    <!-- Flexitable --> 
+    <script type="text/javascript" src="${g.site_url}/scripts/flexitable.js"></script> 
+    <link rel="stylesheet" href="${g.site_url}/css/flexitable.css" /> 
+ 
+    <!-- Tagcomplete --> 
+    <script type="text/javascript" src="${g.site_url}/scripts/tagcomplete.js"></script> 
+    <link rel="stylesheet" href="${g.site_url}/css/tagcomplete.css" /> 
+
+    <xi:include href="new_package_form.js"/>
+  </py:def>
+
+<div class="error-explanation" py:if="error_summary">
+<h2>Errors in form</h2>
+<p>The form contains invalid entries:</p>
+<ul>
+  <li py:for="key, error in error_summary.items()">${"%s: %s" % (key, error)}</li>
+</ul>
+</div>
+<?python
+temporal_granularities = [
+'Keine',
+'5 Jahre',
+'Jahr',
+'Quartal',
+'Monat',
+'Woche',
+'Tag',
+'Stunde',
+'Minute',
+'Sekunde']
+
+geographical_granularities = [
+'Berlin',
+'Bezirk',
+'Ortsteil',
+'Prognoseraum',
+'Bezirksregion',
+'Planungsraum',
+'Block',
+'Einschulbereich',
+'Kontaktbereich',
+'PLZ',
+'Stimmbezirk',
+'Quartiersmanagement',
+'Wohnanlage',
+'Wahlkreis']
+
+geographical_coverages = ['Berlin',
+'Marzahn-Hellersdorf',
+'Mitte',
+'Neukölln',
+'Pankow ',
+'Reinickendorf',
+'Spandau',
+'Steglitz-Zehlendorf',
+'Tempelhof-Schöneberg',
+'Treptow-Köpenick',
+'Adlershof',
+'Alt-Hohenschönhausen',
+'Alt-Treptow',
+'Altglienicke',
+'Baumschulenweg',
+'Biesdorf',
+'Blankenburg',
+'Blankenfelde',
+'Bohnsdorf',
+'Britz',
+'Buch',
+'Buckow',
+'Charlottenburg',
+'Charlottenburg-Nord',
+'Dahlem',
+'Friedenau',
+'Friedrichsfelde',
+'Friedrichshagen',
+'Friedrichshain',
+'Frohnau',
+'Gatow',
+'Gesundbrunnen',
+'Gropiusstadt',
+'Grünau',
+'Grunewald',
+'Hakenfelde',
+'Halensee',
+'Hansaviertel',
+'Haselhorst',
+'Heiligensee',
+'Heinersdorf',
+'Hellersdorf',
+'Hermsdorf',
+'Hohenschönhausen',
+'Johannisthal',
+'Karlshorst',
+'Karow',
+'Kaulsdorf',
+'Kladow',
+'Lichtenberg',
+'Lichtenrade',
+'Lichterfelde',
+'Lübars',
+'Mahlsdorf',
+'Malchow',
+'Mariendorf',
+'Marienfelde',
+'Märkisches Viertel',
+'Marzahn',
+'Mitte',
+'Moabit',
+'Müggelheim',
+'Neu-Hohenschönhausen',
+'Neukölln',
+'Niederschöneweide',
+'Niederschönhausen',
+'Nikolassee',
+'Oberschöneweide',
+'Pankow',
+'Plänterwald',
+'Prenzlauer Berg',
+'Rahnsdorf',
+'Reinickendorf',
+'Schmöckwitz',
+'Schöneberg',
+'Siemensstadt',
+'Spandau',
+'Staaken',
+'Stadtrandsiedlung Malchow',
+'Steglitz',
+'Tegel',
+'Tempelhof',
+'Tiergarten',
+'Waidmannslust',
+'Wannsee',
+'Wartenberg',
+'Wedding',
+'Weißensee',
+'Westend',
+'Wilhelmsruh',
+'Wilhelmstadt',
+'Wilmersdorf',
+'Wittenau',
+'Zehlendorf']
+
+from ckan.lib.helpers import group_name_to_title
+
+def get_extra(key):
+	extra_value = ''
+	for i, extra in enumerate(data.get('extras', [])):
+ 		if key == extra.get('key'):
+			extra_value = extra.get('value')
+	extras = [
+		'username',
+		'date_released',
+		'date_updated',
+		'temporal_coverage-from',
+		'temporal_coverage-to',
+		'temporal_granularity',
+		'geographical_coverage',
+		'geographical_granularity',
+		'apps',
+		'misc'
+	]
+	default_extra_num = dict(map(lambda (a,b):(b,a), list(enumerate(extras))))
+	return default_extra_num[key], extra_value
+?>
+
+    <py:def function="extras_input(extra_key)">
+        <py:with vars="extra_num, extra_value = get_extra(extra_key)">
+          <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+          <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="long" value="${extra_value}"/>
+        </py:with>
+    </py:def>
+
+<fieldset id="basic-information">
+  <legend>Metadaten zum Datensatz</legend>
+  <dl>
+    <dt><label class="field_req" for="title">*</label></dt>
+    <dd>kennzeichnet ein Pflichtfeld.</dd>
+
+    <dt><label class="field_req" for="title">Titel*</label></dt>
+    <dd><input id="title" name="title" type="text" value="${data.get('title', '')}"/></dd>
+    <dd class="instructions basic">Kurzer bezeichnender Freitext (max. 256 Zeichen).</dd>
+    <dd class="instructions further">Soll eindeutig auf den Inhalt schließen lassen. Die Beschreibung erfolgt weiter unten.</dd>
+    <dd class="hints">Z.B. Wahl zum Berliner Abgeordnetenhaus 2006</dd>
+    <dd class="field_error" py:if="errors.get('title', '')">${errors.get('title', '')}</dd>
+
+    <dt><label class="field_req" for="name">Name *</label></dt>
+    <dd><input id="name" maxlength="100" name="name" type="text" value="${data.get('name', '')}" /></dd>
+    <dd class="instructions basic">Der Name wird fast immer korrekt automatisch ausgefüllt. Er wird später nicht geändert, auch wenn sich der Titel ändert und ist praktisch nur für Entwickler bedeutend.</dd>
+    <dd class="instructions further">Zwei oder mehr Zeichen, nur Kleinbuchstaben, 'a-z', '0-9', '-' und '_'. Soll trotzdem verständlich sein für Menschen. Eine spätere Änderung ist nicht vorgesehen.</dd>
+    <dd class="hints">Z.B. abgeordnetenhaus-berlin-wahl-2006</dd>
+    <dd class="field_error" py:if="errors.get('name', '')">${errors.get('name', '')}</dd>
+
+    <dt><label class="field_req" for="author">Veröffentlichende Stelle *</label></dt>
+    <dd><input id="author" name="author" type="text" value="${data.get('author', '')}" /></dd>
+    <dd class="instructions basic">Möglichst genau die Verantwortliche Organisationseinheit</dd>
+    <dd class="hints">Z.B. Umweltamt Charlottenburg-Wilmersdorf</dd>
+
+    <dt><label class="field_req" for="maintainer_email">Kontakt-Email *</label></dt>
+    <dd><input id="maintainer_email" name="maintainer_email" type="text" value="${data.get('maintainer_email', '')}" /></dd>
+    <dd class="instructions basic">Ansprechpartner zum Datensatz sind unter dieser Email zu erreichen.</dd>
+
+    <dt><label class="field_opt" for="maintainer">Kontaktinformation Name</label></dt>
+    <dd><input id="maintainer" name="maintainer" type="text" value="${data.get('maintainer', '')}" /></dd>
+    <dd class="instructions basic">Persönlicher Ansprechpartner zum Datensatz (inhaltliche Verantwortung).</dd>
+
+    <dt><label class="field_req">Veröffentlichende Person</label></dt>
+    <dd>
+      <py:with vars="extra_key = 'username';  extra_num, extra_value = get_extra(extra_key)">
+          <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key"   type="hidden" value="${extra_key}" />
+          <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" value="${extra_value}" />
+      </py:with>
+
+    </dd>
+    <dd class="instructions basic">Person, die lediglich für Veröffentlichung zuständig ist.</dd>
+
+    <dt><label class="field_opt" for="url">Webadresse</label></dt>
+    <dd><input id="url" name="url" type="text" value="${data.get('url', '')}"/></dd>
+    <dd class="instructions basic">Die URL, unter der der Datensatz näher beschrieben wird (URL der Behörde).</dd>
+    <dd class="hints">z.B. http://www.statistik-berlin-brandenburg.de/Statistiken/</dd>
+    <dd class="field_error" py:if="errors.get('url', '')">${errors.get('url', '')}</dd>
+
+    <dt><label class="field_opt" for="notes">Kurzbeschreibung</label></dt>
+    <dd><textarea cols="60" id="notes" name="notes" rows="15">${data.get('notes', '')}</textarea></dd>
+    <dd class="instructions basic">Beschreibung des Datensatzes (1000 Zeichen).<br/>
+    Soll kurz gehalten sein, insbesondere sollte der erste Satz zusammenfassen, was genau enthalten ist.</dd>
+    <dd class="hints">Das sog. <a href="http://daringfireball.net/projects/markdown/syntax">Markdown Format</a> kann genutzt werden.</dd>
+
+ 
+    <dt><label class="field_req" for="license_id">Lizenz*</label></dt>
+    <dd>
+      <select id="license_id" name="license_id">
+          <option value="cc-by" py:attrs="{'selected': 'selected' if data.get('license_id', '') == 'cc-by' else None}" >Creative Commons Namensnennung 3.0 (CC-BY)</option>
+          <option value="cc-nc" py:attrs="{'selected': 'selected' if data.get('license_id', '') == 'cc-nc' else None}" >Creative Commons Namensnennung - Nicht-kommerziell 3.0 (CC-BY-NC)</option>
+          <option value="cc-by-sa" py:attrs="{'selected': 'selected' if data.get('license_id', '') == 'cc-sa' else None}" >Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 (CC-BY-SA)</option>
+          <option value="other-closed" py:attrs="{'selected': 'selected' if data.get('license_id', '') == 'other-closed' else None}" >Siehe Website des Datensatzes.</option>
+     </select>
+    </dd>
+    <dd class="instructions basic">Lizenz, unter der der Datensatz steht.<br/>Derzeit sind zwei Möglichkeiten vorgesehen:
+     <ul>
+      <li>Für offene Daten die <a href="http://creativecommons.org/licenses/by/3.0/de/">Creative Commons Attribution Lizenz</a>. Sie erlaubt Nutzung, Kopie und abgeleitete Werke, solange der Autor des Datensatz darin gekennzeichnet wird.</li>
+      <li>Alle anderen Datensätze gelten zunächst als nicht offen lizensiert.</li>
+     </ul>
+    </dd>
+
+     <dt><label class="field_req">Veröffentlichungsdatum*</label></dt>
+      <dd>${extras_input('date_released')}</dd> 
+      <dd class="hints">Format: JJJJ-MM-TT</dd>
+
+     <dt><label class="field_req">Aktualisierungsdatum</label></dt>
+      <dd>${extras_input('date_updated')}</dd>
+      <dd class="hints">Format: JJJJ-MM-TT</dd>
+
+    <py:for each="num, group in enumerate(data.get('groups', []))">
+      <dt py:if="'id' in group">
+      <input type="${'checkbox' if group['id'] in c.groups_authz else 'hidden'}" name="groups__${num}__id" checked="checked" value="${group['id']}" />
+      <input type="hidden" name="groups__${num}__name" value="${group.get('name', c.groups_authz.get(group['id']))}" />
+      </dt>     
+      <dd py:if="'id' in group"><label for="groups__${num}__checked">${group_name_to_title(group.get('name', c.groups_authz.get(group['id'])))}</label></dd>
+    </py:for>
+
+    <dt><label class="field_req">Kategorie</label></dt>
+    <dd py:if="c.groups"> 
+      <select id="groups__${len(data.get('groups', []))}__id" name="groups__${len(data.get('groups', []))}__id">
+        <option value="" selected="selected">keine Änderung</option>
+        <py:for each="group_id, group_name in c.groups">
+          <option value="${group_id}" py:if="group_id in c.groups_authz">${group_name_to_title(group_name)}</option>
+        </py:for>
+      </select>
+    </dd> 
+    <dd py:if="not c.groups">Rechtefehler bei den Kategorien.</dd>
+
+
+    <dt><label class="field_req" for="tags">Schlagwörter</label></dt>
+    <dd>
+      <input class="long tagComplete" data-tagcomplete-queryparam="incomplete" 
+               data-tagcomplete-url="/api/2/util/tag/autocomplete" id="tag_string" name="tag_string" size="60" type="text" 
+               value="${data.get('tag_string') or ' '.join([tag['name'] for tag in data.get('tags', [])])}" />
+    </dd>
+    <dd class="instructions basic">Begriffe, die den Datensatz einordnen.</dd>
+    <dd class="hints">z.B. Umwelt Arbeit Gastronomie</dd>
+    <dd class="field_error" py:if="errors.get('tag_string', '')">${errors.get('tag_string', '')}</dd>
+
+    <dt><label class="field_req" for="license_id">Zeitraum von</label></dt>
+    <dd>
+      <py:with vars="extra_key='temporal_coverage-from';extra_num, extra_value = get_extra(extra_key)">
+          <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+          <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="medium-width" value="${extra_value}"/>
+      </py:with>
+      bis
+      <py:with vars="extra_key='temporal_coverage-to';extra_num, extra_value = get_extra(extra_key)">
+          <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+          <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="medium-width" value="${extra_value}"/>
+      </py:with>
+     </dd>
+
+    <dd class="instructions basic">Welchen Zeitraum deckt der Datensatz ab?</dd>
+    <dd class="hints">Format: JJJJ-MM-TT</dd>
+
+    <dt><label class="field_opt" for="license_id">Zeitlche Auflösung</label></dt>
+    <dd>
+      <py:with vars="extra_key='temporal_granularity';extra_num, extra_value = get_extra(extra_key)">
+        <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+        <select id="extras__${extra_num}__value" name="extras__${extra_num}__value">
+          <py:for each="unit in temporal_granularities">
+            <option value="${unit}" py:attrs="{'selected': 'selected' if unit == extra_value else None}" >${unit}</option>
+          </py:for>
+        </select>
+      </py:with>
+    </dd>
+    <dd class="instructions basic">Wie sind die Daten in diesem Datensatz zeitlich aufgelöst?</dd>
+
+    <dt><label class="field_opt">Geopraphische Abdeckung</label></dt>
+    <dd>
+      <py:with vars="extra_key='geographical_coverage';extra_num, extra_value = get_extra(extra_key)">
+        <input id="extras__${extra_num}__key"    name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+        <select id="extras__${extra_num}__value" name="extras__${extra_num}__value">
+          <py:for each="unit in geographical_coverages">
+            <option value="${unit}" py:attrs="{'selected': 'selected' if unit == extra_value else None}" >${unit}</option>
+          </py:for>
+        </select>
+      </py:with>
+    </dd>
+    <dd class="instructions basic">Bereich, den der Datensatz abdeckt.</dd>
+
+    <dt><label class="field_opt">Geopraphische Auflösung</label></dt>
+    <dd>
+      <py:with vars="extra_key='geographical_granularity';extra_num, extra_value = get_extra(extra_key)">
+        <input id="extras__${extra_num}__key"    name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+        <select id="extras__${extra_num}__value" name="extras__${extra_num}__value">
+          <py:for each="unit in geographical_granularities">
+            <option value="${unit}" py:attrs="{'selected': 'selected' if unit == extra_value else None}" >${unit}</option>
+          </py:for>
+        </select>
+      </py:with>
+    </dd>
+ 
+    <dd class="instructions basic">Wie sind die Daten in diesem Datensatz räumlich aufgelöst?</dd>
+
+      <dt><label class="field_opt">Anwendungen</label></dt>
+      <dd>${extras_input('apps')}</dd>
+      <dd class="instructions basic">Existieren Anwendungen, die auf diesen Datensatz aufbauen?</dd>
+      <dd class="hints">URL, URL, ...</dd>
+
+      <dt><label class="field_opt">Sonstiges</label></dt>
+      <dd>${extras_input('misc')}</dd>
+      <dd class="instructions basic">Weitere Angaben zum Datensatz</dd>
+      <dd class="hints">Freitext, 200 Zeichen</dd>
+
+      <dt><label class="field_opt" for="state">Status</label></dt>
+      <dd>
+       <select id="state" name="state" >
+        <option py:attrs="{'selected': 'selected' if data.get('state') == 'active' else None}" value="active">active</option>
+        <option py:attrs="{'selected': 'selected' if data.get('state') == 'deleted' else None}" value="deleted">deleted</option>
+       </select>
+      </dd>
+  	  <dd class="instructions basic">Legt fest, ob der Datensatz auf dem Datenportal <a href='http://daten.berlin.de'>daten.berlin.de</a> sichtbar ist.</dd>
+      <input name="author_email"	type="hidden" value="" />
+      <input name="version"		type="hidden" value="" />
+  </dl>
+</fieldset>
+
+<fieldset id="resources">
+  <legend>Dateien</legend>
+ <table class="flexitable">
+    <thead>
+      <tr>
+        <th class="field_req resource-url">URL der Datei*</th>
+        <th class="field_req resource-format">Format*</th>
+        <th class="field_req resource-description">Beschreibung*</th>
+        <th class="field_req resource-language">Sprache*</th>
+        <th class="field_req resource-apiurl">Link zur API-Doku</th>
+      </tr>
+    </thead>
+    <tbody>
+      <py:for each="num, res in enumerate(data.get('resources', []) + [{}])">
+      <tr>
+        <py:for each="col in c.resource_columns">
+        <td py:choose="" class="resource-${col}">
+          <input py:when="col == 'format'" name="resources__${num}__${col}" 
+                 type="text" value="${res.get(col, '')}" class="format-autocomplete short"
+                 data-format-autocomplete-url="/api/2/util/resource/format_autocomplete" />
+          <input py:otherwise="" name="resources__${num}__${col}" type="text" value="${res.get(col, '')}" class="${'medium-width' if (col=='url' or col=='description') else 'short'}" />
+        </td>
+        </py:for>
+        <td py:choose="" class="resource">
+          <input name="resources__${num}__language" type="text" value="" class="short" />
+        </td>
+        <td py:choose="" class="resource">
+          <input name="resources__${num}__apiurl" type="text" value="" class="short" />
+        </td>
+        <td class="resource-id"><input name="resources__${num}__id" type="hidden" value="${res.get('id', '')}" /></td>
+      </tr>
+      </py:for>
+    </tbody>
+  </table>
+
+  <div class="instructions basic">Die Dateien, die die Daten enthalten, bzw. Adresse der API.<br />
+  Es können mehrere Datein angegeben werden, z.B. falls mehrere Formate vorliegen.<br /><br />
+<b>URL:</b> WWW-Link, unter dem die Datei direkt heruntergeladen werden kann. Alternativ kann die URL auf einen API-Server zeigen, etwa einen SPARQL-Endpoint oder einen JSON-P-Dienst.<br /> 
+<b>Format:</b> Dateinamenerweiterung, z.B. xls, csv, sql, xml, kmz <br />
+<b>Beschreibung:</b> Weitere Angaben, die klären, welche Rolle die Datei innerhalb des Datensatzes spielt. Z.B. spezielles Format der Datei, Datei bezieht sich auf eine spezielle Region oder Zeitraum oder liefert zusätzliche Informationen wie Schlüssellisten oder eine Legende.<br />
+<b>Sprache:</b> Zwei-Buchstaben für die Sprache der Datei, z.B. de, en, tr (ISO 639-1).<br />
+<b>API-Doku:</b> Ggf. Verknüpfung zu Dokumentation von Format oder API.<br /></div>
+  <div class="field_error" py:if="errors.get('resources', '')">Package resource(s) incomplete.</div>
+</fieldset>
+
+
+<hr />
+
+<label for="log_message">Interne Notizen zur Bearbeitung der Metadaten dieses Datensatzes.</label>
+<textarea id="log_message" name="log_message" class="short wide">${data.get('log_message', '')}</textarea>
+
+<div class="ckan-logged-in" style="display: none;">
+  <p>Author: ${c.author}</p>
+</div>
+<div class="ckan-logged-out">
+  <label>Author: ${c.author}</label>
+  <p class="hints">
+  Since you have not signed in this will just be your IP address.
+  <a href="${h.url_for(controller='user', action='login', id=None)}" target="_blank">Click here to sign in</a> before saving (opens in new window).
+  </p>
+</div>
+
+<div class="submit">
+  <input name="preview" type="submit" value="Vorschau" />
+  <input id="save" name="save" type="submit" value="Speichern" />
+</div>
+
+<p class="hints">
+<strong>Important:</strong> By submitting content, you agree to release your contributions
+  under the open license specified on the <a href="/license">license page</a>. Please <strong>refrain</strong> from editing this page if you are <strong>not</strong> happy to do this.
+</p>
+
+
+</form>

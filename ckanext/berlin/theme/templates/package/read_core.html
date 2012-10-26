@@ -1,0 +1,144 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip=""
+  >
+  <xi:include href="../_util.html" />
+  <div id="package" class="package">
+    <!-- Title -->
+    <h2 class="head">
+      ${c.pkg_dict.get('title','')}
+      <p class="atom-feed-link package-history-link">
+        <a
+          href="${url(controller='package', action='history', id=c.pkg.name, format='atom', days=7)}"
+          title="${g.site_title} - Package History - ${c.pkg.name}">
+          Subscribe &raquo;</a>
+      </p>
+    </h2>
+    <ul>
+      <py:if test="h.am_authorized(c, actions.CHANGE_STATE, c.pkg)">
+         <li><strong>Status:</strong>
+           <span py:if="c.pkg_dict.get('state', '')=='active'">aktiv (veröffentlicht)</span>
+           <span py:if="c.pkg_dict.get('state', '')=='deleted'">deaktiviert</span>
+         </li>
+      </py:if>
+    </ul>
+    
+    
+    <hr class="cleared" />
+
+    <py:def function="details_item(label, value)">
+        <tr>
+          <td class="package-label">
+            ${label}
+          </td>
+          <td class="package-details">
+            <div style="max-width:420px">${value}</div>
+          </td>
+        </tr>
+    </py:def>
+
+
+    <py:def function="extras_item(extra_key, label)">
+     <py:for each="key, value in c.pkg_extras">
+      <py:if test="extra_key==key">
+        ${details_item(label,value)}
+      </py:if>
+     </py:for>
+    </py:def>
+
+
+
+    <div class="details subsection">
+    <h3>Über diesen Datensatz</h3>
+    <table>
+      <tbody>
+        ${details_item('Veröffentlichende Stelle', c.pkg_author_link)}
+        ${details_item('Kontakt', c.pkg_maintainer_link)}
+        ${extras_item('username','Veröffentlichende Person')}
+        ${details_item('Webadresse', c.pkg_dict.get('url'))}
+        ${details_item('Kurzbeschreibung', c.pkg_notes_formatted)}
+        <tr>
+          <td class="package-label">
+            Lizenz
+          </td>
+          <td class="package-details">
+          <py:choose test="">
+          <py:when test="c.pkg.license and c.pkg.license.url">
+            <a href="${c.pkg.license.url}">${c.pkg.license.title}</a>
+          </py:when>
+          <py:when test="c.pkg.license">${c.pkg.license.title}</py:when>
+          <py:when test="c.pkg.license_id">${c.pkg.license_id}</py:when>
+          <py:otherwise test="">
+            -
+          </py:otherwise>
+          </py:choose>
+          </td>
+        </tr>
+        ${extras_item('date_released','Veröffentlichungsdatum')}
+        ${extras_item('date_updated','Aktualisierungsdatum')}
+        ${details_item('Kurzbeschreibung', c.pkg_notes_formatted)}
+        <tr>
+          <td class="package-label">
+            Kategorien
+          </td>
+          <td class="package-details">
+              <div py:for="group in sorted(c.pkg.groups, key=lambda g: g.display_name)">
+                  ${group.display_name}
+              </div>
+          </td>
+        </tr>
+
+        ${extras_item('temporal_coverage-from','Zeitliche Abdeckung von')}
+        ${extras_item('temporal_coverage-to',   'Zeitliche Abdeckung bis')}
+        ${extras_item('temporal_granularity','Zeitliche Auflösung')}
+        ${extras_item('geographical_coverage','Räumliche Abdeckung')}
+        ${extras_item('geographical_granularity','Räumliche Auflösung')}
+        ${extras_item('apps','Anwendungen')}
+        ${extras_item('relates_to','Bezieht sich auf')}
+        ${extras_item('misc','Sonstiges')}
+
+      </tbody>
+          <caption py:if="h.am_authorized(c, actions.EDIT, c.pkg)">
+              Something missing? ${h.subnav_link(c, 'Please help improve this page by adding more information', controller='package', action='edit', id=c.pkg.name)}.
+          </caption>
+    </table>
+    </div>
+ 
+    <!-- Downloads and resources -->
+    <div class="resources subsection">
+      <h3>Dateien &amp; Ressourcen</h3>
+      <py:choose test="">
+      <table py:when="c.pkg_dict.get('resources', [])">
+        <tr>
+            <th>Beschreibung</th>
+            <th>Format</th>
+            <th>Prüfsumme</th>
+        </tr>
+        <py:for each="res in c.pkg_dict.get('resources', [])">
+          <tr>
+              <td>
+                  <py:choose test="">
+                    <py:when test="res.get('description')">
+                      <a href="${res.get('url', '')}" target="_blank">${res.description}</a>  
+                    </py:when>
+                    <py:otherwise test="">
+                      <a href="${res.get('url', '')}" target="_blank">Download <em>(no description)</em></a>  
+                    </py:otherwise>
+                  </py:choose>
+              </td>
+              <td>${res.get('format', '')}</td>
+              <td>${res.get('hash', '')}</td>
+          </tr>
+        </py:for>
+            <caption>
+                This is a list of all known formats and datasets for <em>${c.pkg_dict.get('title', '')}</em>. If you know of another (CSV, SPARQL end-point etc.) ${h.subnav_link(c, 'please edit this page and add it to the list', controller='package', action='edit', id=c.pkg.name)}.
+            </caption>
+      </table>
+      <table py:otherwise=""><tr><th>Resources</th><td>None given for this package.</td></tr></table>
+      </py:choose>
+    </div>
+
+    <hr class="cleared" />
+  </div> <!-- /package -->
+
+</html>
