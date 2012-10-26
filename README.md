@@ -1,7 +1,7 @@
 ckanext-berlin
 ==============
 
-The CKAN extension for datenregister.berlin.de, the CKAN backend for the Berlin Open Data portal.
+The CKAN extension for http://datenregister.berlin.de, the CKAN backend for the Berlin Open Data portal.
 
 Provides:
 
