@@ -8,6 +8,10 @@ setup(
 	version=version,
 	description="Berlin Open Data Portal CKAN extension (custom theme and dataset form)",
 	long_description="""\
+	Contains all customisation for the Berlin Open Data Portal backend (datenregister.berlin.de).
+	This includes interface customisations (custom page templates, icons, css) and a custom
+	dataset form aimed at the administration staff of the various Berlin departments and 
+	administrative offices.
 	""",
 	classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
 	keywords='',
@@ -25,7 +29,6 @@ setup(
 	entry_points=\
 	"""
         [ckan.plugins]
-	# Add plugins here, eg
-	# myplugin=ckanext.berlin:PluginClass
+	         berlin=ckanext.berlin.plugin:BerlinPlugin
 	""",
 )
