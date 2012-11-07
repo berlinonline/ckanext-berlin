@@ -16,8 +16,8 @@ class BerlinPlugin(plugins.SingletonPlugin,
 	plugins.implements(plugins.IDatasetForm, inherit=False)
 
 	def update_config(self, config):	
-		our_public_dir = os.path.join('theme', 'public')
-		template_dir = os.path.join('theme', 'templates')
+		our_public_dir = join('theme', 'public')
+		template_dir = join('theme', 'templates')
 		
 		# overriding configuration fields:
 		# set our local template and resource overrides
