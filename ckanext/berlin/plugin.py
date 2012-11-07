@@ -12,8 +12,8 @@ log = logging.getLogger(__name__)
 class BerlinPlugin(plugins.SingletonPlugin,
 	lib_plugins.DefaultDatasetForm):
 	
-	implements(plugins.IConfigurer, inherit=False)
-	implements(plugins.IDatasetForm, inherit=False)
+	plugins.implements(plugins.IConfigurer, inherit=False)
+	plugins.implements(plugins.IDatasetForm, inherit=False)
 
 	def update_config(self, config):	
 		our_public_dir = os.path.join('theme', 'public')
