@@ -1,29 +1,28 @@
-import os
-from logging import getLogger
+import logging
+import ckan.plugins as plugins
+import ckan.plugins.toolkit as toolkit
+import ckan.lib.plugins as lib_plugins
+import ckan.lib.navl.validators as validators
+import ckan.logic as logic
+import ckan.logic.converters as converters
+import ckan.lib.base as base
 
-from ckan.plugins import implements, SingletonPlugin
-from ckan.plugins import IConfigurer
-from ckan.plugins import IDatasetForm
+log = logging.getLogger(__name__)
 
-log = getLogger(__name__)
-
-class BerlinPlugin(SingletonPlugin):
+class BerlinPlugin(plugins.SingletonPlugin,
+	lib_plugins.DefaultDatasetForm):
 	
-	implements(IConfigurer, inherit=True)
-	implements(IDatasetForm, inherit=True)
+	implements(plugins.IConfigurer, inherit=False)
+	implements(plugins.IDatasetForm, inherit=False)
 
 	def update_config(self, config):	
-		here = os.path.dirname(__file__)
-		rootdir = os.path.dirname(os.path.dirname(here))
-		our_public_dir = os.path.join(rootdir, 'ckanext', 'berlin', 'theme', 'public')
-		template_dir = os.path.join(rootdir, 'ckanext', 'berlin', 'theme', 'templates')
+		our_public_dir = os.path.join('theme', 'public')
+		template_dir = os.path.join('theme', 'templates')
 		
 		# overriding configuration fields:
 		# set our local template and resource overrides
-		config['extra_public_paths'] = ','.join([our_public_dir,
-		        config.get('extra_public_paths', '')])
-		config['extra_template_paths'] = ','.join([template_dir,
-		        config.get('extra_template_paths', '')])
+		toolkit.add_public_directory(config, our_public_dir)
+		toolkit.add_template_directory(config, template_dir)
 		
 		config['ckan.site_title'] = "Datenregister Berlin"
 		config['ckan.site_description'] = "CKAN - Die Datenzentrale"
@@ -31,26 +30,12 @@ class BerlinPlugin(SingletonPlugin):
 		config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
 		config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
         
-	def package_form(self):
-	    return 'package/new_package_form.html'
-
-	def new_template(self):
-	    return 'package/new.html'
-
-	def comments_template(self):
-	    return 'package/comments.html'
-
-	def search_template(self):
-	    return 'package/search.html'
-
-	def read_template(self):
-	    return 'package/read.html'
-
-	def history_template(self):
-	    return 'package/history.html'
-	
 	def package_types(self):
-	    return ['dataset']
+		# This plugin doesn't handle any special package types, it just
+		# registers itself as the default (above).
+	    return []
 
 	def is_fallback(self):
+		# Return True to register this plugin as the default handler for
+		# package types not handled by any other IDatasetForm plugin.
 	    return True
