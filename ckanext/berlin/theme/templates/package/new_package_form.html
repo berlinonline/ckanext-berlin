@@ -31,9 +31,47 @@
 </ul>
 </div>
 
+<?python
+
+  def get_extra(key):
+  	extra_value = ''
+  	for i, extra in enumerate(data.get('extras', [])):
+   		if key == extra.get('key'):
+  			extra_value = extra.get('value')
+  	extras = [
+  		'username',
+  		'date_released',
+  		'date_updated',
+  		'temporal_coverage-from',
+  		'temporal_coverage-to',
+  		'temporal_granularity',
+  		'geographical_coverage',
+  		'geographical_granularity',
+  		'apps',
+  		'misc'
+  	]
+  	default_extra_num = dict(map(lambda (a,b):(b,a), list(enumerate(extras))))
+  	return default_extra_num[key], extra_value
+?>
+
+<py:def function="extras_input(extra_key, size='default-width')">
+    <py:with vars="extra_num, extra_value = get_extra(extra_key)">
+      <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+      <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="${size}" value="${extra_value}"/>
+    </py:with>
+</py:def>
+
 <fieldset class="tab-pane fade in active" id="basic-information">
+
+  <legend>Metadaten zum Datensatz</legend>
+
+  <div class="control-group">
+    <label class="control-label">*</label>
+    <div class="controls"><em>kennzeichnet ein Pflichtfeld</em></div>
+  </div>
+
   <div class="control-group title-field">
-    <label class="control-label" for="title">Titlero</label>
+    <label class="control-label" for="title">Titel *</label>
     <div class="controls">
       <input id="title"
         class="js-title"
@@ -41,31 +79,88 @@
         value="${data.get('title', '')}"
         placeholder="${_('A short descriptive title for the dataset')}"
       />
+      <p class="instructions basic">Kurzer bezeichnender Freitext (max. 256 Zeichen).</p>
+      <p class="instructions further">Soll eindeutig auf den Inhalt schließen lassen. Die Beschreibung erfolgt weiter unten.</p>
+      <p class="hints">Z.B. Wahl zum Berliner Abgeordnetenhaus 2006</p>
       <p class="field_error" py:if="errors.get('title', '')">${errors.get('title', '')}</p>
     </div>
   </div>
 
   <div class="control-group name-field">
-    <label class="control-label" for="name">Url</label>
+    <label class="control-label" for="name">Name *</label>
     <div class="controls">
       <div class="input-prepend">
-        <span class="add-on">${h.url(controller='package', action='search')+'/'}</span>
+        <!-- <span class="add-on">${h.url(controller='package', action='search')+'/'}</span> -->
         <input maxlength="100" name="name" type="text" class="js-url-input" value="${data.get('name', '')}" />
       </div>
       <p class="js-url-is-valid">&nbsp;</p>
       <p class="url-is-long">Warning: URL is very long. Consider changing it to something shorter.</p>
-      <p>2+ characters, lowercase, using only 'a-z0-9' and '-_'</p>
+      <p class="instructions basic">Der Name wird fast immer korrekt automatisch ausgefüllt. Er wird später nicht geändert, auch wenn sich der Titel ändert und ist praktisch nur für Entwickler bedeutend.</p>
+      <p class="instructions further">Zwei oder mehr Zeichen, nur Kleinbuchstaben ('a-z'), Ziffern ('0-9'), '-' und '_'. Soll trotzdem verständlich sein für Menschen. Eine spätere Änderung ist nicht vorgesehen.</p>
+      <p class="hints">Z.B. abgeordnetenhaus-berlin-wahl-2006</p>
       <p class="field_error" py:if="errors.get('name', '')">${errors.get('name', '')}</p>
     </div>
   </div>
 
+  <div class="control-group">
+    <label class="control-label field_opt" for="author">Veröffentlichende Stelle *</label>
+    <div class="controls">
+      <input id="author" name="author" type="text" value="${data.get('author', '')}" />
+      <p class="instructions basic">Möglichst genau die Verantwortliche Organisationseinheit</p>
+      <p class="hints">Z.B. Umweltamt Charlottenburg-Wilmersdorf</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt" for="maintainer_email">Kontakt-Email *</label>
+    <div class="controls">
+      <input id="maintainer_email" name="maintainer_email" type="text" value="${data.get('maintainer_email', '')}" />
+      <p class="instructions basic">Ansprechpartner zum Datensatz sind unter dieser Email zu erreichen.</p>
+    </div>
+  </div>
+
+  <!--<div class="control-group">
+    <label class="control-label field_opt" for="author_email">Author email</label>
+    <div class="controls">
+      <input id="author_email" name="author_email" type="text" value="${data.get('author_email', '')}" />
+    </div>
+  </div> -->
+
+  <div class="control-group">
+    <label class="control-label field_opt" for="maintainer">Kontaktinformation Name</label>
+    <div class="controls">
+      <input id="maintainer" name="maintainer" type="text" value="${data.get('maintainer', '')}" />
+      <p class="instructions basic">Persönlicher Ansprechpartner zum Datensatz (inhaltliche Verantwortung).</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Veröffentlichende Person</label>
+    <div class="controls">
+      <py:with vars="extra_key = 'username';  extra_num, extra_value = get_extra(extra_key)">
+          <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key"   type="hidden" value="${extra_key}" />
+          <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" value="${extra_value}" />
+      </py:with>
+      <p class="instructions basic">Person, die lediglich für Veröffentlichung zuständig ist.</p>
+    </div>
+  </div>
+
   <div class="control-group homepage-field">
-    <label class="control-label" for="url">Home Page</label>
+    <label class="control-label" for="url">Webadresse</label>
     <div class="controls">
       <input id="url" name="url" type="text" value="${data.get('url', '')}"/>
-      <p>The URL for the web page describing the data (not the data itself).</p>
-      <p>e.g. http://www.example.com/growth-figures.html</p>
+      <p class="instructions basic">Die URL, unter der der Datensatz näher beschrieben wird (URL der Behörde).</p>
+      <p class="hints">z.B. http://www.statistik-berlin-brandenburg.de/Statistiken/</p>
       <p class="field_error" py:if="errors.get('url', '')">${errors.get('url', '')}</p>
+    </div>
+  </div>
+
+  <div class="control-group description-field">
+    <label class="control-label" for="notes">Kurzbeschreibung</label>
+    <div class="controls">
+      ${markdown_editor('notes', data.get('notes'), 'notes', _('Start with a summary sentence ...'))}
+      <p class="instructions basic">Beschreibung des Datensatzes (max. 1000 Zeichen).<br/>
+      Soll kurz gehalten sein, insbesondere sollte der erste Satz zusammenfassen, was genau enthalten ist.</p>
     </div>
   </div>
 
@@ -77,58 +172,150 @@
           <option value="${licence_id}" py:attrs="{'selected': 'selected' if data.get('license_id', '') == licence_id else None}" >${licence_desc}</option>
         </py:for>
       </select>
-      <p id="license-instructions">(Don't worry if you don't know which license the data has been released under).</p>
+      <p class="instructions basic">Lizenz, unter der der Datensatz steht.<br/>Derzeit sind zwei Möglichkeiten vorgesehen:
+       <ul>
+        <li>Für offene Daten die <a href="http://creativecommons.org/licenses/by/3.0/de/">Creative Commons Attribution Lizenz</a>. Sie erlaubt Nutzung, Kopie und abgeleitete Werke, solange der Autor des Datensatz darin gekennzeichnet wird.</li>
+        <li>Alle anderen Datensätze gelten zunächst als nicht offen lizensiert.</li>
+       </ul>
+      </p>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label field_opt">Veröffentlichungsdatum *</label>
+    <div class="controls">
+      ${extras_input('date_released')}
+      <p class="hints">Format: JJJJ-MM-TT</p>
     </div>
   </div>
 
-
-  <div class="control-group description-field">
-    <label class="control-label" for="notes">Description</label>
+  <div class="control-group">
+    <label class="control-label field_opt">Aktualisierungsdatum</label>
     <div class="controls">
-      ${markdown_editor('notes', data.get('notes'), 'notes', _('Start with a summary sentence ...'))}
+      ${extras_input('date_updated')}
+      <p class="hints">Format: JJJJ-MM-TT</p>
     </div>
   </div>
 
   <div class="control-group groups-field">
-    <label class="control-label">Groups</label>
+    <label class="control-label">Kategorie</label>
     <div class="controls">
       <py:with vars="groups=data.get('groups',[])">
-      <strong py:if="len(groups)>0">Member of:</strong>
-      <py:for each="num, group in enumerate(groups)">
+        <?python
+          from ckan.lib.helpers import group_name_to_title
+        ?>
+        <strong py:if="len(groups)>0">Member of:</strong>
+        <py:for each="num, group in enumerate(groups)">
           <?python
-          authorized_group = [group_authz for group_authz in c.groups_authz if group_authz['id'] == group['id']]
-          authorized_group = authorized_group[0] if authorized_group else None
+            authorized_group = [group_authz for group_authz in c.groups_authz if group_authz['id'] == group['id']]
+            authorized_group = authorized_group[0] if authorized_group else None
           ?>
-        <div class="checkbox" py:if="'id' in group">
-          <input type="${'checkbox' if authorized_group else 'hidden'}" name="groups__${num}__id" checked="checked" value="${group['id']}"/>
-          <label for="groups__${num}__checked">${group.get('name', authorized_group['name'] if authorized_group else '')}</label>
-          <input type="hidden" name="groups__${num}__name" value="${group.get('name', authorized_group['name'] if authorized_group else '')}" />
-        </div>
-      </py:for>
-
-      <strong>Add to:</strong>
-      <select py:if="c.groups_available" id="groups__${len(groups)}__id" name="groups__${len(groups)}__id">
-        <option selected="selected" value="">(None)</option>
-        <py:for each="group in c.groups_available">
-        <option value="${group['id']}" >${group['name']}</option>
+          <div class="checkbox" py:if="'id' in group">
+            <input type="${'checkbox' if authorized_group else 'hidden'}" name="groups__${num}__id" checked="checked" value="${group['id']}"/>
+            <label for="groups__${num}__checked">${group_name_to_title(group.get('name', authorized_group['name'] if authorized_group else ''))}</label>
+            <input type="hidden" name="groups__${num}__name" value="${group.get('name', authorized_group['name'] if authorized_group else '')}" />
+          </div>
         </py:for>
-      </select>
-      <em py:if="not c.groups_available">Cannot add any groups.</em>
+
+        <select py:if="c.groups_available" id="groups__${len(groups)}__id" name="groups__${len(groups)}__id">
+          <option selected="selected" value="">(None)</option>
+          <py:for each="group in c.groups_available">
+            <option value="${group['id']}" >${group_name_to_title(group['name'])}</option>
+          </py:for>
+        </select>
+        <em py:if="not c.groups_available">Cannot add any groups.</em>
       </py:with>
     </div>
   </div>
 
   <div class="control-group tags-field">
-    <label class="control-label">Tags</label>
+    <label class="control-label">Schlagwörter</label>
     <div class="controls">
       <input class="long autocomplete-tag" id="tag_string" name="tag_string" size="60" type="text"
-               value="${data.get('tag_string') or ', '.join([tag['name'] for tag in data.get('tags', []) if not tag.get('vocabulary_id')])}" />
-      <p i18n:msg="">Comma-separated terms that may link this dataset to similar ones. For more information on conventions, see <a href="http://wiki.ckan.org/Managing_Datasets#Tag_Conventions">this wiki page</a>.</p>
-      <p>e.g. pollution, rivers, water quality</p>
+               value="${data.get('tag_string') or ' '.join([tag['name'] for tag in data.get('tags', []) if not tag.get('vocabulary_id')])}" />
+      <p class="instructions basic">Begriffe, die den Datensatz einordnen.</p>
+      <p class="hints">z.B. Umwelt Arbeit Gastronomie</p>
       <p class="field_error" py:if="errors.get('tag_string', '')">${errors.get('tag_string', '')}</p>
     </div>
   </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Zeitraum von</label>
+    <div class="controls">
+      ${extras_input('temporal_coverage-from', 'medium-width')}
+      bis
+      ${extras_input('temporal_coverage-to', 'medium-width')}
+      <p class="instructions basic">Welchen Zeitraum deckt der Datensatz ab?</p>
+      <p class="hints">Format: JJJJ-MM-TT</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Zeitlche Auflösung</label>
+    <div class="controls">
+      <select>
+        <py:for each="unit in c.temporal_granularities">
+          <option value="${unit}">${unit}</option>
+        </py:for>
+      </select>
+      <p class="instructions basic">Wie sind die Daten in diesem Datensatz zeitlich aufgelöst?</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Geopraphische Abdeckung</label>
+    <div class="controls">
+      <select>
+        <py:for each="unit in c.geographical_coverages">
+          <option value="${unit}">${unit}</option>
+        </py:for>
+      </select>
+      <p class="instructions basic">Bereich, den der Datensatz abdeckt.</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Geopraphische Auflösung</label>
+    <div class="controls">
+      <select>
+        <py:for each="unit in c.geographical_granularities">
+          <option value="${unit}">${unit}</option>
+        </py:for>
+      </select>
+      <p class="instructions basic">Wie sind die Daten in diesem Datensatz räumlich aufgelöst?</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Anwendungen</label>
+    <div class="controls">
+      ${extras_input('apps', 'long')}
+      <p class="instructions basic">Existieren Anwendungen, die auf diesen Datensatz aufbauen?</p>
+      <p class="hints">URL, URL, ...</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Sonstiges</label>
+    <div class="controls">
+      ${extras_input('misc', 'long')}
+      <p class="instructions basic">Weitere Angaben zum Datensatz</p>
+      <p class="hints">Freitext, 200 Zeichen</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label field_opt">Status</label>
+    <div class="controls">
+      <span><strong>EXTRA</strong></span>
+      <p class="instructions basic">Legt fest, ob der Datensatz auf dem Datenportal <a href='http://daten.berlin.de'>daten.berlin.de</a> sichtbar ist.</p>
+    </div>
+  </div>
+
+  <input name="author_email"	type="hidden" value="" />
+
 </fieldset>
+
 
 <fieldset class="tab-pane" id="resources">
   <legend>Add Resources</legend>
@@ -190,36 +377,6 @@
 </fieldset>
 
 <fieldset class="tab-pane fade" id='further-information'>
-  <div class="control-group">
-    <label class="control-label field_opt" for="author">Author</label>
-    <div class="controls">
-      <input id="author" name="author" type="text" value="${data.get('author', '')}" />
-      <p>The name of the main contact, for enquiries about this particular dataset, using the e-mail address in the following field.</p>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label class="control-label field_opt" for="author_email">Author email</label>
-    <div class="controls">
-      <input id="author_email" name="author_email" type="text" value="${data.get('author_email', '')}" />
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label class="control-label field_opt" for="maintainer">Maintainer</label>
-    <div class="controls">
-      <input id="maintainer" name="maintainer" type="text" value="${data.get('maintainer', '')}" />
-      <p>If there is another important contact person (in addition to the person in the Author field) then provide details here.</p>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label class="control-label field_opt" for="maintainer_email">Maintainer email</label>
-    <div class="controls">
-      <input id="maintainer_email" name="maintainer_email" type="text" value="${data.get('maintainer_email', '')}" />
-    </div>
-  </div>
-
   <div class="control-group">
     <label class="control-label field_opt" for="version">Version</label>
     <div class="controls">
