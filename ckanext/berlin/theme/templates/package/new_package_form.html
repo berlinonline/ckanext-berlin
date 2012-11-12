@@ -56,8 +56,10 @@
 
 <py:def function="extras_input(extra_key, size='default-width')">
     <py:with vars="extra_num, extra_value = get_extra(extra_key)">
-      <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
-      <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="${size}" value="${extra_value}"/>
+      <!-- <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
+      <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="${size}" value="${extra_value}"/> -->
+      <input type="hidden" value="${extra_key}" />
+      <input type="text" class="${size}" value="${extra_value}"/>
     </py:with>
 </py:def>
 
@@ -137,10 +139,7 @@
   <div class="control-group">
     <label class="control-label field_opt">Veröffentlichende Person</label>
     <div class="controls">
-      <py:with vars="extra_key = 'username';  extra_num, extra_value = get_extra(extra_key)">
-          <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key"   type="hidden" value="${extra_key}" />
-          <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" value="${extra_value}" />
-      </py:with>
+      ${extras_input('username')}
       <p class="instructions basic">Person, die lediglich für Veröffentlichung zuständig ist.</p>
     </div>
   </div>
