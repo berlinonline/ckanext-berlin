@@ -249,12 +249,14 @@
     </div>
   </div>
 
-  <div class="control-group">
-    <label class="control-label field_opt">Zeitlche Auflösung</label>
+  <div py:if="c.temporal_granularities" class="control-group">
+    <label class="control-label field_opt" for="temporal_granularity">Zeitlche Auflösung</label>
     <div class="controls">
-      <select>
-        <py:for each="unit in c.temporal_granularities">
-          <option value="${unit}">${unit}</option>
+      <select id="temporal_granularity" name="temporal_granularity">
+        <py:for each="temporal_granularity in c.temporal_granularities">
+          <option 
+            value="${temporal_granularity}" 
+            py:attrs="{'selected': 'selected' if temporal_granularity in data.get('temporal_granularity', []) else None}" >${temporal_granularity}</option>
         </py:for>
       </select>
       <p class="instructions basic">Wie sind die Daten in diesem Datensatz zeitlich aufgelöst?</p>

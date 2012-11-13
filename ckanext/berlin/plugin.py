@@ -18,6 +18,87 @@ class BerlinPlugin(plugins.SingletonPlugin,
 	plugins.implements(plugins.IConfigurer, inherit=False)
 	plugins.implements(plugins.IDatasetForm, inherit=False)
 
+	# Implementation IConfigurer
+
+	def update_config(self, config):	
+		our_public_dir = os.path.join('theme', 'public')
+		template_dir = os.path.join('theme', 'templates')
+		
+		# overriding configuration fields:
+		# set our local template and resource overrides
+		toolkit.add_public_directory(config, our_public_dir)
+		toolkit.add_template_directory(config, template_dir)
+		
+		config['ckan.site_title'] = "Datenregister Berlin"
+		config['ckan.site_description'] = "CKAN - Die Datenzentrale"
+		config['ckan.site_logo'] = "/CKAN-logo.png"
+		config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
+		config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
+        
+	# Implementation IDatasetForm
+
+	def package_types(self):
+		# This plugin doesn't handle any special package types, it just
+		# registers itself as the default (above).
+	    return []
+
+	def is_fallback(self):
+		# Return True to register this plugin as the default handler for
+		# package types not handled by any other IDatasetForm plugin.
+	    return True
+	
+	def form_to_db_schema(self):
+		# get base dataset schema
+		schema = logic.schema.form_to_db_package_schema()
+		
+		# add our custom fields
+		schema.update({
+			'temporal_granularity': [validators.ignore_missing,
+				converters.convert_to_tags('temporal_granularities')]
+		})
+		
+		return schema
+		
+	def db_to_form_schema(self):
+		# get base dataset schema
+		schema = logic.schema.db_to_form_package_schema()
+		
+		# add our custom fields
+		schema.update({
+			'temporal_granularity': [converters.convert_from_tags('temporal_granularities'),
+				validators.ignore_missing]
+		})
+		
+		return schema
+	
+	def setup_template_variables(self, context, data_dict=None):
+		lib_plugins.DefaultDatasetForm.setup_template_variables(self, context, data_dict)
+		
+		self.create_temporal_granularities()
+		self.create_geographical_granularities()
+		self.create_geographical_coverages()
+		
+		try:
+			toolkit.c.temporal_granularities = logic.get_action('tag_list')(
+				context, {'vocabulary_id': 'temporal_granularities'})
+		except logic.NotFound:
+			log.warning("no temporal_granularities vocab found, that should not happen!")
+			toolkit.c.country_codes = None
+		
+		try:
+			toolkit.c.geographical_granularities = logic.get_action('tag_list')(
+				context, {'vocabulary_id': 'geographical_granularities'})
+		except logic.NotFound:
+			log.warning("no geographical_granularities vocab found, that should not happen!")
+			toolkit.c.geographical_granularities = None
+
+		try:
+			toolkit.c.geographical_coverages = logic.get_action('tag_list')(
+				context, {'vocabulary_id': 'geographical_coverages'})
+		except logic.NotFound:
+			log.warning("no geographical_coverages vocab found, that should not happen!")
+			toolkit.c.geographical_coverages = None
+
 	def create_vocab(self, vocab_name, tags):
 		user = logic.get_action('get_site_user')({
 			'model': base.model, 'ignore_auth': True}, {})
@@ -26,7 +107,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
 			'session': base.model.Session,
 			'user': user['name']
 		}
-		
+
 		try:
 			data = {'id': vocab_name}
 			logic.get_action('vocabulary_show')(context, data)
@@ -43,36 +124,36 @@ class BerlinPlugin(plugins.SingletonPlugin,
 	def create_temporal_granularities(self):
 		vocab_name = 'temporal_granularities'
 		tags = [
-			'Keine',
-			'5 Jahre',
-			'Jahr',
-			'Quartal',
-			'Monat',
-			'Woche',
-			'Tag',
-			'Stunde',
-			'Minute',
-			'Sekunde'
+			u'Keine',
+			u'5 Jahre',
+			u'Jahr',
+			u'Quartal',
+			u'Monat',
+			u'Woche',
+			u'Tag',
+			u'Stunde',
+			u'Minute',
+			u'Sekunde'
 		]
 		self.create_vocab(vocab_name, tags)
 
 	def create_geographical_granularities(self):
 		vocab_name = 'geographical_granularities'
 		tags = [
-			'Berlin',
-			'Bezirk',
-			'Ortsteil',
-			'Prognoseraum',
-			'Bezirksregion',
-			'Planungsraum',
-			'Block',
-			'Einschulbereich',
-			'Kontaktbereich',
-			'PLZ',
-			'Stimmbezirk',
-			'Quartiersmanagement',
-			'Wohnanlage',
-			'Wahlkreis'
+			u'Berlin',
+			u'Bezirk',
+			u'Ortsteil',
+			u'Prognoseraum',
+			u'Bezirksregion',
+			u'Planungsraum',
+			u'Block',
+			u'Einschulbereich',
+			u'Kontaktbereich',
+			u'PLZ',
+			u'Stimmbezirk',
+			u'Quartiersmanagement',
+			u'Wohnanlage',
+			u'Wahlkreis'
 		]
 		self.create_vocab(vocab_name, tags)
 
@@ -172,56 +253,4 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		]
 		self.create_vocab(vocab_name, tags)
 
-	def update_config(self, config):	
-		our_public_dir = os.path.join('theme', 'public')
-		template_dir = os.path.join('theme', 'templates')
-		
-		# overriding configuration fields:
-		# set our local template and resource overrides
-		toolkit.add_public_directory(config, our_public_dir)
-		toolkit.add_template_directory(config, template_dir)
-		
-		config['ckan.site_title'] = "Datenregister Berlin"
-		config['ckan.site_description'] = "CKAN - Die Datenzentrale"
-		config['ckan.site_logo'] = "/CKAN-logo.png"
-		config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
-		config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
-        
-	def package_types(self):
-		# This plugin doesn't handle any special package types, it just
-		# registers itself as the default (above).
-	    return []
-
-	def is_fallback(self):
-		# Return True to register this plugin as the default handler for
-		# package types not handled by any other IDatasetForm plugin.
-	    return True
-	
-	def setup_template_variables(self, context, data_dict=None):
-		lib_plugins.DefaultDatasetForm.setup_template_variables(self, context, data_dict)
-		
-		self.create_temporal_granularities()
-		self.create_geographical_granularities()
-		self.create_geographical_coverages()
-		
-		try:
-			toolkit.c.temporal_granularities = logic.get_action('tag_list')(
-				context, {'vocabulary_id': 'temporal_granularities'})
-		except logic.NotFound:
-			log.warning("no temporal_granularities vocab found, that should not happen!")
-			toolkit.c.country_codes = None
-		
-		try:
-			toolkit.c.geographical_granularities = logic.get_action('tag_list')(
-				context, {'vocabulary_id': 'geographical_granularities'})
-		except logic.NotFound:
-			log.warning("no geographical_granularities vocab found, that should not happen!")
-			toolkit.c.geographical_granularities = None
-
-		try:
-			toolkit.c.geographical_coverages = logic.get_action('tag_list')(
-				context, {'vocabulary_id': 'geographical_coverages'})
-		except logic.NotFound:
-			log.warning("no geographical_coverages vocab found, that should not happen!")
-			toolkit.c.geographical_coverages = None
 	
