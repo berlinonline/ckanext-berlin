@@ -254,33 +254,61 @@
     <div class="controls">
       <select id="temporal_granularity" name="temporal_granularity">
         <py:for each="temporal_granularity in c.temporal_granularities">
+          <?python
+            if temporal_granularity in data.get('temporal_granularity', []):
+              selected = {'selected': 'selected'}
+            elif temporal_granularity == 'Keine':
+              selected = {'selected': 'selected'}
+            else:
+              selected = None
+          ?>
           <option 
             value="${temporal_granularity}" 
-            py:attrs="{'selected': 'selected' if temporal_granularity in data.get('temporal_granularity', []) else None}" >${temporal_granularity}</option>
+            py:attrs="selected" >${temporal_granularity}</option>
         </py:for>
       </select>
       <p class="instructions basic">Wie sind die Daten in diesem Datensatz zeitlich aufgelöst?</p>
     </div>
   </div>
 
-  <div class="control-group">
+  <div py:if="c.geographical_coverages" class="control-group">
     <label class="control-label field_opt">Geopraphische Abdeckung</label>
     <div class="controls">
-      <select>
-        <py:for each="unit in c.geographical_coverages">
-          <option value="${unit}">${unit}</option>
+      <select id="geographical_coverage" name="geographical_coverage">
+        <py:for each="geographical_coverage in c.geographical_coverages">
+        <?python
+          if geographical_coverage in data.get('geographical_coverage', []):
+            selected = {'selected': 'selected'}
+          elif geographical_coverage == 'Berlin':
+            selected = {'selected': 'selected'}
+          else:
+            selected = None
+        ?>
+          <option 
+            value="${geographical_coverage}"
+            py:attrs="selected" >${geographical_coverage}</option>
         </py:for>
       </select>
       <p class="instructions basic">Bereich, den der Datensatz abdeckt.</p>
     </div>
   </div>
 
-  <div class="control-group">
+  <div py:if="c.geographical_granularities" class="control-group">
     <label class="control-label field_opt">Geopraphische Auflösung</label>
     <div class="controls">
-      <select>
-        <py:for each="unit in c.geographical_granularities">
-          <option value="${unit}">${unit}</option>
+      <select id="geographical_granularity" name="geographical_granularity">
+        <py:for each="geographical_granularity in c.geographical_granularities">
+        <?python
+          if geographical_granularity in data.get('geographical_granularity', []):
+            selected = {'selected': 'selected'}
+          elif geographical_granularity == 'Berlin':
+            selected = {'selected': 'selected'}
+          else:
+            selected = None
+        ?>
+          <option 
+            value="${geographical_granularity}"
+            py:attrs="selected" >${geographical_granularity}</option>
         </py:for>
       </select>
       <p class="instructions basic">Wie sind die Daten in diesem Datensatz räumlich aufgelöst?</p>

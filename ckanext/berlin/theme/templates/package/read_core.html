@@ -104,9 +104,20 @@
         </tr>
         
         <!-- Display custom fields: -->
+        
         <tr py:if="c.pkg_dict.get('temporal_granularity', None)">
           <td class="dataset-label">Zeitliche Auflösung</td>
           <td class="dataset-details">${c.pkg_dict['temporal_granularity']}</td>
+        </tr>
+                
+        <tr py:if="c.pkg_dict.get('geographical_coverage', None)">
+          <td class="dataset-label">Geographische Abdeckung</td>
+          <td class="dataset-details">${c.pkg_dict['geographical_coverage']}</td>
+        </tr>
+                
+        <tr py:if="c.pkg_dict.get('geographical_granularity', None)">
+          <td class="dataset-label">Geopraphische Auflösung</td>
+          <td class="dataset-details">${c.pkg_dict['geographical_granularity']}</td>
         </tr>
                 
       </tbody>

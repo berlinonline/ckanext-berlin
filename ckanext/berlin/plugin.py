@@ -54,7 +54,11 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		# add our custom fields
 		schema.update({
 			'temporal_granularity': [validators.ignore_missing,
-				converters.convert_to_tags('temporal_granularities')]
+				converters.convert_to_tags('temporal_granularities')],
+			'geographical_granularity': [validators.ignore_missing,
+				converters.convert_to_tags('geographical_granularities')],
+			'geographical_coverage': [validators.ignore_missing,
+				converters.convert_to_tags('geographical_coverages')],
 		})
 		
 		return schema
@@ -66,7 +70,11 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		# add our custom fields
 		schema.update({
 			'temporal_granularity': [converters.convert_from_tags('temporal_granularities'),
-				validators.ignore_missing]
+				validators.ignore_missing],
+			'geographical_granularity': [converters.convert_from_tags('geographical_granularities'),
+				validators.ignore_missing],
+			'geographical_coverage': [converters.convert_from_tags('geographical_coverages'),
+				validators.ignore_missing],
 		})
 		
 		return schema
