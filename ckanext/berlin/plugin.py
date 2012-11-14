@@ -53,12 +53,26 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		
 		# add our custom fields
 		schema.update({
+			'username': [validators.ignore_missing, unicode,
+				converters.convert_to_extras],
+			'date_released': [validators.not_empty, unicode,
+				converters.convert_to_extras],
+			'date_updated': [validators.ignore_missing, unicode,
+				converters.convert_to_extras],
+			'temporal_coverage-from': [validators.ignore_missing, unicode,
+				converters.convert_to_extras],
+			'temporal_coverage-to': [validators.ignore_missing, unicode,
+				converters.convert_to_extras],
 			'temporal_granularity': [validators.ignore_missing,
 				converters.convert_to_tags('temporal_granularities')],
 			'geographical_granularity': [validators.ignore_missing,
 				converters.convert_to_tags('geographical_granularities')],
 			'geographical_coverage': [validators.ignore_missing,
 				converters.convert_to_tags('geographical_coverages')],
+			'apps': [validators.ignore_missing, unicode,
+				converters.convert_to_extras],
+			'misc': [validators.ignore_missing, unicode,
+				converters.convert_to_extras],
 		})
 		
 		return schema
@@ -69,11 +83,25 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		
 		# add our custom fields
 		schema.update({
+			'username': [converters.convert_from_extras,
+				validators.ignore_missing],
+			'date_released': [converters.convert_from_extras,
+				validators.not_empty],
+			'date_updated': [converters.convert_from_extras,
+				validators.ignore_missing],
+			'temporal_coverage-from': [converters.convert_from_extras,
+				validators.ignore_missing],
+			'temporal_coverage-to': [converters.convert_from_extras,
+				validators.ignore_missing],
 			'temporal_granularity': [converters.convert_from_tags('temporal_granularities'),
 				validators.ignore_missing],
 			'geographical_granularity': [converters.convert_from_tags('geographical_granularities'),
 				validators.ignore_missing],
 			'geographical_coverage': [converters.convert_from_tags('geographical_coverages'),
+				validators.ignore_missing],
+			'apps': [converters.convert_from_extras,
+				validators.ignore_missing],
+			'misc': [converters.convert_from_extras,
 				validators.ignore_missing],
 		})
 		

@@ -139,7 +139,7 @@
   <div class="control-group">
     <label class="control-label field_opt">Veröffentlichende Person</label>
     <div class="controls">
-      ${extras_input('username')}
+      <input id="username" name="username" type="text" value="${data.get('username', '')}" />
       <p class="instructions basic">Person, die lediglich für Veröffentlichung zuständig ist.</p>
     </div>
   </div>
@@ -183,7 +183,7 @@
   <div class="control-group">
     <label class="control-label field_opt">Veröffentlichungsdatum *</label>
     <div class="controls">
-      ${extras_input('date_released')}
+      <input id="date_released" name="date_released" type="text" value="${data.get('date_released', '')}" />
       <p class="hints">Format: JJJJ-MM-TT</p>
     </div>
   </div>
@@ -191,7 +191,7 @@
   <div class="control-group">
     <label class="control-label field_opt">Aktualisierungsdatum</label>
     <div class="controls">
-      ${extras_input('date_updated')}
+      <input id="date_updated" name="date_updated" type="text" value="${data.get('date_updated', '')}" />
       <p class="hints">Format: JJJJ-MM-TT</p>
     </div>
   </div>
@@ -241,9 +241,9 @@
   <div class="control-group">
     <label class="control-label field_opt">Zeitraum von</label>
     <div class="controls">
-      ${extras_input('temporal_coverage-from', 'medium-width')}
+      <input id="temporal_coverage-from" name="temporal_coverage-from" type="text" value="${data.get('temporal_coverage-from', '')}" class="medium-width"/>
       bis
-      ${extras_input('temporal_coverage-to', 'medium-width')}
+      <input id="temporal_coverage-to" name="temporal_coverage-to" type="text" value="${data.get('temporal_coverage-to', '')}" class="medium-width"/>
       <p class="instructions basic">Welchen Zeitraum deckt der Datensatz ab?</p>
       <p class="hints">Format: JJJJ-MM-TT</p>
     </div>
@@ -318,7 +318,7 @@
   <div class="control-group">
     <label class="control-label field_opt">Anwendungen</label>
     <div class="controls">
-      ${extras_input('apps', 'long')}
+      <input id="apps" name="apps" type="text" value="${data.get('apps', '')}"/>
       <p class="instructions basic">Existieren Anwendungen, die auf diesen Datensatz aufbauen?</p>
       <p class="hints">URL, URL, ...</p>
     </div>
@@ -327,7 +327,7 @@
   <div class="control-group">
     <label class="control-label field_opt">Sonstiges</label>
     <div class="controls">
-      ${extras_input('misc', 'long')}
+      <input id="misc" name="misc" type="text" value="${data.get('misc', '')}"/>
       <p class="instructions basic">Weitere Angaben zum Datensatz</p>
       <p class="hints">Freitext, 200 Zeichen</p>
     </div>
@@ -336,8 +336,11 @@
   <div class="control-group">
     <label class="control-label field_opt">Status</label>
     <div class="controls">
-      <span><strong>EXTRA</strong></span>
-      <p class="instructions basic">Legt fest, ob der Datensatz auf dem Datenportal <a href='http://daten.berlin.de'>daten.berlin.de</a> sichtbar ist.</p>
+      <select id="state" class="dataset-delete" name="state" style="display:inline;">
+        <option py:attrs="{'selected': 'selected' if data.get('state') == 'active' else None}" value="active">aktiv</option>
+        <option py:attrs="{'selected': 'selected' if data.get('state') == 'deleted' else None}" value="deleted">deaktiviert (unsichtbar)</option>
+      </select>
+      <p class="instructions basic">Legt fest, ob der Datensatz auf dem Datenportal <a href='http://daten.berlin.de' title="Berlin Open Data">daten.berlin.de</a> sichtbar ist.</p>
     </div>
   </div>
 
