@@ -30,10 +30,10 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		toolkit.add_template_directory(config, template_dir)
 		
 		config['ckan.site_title'] = "Datenregister Berlin"
-		config['ckan.site_description'] = "CKAN - Die Datenzentrale"
+		# config['ckan.site_description'] = "CKAN - Die Datenzentrale"
 		config['ckan.site_logo'] = "/CKAN-logo.png"
 		config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
-		config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
+		# config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
         
 	# Implementation IDatasetForm
 

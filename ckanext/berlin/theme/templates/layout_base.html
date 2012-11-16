@@ -60,10 +60,10 @@
           </span>
         </div>
         <a href="${h.url('home')}">
-          <img width="64" src="${h.url_for_static(g.site_logo)}" alt="${g.site_title} Logo" title="${g.site_title} Logo" id="logo" />
+          <img src="${h.url_for_static(g.site_logo)}" alt="${g.site_title} Logo" title="${g.site_title} Logo" id="logo" />
         </a>
         <div id="site-name">
-          <a href="${h.url('home')}">${g.site_title} &mdash; ${g.site_description}</a>
+          <a href="${h.url('home')}">${g.site_title} <py:if test="g.site_description">&mdash; ${g.site_description}</py:if></a>
         </div>
         <div class="menu">
           <span id="menusearch">
@@ -132,33 +132,24 @@
   <div class="footer outer">
     <footer class="container">
       <div class="row">
-        <div class="span3">
+        <div class="span4">
           <h3 class="widget-title">About ${g.site_title}</h3>
           <div class="textwidget">
             <ul>
               <li>
-                  Portal-Hauptseite:<br/> 
-                  <a href="http://daten.berlin.de/">daten.berlin.de</a>
-              </li>
-              <li>${h.link_to(_('API'), h.url_for(controller='api', action='get_api', ver=1))}</li>
-              <li>${h.link_to(_('API Docs'), 'http://docs.ckan.org/en/latest/api.html')}</li>
-            </ul>
-          </div>
-          <h3 class="widget-title">Impressum</h3>
-          <div class="textwidget">
-            <ul>
-              <li>
-                  Herausgeber:<br/>
-                  <a href="http://www.berlin.de/sen/wirtschaft/struktur/impressum.html">Senatsverwaltung für Wirtschaft, Technologie und Forschung</a>
+                  <a href="/de/about">Was ist das?</a>
               </li>
               <li>
-                  Betreiber:<br/>
-                  <a href="http://www.berlinonline.de/wir-ueber-uns/impressum/">BerlinOnline Stadtportal GmbH &amp; Co. KG</a>
+                  Portal-Hauptseite: <a href="http://daten.berlin.de/">daten.berlin.de</a>
+              </li>
+              <li>API: 
+                ${h.link_to(_('Einstieg'), h.url_for(controller='api', action='get_api', ver=1))} |
+                ${h.link_to(_('Dokumentation'), 'http://docs.ckan.org/en/latest/api.html')}
               </li>
             </ul>
           </div>
         </div>
-        <div class="span3">
+        <div class="span4">
           <h3 class="widget-title">Sections</h3>
           <div class="textwidget">
             <ul>
@@ -190,7 +181,7 @@
             </ul>
           </div>
         </div>
-        <div class="span3">
+        <div class="span4">
           <h3 class="widget-title">Languages</h3>
           <div class="textwidget">
             <ul>
@@ -205,20 +196,32 @@
             </ul>
           </div>
         </div>
-        <div class="span3">
-          <h3 class="widget-title">Meta</h3>
-          <p id="credits">
-            &copy; 2012
-            <img src="http://assets.okfn.org/images/logo/okf_logo_white_and_green_tiny.png" id="footer-okf-logo" />
-            <a href="http://okfn.org/">Open Knowledge Foundation</a>
-            Licensed under the <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>
-            <a href="http://opendefinition.org/"><img alt="This Content and Data is Open" src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png" style="border: none;"/></a>
-
-            <br/><br/>
-            Powered by <a href="http://ckan.org">CKAN</a> v${c.__version__}.<br/>
-          </p>
-        </div>
       </div>
+      <!-- <div class="row">
+        <div class="span9">
+          <h3 class="widget-title">Impressum</h3>
+          <div class="textwidget">
+            <ul>
+              <li>
+                  Herausgeber:<br/>
+                  <a href="http://www.berlin.de/sen/wirtschaft/struktur/impressum.html">Senatsverwaltung für Wirtschaft, Technologie und Forschung</a>
+              </li>
+              <li>
+                  Betreiber:<br/>
+                  <a href="http://www.berlinonline.de/wir-ueber-uns/impressum/">BerlinOnline Stadtportal GmbH &amp; Co. KG</a>
+              </li>
+              <li>
+                  Powered by<span/>:<br/>
+                   <a href="http://ckan.org">CKAN</a> v${c.__version__}, 
+                  &copy; 2012
+                  <img src="http://assets.okfn.org/images/logo/okf_logo_white_and_green_tiny.png" id="footer-okf-logo" />
+                  <a href="http://okfn.org/">Open Knowledge Foundation</a>,
+                  Licensed under the <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
     </footer>
   </div> <!-- eo #container -->
   

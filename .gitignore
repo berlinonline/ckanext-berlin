@@ -1,3 +1,4 @@
 *.pyc
 ._*
 ckanext_berlin.egg-info/**
+ckanext/berlin/theme/public/.DS_Store

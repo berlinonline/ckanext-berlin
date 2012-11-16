@@ -5,15 +5,15 @@ body.no-sidebar .content-outer {
 }
 
 .header.outer {
-  background-color: #e2e2e2;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#cccccc));
+  background-color: #1F9779;
+/*  background-image: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#cccccc));
   background-image: -webkit-linear-gradient(top, #e2e2e2, #cccccc);
   background-image:    -moz-linear-gradient(top, #e2e2e2, #cccccc);
   background-image:     -ms-linear-gradient(top, #e2e2e2, #cccccc);
   background-image:      -o-linear-gradient(top, #e2e2e2, #cccccc);
   background-image:         linear-gradient(top, #e2e2e2, #cccccc);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e2e2e2', EndColorStr='#cccccc');
-
+*/
   margin-bottom: 18px;
      -moz-box-shadow: 0px 2px 15px #dddddd;
   -webkit-box-shadow: 0px 2px 15px #dddddd;
@@ -30,19 +30,20 @@ header #logo {
 }
 
 header #site-name {
-  font-size: 1.4em;
+  font-size: 3.4em;
   font-family: Ubuntu, sans-serif;
   padding: 5px;
   padding-left: 82px;
   padding-bottom: 2px;
   /*font-weight: bold;*/
   color: #333;
-  text-shadow: 1px 1px 3px #ccc;
+/*  text-shadow: 1px 1px 3px #ccc;*/
   line-height: 1.3;
 }
 
 header #site-name a {
   color: #000;
+  text-decoration: none;
 }
 
 header .menu form {
@@ -62,7 +63,12 @@ header .menu a {
   text-decoration: none;
   font-weight: bold;
   margin-left: 1.5em;
-  text-shadow: 1px 1px 3px #ccc;
+  color: #ffffff;
+/*  text-shadow: 1px 1px 3px #ccc;*/
+}
+
+header .menu a:hover {
+  color: #183661;
 }
 
 header .menu #menusearch {
@@ -93,14 +99,22 @@ header .search {
 
 .footer.outer {
   border-top: 2px solid #ccc;
-  background-color: #dbdbdb;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#dbdbdb), to(#ffffff));
+  background-color: #1F9779;
+/*  background-image: -webkit-gradient(linear, left top, left bottom, from(#dbdbdb), to(#ffffff));
   background-image: -webkit-linear-gradient(top, #dbdbdb, #ffffff);
   background-image:    -moz-linear-gradient(top, #dbdbdb, #ffffff);
   background-image:     -ms-linear-gradient(top, #dbdbdb, #ffffff);
   background-image:      -o-linear-gradient(top, #dbdbdb, #ffffff);
   background-image:         linear-gradient(top, #dbdbdb, #ffffff);
             fromilter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#dbdbdb', EndColorStr='#ffffff');
+*/}
+
+.footer.outer a {
+  color: #BBB;
+}
+
+.footer.outer a:hover {
+  color: #183661;
 }
 
 html, body {
