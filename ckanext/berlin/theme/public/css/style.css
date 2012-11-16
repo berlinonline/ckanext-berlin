@@ -22,7 +22,7 @@ body.no-sidebar .content-outer {
 }
 
 header {
-  padding: 5px 0px 5px 0px;
+  padding: 5px 0px 10px 0px;
 }
 
 header #logo {
@@ -44,6 +44,10 @@ header #site-name {
 header #site-name a {
   color: #000;
   text-decoration: none;
+}
+
+header .menu {
+	text-align: bottom;
 }
 
 header .menu form {
@@ -1254,7 +1258,7 @@ body.authz form button {
 /* ===================== */
 fieldset#resources {
   margin-bottom: 40px;
-  padding: 0;
+/*  padding: 0;*/
 }
 body.editresources fieldset#resources > legend,
 body.editresources fieldset#resources > .instructions {

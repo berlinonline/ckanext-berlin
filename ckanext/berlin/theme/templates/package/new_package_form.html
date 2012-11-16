@@ -350,10 +350,9 @@
 
 
 <fieldset class="tab-pane" id="resources">
-  <legend>Add Resources</legend>
-  <div class="instructions">
-    <p>Upload or link data files, APIs and other materials related to your dataset.</p>
-  </div>
+  <legend>Dateien und APIs</legend>
+  <p class="instructions basic">Die Dateien, die die Daten enthalten, bzw. Adresse der API.
+  Es können mehrere Datein angegeben werden, z.B. falls mehrere Formate vorliegen.</p>
   <div class="row">
     <div class="span4">
       <ul class="resource-list resource-list-edit drag-drop-list">
@@ -369,7 +368,7 @@
           <ul class="nav nav-tabs">
             <li><a data-toggle="tab" href="#link-file">Link to a file</a></li>
             <li><a data-toggle="tab" href="#link-api">Link to an API</a></li>
-            <li><a data-toggle="tab" href="#upload-file">Upload a file</a></li>
+            <!-- <li><a data-toggle="tab" href="#upload-file">Upload a file</a></li> -->
           </ul>
           <div class="tab-content">
             <div class="tab-pane" id="link-file">
@@ -471,9 +470,9 @@
 
 <fieldset id='summary'>
   <div class="control-group">
-    <label class="control-label" for="log_message">Summary</label>
+    <label class="control-label" for="log_message">Zusammenfassung</label>
     <div class="controls">
-      <p>Briefly describe the changes you have made...</p>
+      <p>Interne Notizen zur Bearbeitung der Metadaten dieses Datensatzes.</p>
       <textarea id="log_message" name="log_message">${data.get('log_message', h.auto_log_message())}</textarea>
     </div>
   </div>
@@ -495,7 +494,7 @@
   <py:if test="c.pkg">
     <input id="cancel" class="btn href-action" name="cancel" type="reset" value="${_('Cancel')}" action="${h.url_for(controller='package', action='read', id=c.pkg.name)}" />
   </py:if>
-  <p class="hints"><strong>Important:</strong> By submitting content, you agree to release your contributions under the <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>. Please <strong>refrain</strong> from editing this page if you are <strong>not</strong> happy to do this.</p>
+  <p class="hints"><strong>Wichtig:</strong> Indem Sie den Datensatz hinzufügen, stellen Sie die hier angegeben Metadaten unter der <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database Lizenz</a> frei.</p>
 </div>
 
 

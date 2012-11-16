@@ -7,7 +7,11 @@ fieldset {
  
 legend {
   font-weight: bold;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  border-bottom: none;
+  padding: 0 24px;
+  width: auto;
+}
  
 textarea, select,
 input[type=text], input.text,
