@@ -33,6 +33,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
 		# config['ckan.site_description'] = "CKAN - Die Datenzentrale"
 		config['ckan.site_logo'] = "/CKAN-logo.png"
 		config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
+		config['ckan.licenses_group_url'] = "/licenses/berlin-od-portal.json"
 		# config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
         
 	# Implementation IDatasetForm

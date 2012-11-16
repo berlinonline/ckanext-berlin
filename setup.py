@@ -19,6 +19,7 @@ setup(
 	author_email='knud@datalysator.com',
 	url='https://github.com/knudmoeller/ckanext-berlin',
 	license='',
+	licenses_group_url='http://localhost:5000/licenses/berlin-od-portal.json'
 	packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
 	namespace_packages=['ckanext', 'ckanext.berlin'],
 	include_package_data=True,
