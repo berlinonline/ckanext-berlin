@@ -31,38 +31,6 @@
 </ul>
 </div>
 
-<?python
-
-  def get_extra(key):
-  	extra_value = ''
-  	for i, extra in enumerate(data.get('extras', [])):
-   		if key == extra.get('key'):
-  			extra_value = extra.get('value')
-  	extras = [
-  		'username',
-  		'date_released',
-  		'date_updated',
-  		'temporal_coverage-from',
-  		'temporal_coverage-to',
-  		'temporal_granularity',
-  		'geographical_coverage',
-  		'geographical_granularity',
-  		'apps',
-  		'misc'
-  	]
-  	default_extra_num = dict(map(lambda (a,b):(b,a), list(enumerate(extras))))
-  	return default_extra_num[key], extra_value
-?>
-
-<py:def function="extras_input(extra_key, size='default-width')">
-    <py:with vars="extra_num, extra_value = get_extra(extra_key)">
-      <!-- <input id="extras__${extra_num}__key"   name="extras__${extra_num}__key" type="hidden" value="${extra_key}" />
-      <input id="extras__${extra_num}__value" name="extras__${extra_num}__value" type="text" class="${size}" value="${extra_value}"/> -->
-      <input type="hidden" value="${extra_key}" />
-      <input type="text" class="${size}" value="${extra_value}"/>
-    </py:with>
-</py:def>
-
 <fieldset class="tab-pane fade in active" id="basic-information">
 
   <legend>Metadaten zum Datensatz</legend>
@@ -419,7 +387,21 @@
 </fieldset>
 
 <fieldset class="tab-pane fade" id='extras'>
-  <p>Adding custom fields to the dataset such as "location:uk" can help users find it in the search engine. This data will also appear under <strong>Additional Information</strong> when viewing the dataset.</p>
+    <!-- 
+        I replace the regular template for extras input with just a dummy element.
+        This is so that a.) the values of the extras-based fields in basic information 
+        won't be overwritten by their extras counterpart, and b.) so that the internal
+        CKAN logic still has an extras element to extract from the page - otherwise the
+        form submission fails.
+        The solution is obviously a hack.
+      -->
+<div class="control-group">
+<div class="controls">
+<input id="extras__0__key" name="extras__0__key" type="text" value=""/>
+<input id="extras__0__value" name="extras__0__value" type="text" value=""/>
+</div>
+</div>
+  <!-- <p>Adding custom fields to the dataset such as "location:uk" can help users find it in the search engine. This data will also appear under <strong>Additional Information</strong> when viewing the dataset.</p>
   <py:with vars="extras = data.get('extras', [])">
     <py:for each="num, extra in enumerate(extras)">
       <div class="control-group">
@@ -449,7 +431,7 @@
         </div>
       </div>
     </py:for>
-  </py:with>
+  </py:with> -->
 </fieldset>
 
 <fieldset id='delete' class="tab-pane fade" py:if="c.is_sysadmin or c.auth_for_change_state">
