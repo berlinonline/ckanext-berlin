@@ -119,6 +119,10 @@ label.has-errors, label.fieldWithErrors {
   font-weight: bold;
   color: #d12f19; }
 
+label.required-field {
+  color: red;
+}
+
 label { 
   display: block;
   padding: 0.2em;
@@ -179,4 +183,4 @@ form.has-errors .field_error, form.has-errors .error-explanation {
 
 #preview {
   margin-bottom: 30px;
-  }
+}

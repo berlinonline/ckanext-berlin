@@ -1,9 +1,12 @@
-body {
-/*  background-color: rgb(31,151,121);*/
-/*  background-color: red;*/
+.required-field {
+  background: #eeeeee;
+  padding: 10px;
 }
 
-/**.footer {
-  color: #ffffff;
+i[class^="icon-"],i[class*=" icon-"] {
+  margin-left: 5px;
 }
-*/
+
+.instructions.basic {
+  margin-top: 10px;
+}
