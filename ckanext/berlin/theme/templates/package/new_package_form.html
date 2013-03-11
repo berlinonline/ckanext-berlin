@@ -35,13 +35,13 @@
 
   <legend>Metadaten zum Datensatz</legend>
 
-  <div class="control-group">
-    <label class="control-label">*</label>
-    <div class="controls"><em>kennzeichnet ein Pflichtfeld</em></div>
+  <div class="control-group required-field">
+    <label class="control-label"><i class="icon-asterisk icon-large"></i></label>
+    <div class="controls"><p class="instructions basic"><em>kennzeichnet ein Pflichtfeld</em></p></div>
   </div>
 
-  <div class="control-group title-field">
-    <label class="control-label" for="title">Titel *</label>
+  <div class="control-group title-field required-field">
+    <label class="control-label" for="title">Titel<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <input id="title"
         class="js-title"
@@ -56,24 +56,24 @@
     </div>
   </div>
 
-  <div class="control-group name-field">
-    <label class="control-label" for="name">Name *</label>
+  <div class="control-group name-field required-field">
+    <label class="control-label" for="name">Name<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <div class="input-prepend">
         <!-- <span class="add-on">${h.url(controller='package', action='search')+'/'}</span> -->
         <input maxlength="100" name="name" type="text" class="js-url-input" value="${data.get('name', '')}" />
       </div>
       <p class="js-url-is-valid">&nbsp;</p>
-      <p class="url-is-long">Warning: URL is very long. Consider changing it to something shorter.</p>
+      <!-- <p class="url-is-long">Warning: URL is very long. Consider changing it to something shorter.</p> -->
       <p class="instructions basic">Der Name wird fast immer korrekt automatisch ausgefüllt. Er wird später nicht geändert, auch wenn sich der Titel ändert und ist praktisch nur für Entwickler bedeutend.</p>
       <p class="instructions further">Zwei oder mehr Zeichen, nur Kleinbuchstaben ('a-z'), Ziffern ('0-9'), '-' und '_'. Soll trotzdem verständlich sein für Menschen. Eine spätere Änderung ist nicht vorgesehen.</p>
-      <p class="hints">Z.B. abgeordnetenhaus-berlin-wahl-2006</p>
+      <p class="hints">Z.B. <code>abgeordnetenhaus-berlin-wahl-2006</code></p>
       <p class="field_error" py:if="errors.get('name', '')">${errors.get('name', '')}</p>
     </div>
   </div>
 
-  <div class="control-group">
-    <label class="control-label field_opt" for="author">Veröffentlichende Stelle *</label>
+  <div class="control-group required-field">
+    <label class="control-label field_opt" for="author">Veröffentlichende Stelle<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <input id="author" name="author" type="text" value="${data.get('author', '')}" />
       <p class="instructions basic">Möglichst genau die Verantwortliche Organisationseinheit</p>
@@ -81,20 +81,13 @@
     </div>
   </div>
 
-  <div class="control-group">
-    <label class="control-label field_opt" for="maintainer_email">Kontakt-Email *</label>
+  <div class="control-group required-field">
+    <label class="control-label field_opt" for="maintainer_email">Kontakt-Email<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <input id="maintainer_email" name="maintainer_email" type="text" value="${data.get('maintainer_email', '')}" />
       <p class="instructions basic">Ansprechpartner zum Datensatz sind unter dieser Email zu erreichen.</p>
     </div>
   </div>
-
-  <!--<div class="control-group">
-    <label class="control-label field_opt" for="author_email">Author email</label>
-    <div class="controls">
-      <input id="author_email" name="author_email" type="text" value="${data.get('author_email', '')}" />
-    </div>
-  </div> -->
 
   <div class="control-group">
     <label class="control-label field_opt" for="maintainer">Kontaktinformation Name</label>
@@ -131,15 +124,18 @@
     </div>
   </div>
 
-  <div class="control-group license-field">
-    <label class="control-label" for="license_id">License</label>
+  <div class="control-group license-field required-field">
+    <label class="control-label" for="license_id">Lizenz<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <select id="license_id" name="license_id">
         <py:for each="licence_desc, licence_id in c.licences">
-          <option value="${licence_id}" py:attrs="{'selected': 'selected' if data.get('license_id', '') == licence_id else None}" >${licence_desc}</option>
+          <py:if test="licence_desc is not ''">        
+            <option value="${licence_id}" py:attrs="{'selected': 'selected' if data.get('license_id', '') == licence_id else None}" >${licence_desc}</option>
+          </py:if>
         </py:for>
       </select>
-      <p class="instructions basic">Lizenz, unter der der Datensatz steht.<br/>Derzeit sind zwei Möglichkeiten vorgesehen:
+      <p class="instructions basic">Lizenz, unter der der Datensatz steht.<br/>
+          Derzeit sind zwei Möglichkeiten vorgesehen:
        <ul>
         <li>Für offene Daten die <a href="http://creativecommons.org/licenses/by/3.0/de/">Creative Commons Attribution Lizenz</a>. Sie erlaubt Nutzung, Kopie und abgeleitete Werke, solange der Autor des Datensatz darin gekennzeichnet wird.</li>
         <li>Alle anderen Datensätze gelten zunächst als nicht offen lizensiert.</li>
@@ -148,11 +144,11 @@
     </div>
   </div>
   
-  <div class="control-group">
-    <label class="control-label field_opt">Veröffentlichungsdatum *</label>
+  <div class="control-group required-field">
+    <label class="control-label field_opt">Veröffentlichungsdatum<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <input id="date_released" name="date_released" type="text" value="${data.get('date_released', '')}" />
-      <p class="hints">Format: JJJJ-MM-TT</p>
+      <p class="instructions basic hints">Format: JJJJ-MM-TT</p>
     </div>
   </div>
 
@@ -160,12 +156,12 @@
     <label class="control-label field_opt">Aktualisierungsdatum</label>
     <div class="controls">
       <input id="date_updated" name="date_updated" type="text" value="${data.get('date_updated', '')}" />
-      <p class="hints">Format: JJJJ-MM-TT</p>
+      <p class="instructions basic hints">Format: JJJJ-MM-TT</p>
     </div>
   </div>
 
-  <div class="control-group groups-field">
-    <label class="control-label">Kategorie</label>
+  <div class="control-group groups-field required-field">
+    <label class="control-label">Kategorie<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
       <py:with vars="groups=data.get('groups',[])">
         <?python
@@ -454,8 +450,8 @@
   <div class="control-group">
     <label class="control-label" for="log_message">Zusammenfassung</label>
     <div class="controls">
-      <p>Interne Notizen zur Bearbeitung der Metadaten dieses Datensatzes.</p>
-      <textarea id="log_message" name="log_message">${data.get('log_message', h.auto_log_message())}</textarea>
+        <textarea id="log_message" name="log_message">${data.get('log_message', h.auto_log_message())}</textarea>
+        <p class="instructions basic">Interne Notizen zur Bearbeitung der Metadaten dieses Datensatzes.</p>
     </div>
   </div>
 </fieldset>
