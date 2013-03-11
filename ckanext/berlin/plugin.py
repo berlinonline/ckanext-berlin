@@ -9,6 +9,7 @@ import ckan.lib.navl.validators as validators
 import ckan.logic as logic
 import ckan.logic.converters as converters
 import ckan.lib.base as base
+import validation as helper
 
 log = logging.getLogger(__name__)
 
@@ -53,18 +54,21 @@ class BerlinPlugin(plugins.SingletonPlugin,
         # get base dataset schema
         schema = logic.schema.form_to_db_package_schema()
 
-        # add our custom fields
         schema.update({
+            # default fields
+            'author': [helper.not_missing],
+            'maintainer_email': [helper.not_missing, helper.validate_email_address, unicode],
+            # add our custom fields        
             'username': [validators.ignore_missing, unicode,
               converters.convert_to_extras],
-            'date_released': [validators.ignore_missing, unicode,
+            'date_released': [helper.not_missing, helper.validate_date, unicode,
               converters.convert_to_extras],
-            # 'date_updated': [validators.ignore_missing, unicode,
-            #   converters.convert_to_extras],
-            # 'temporal_coverage-from': [validators.ignore_missing, unicode,
-            #   converters.convert_to_extras],
-            # 'temporal_coverage-to': [validators.ignore_missing, unicode,
-            #   converters.convert_to_extras],
+            'date_updated': [validators.ignore_empty, helper.validate_date, unicode,
+              converters.convert_to_extras],
+            'temporal_coverage-from': [validators.ignore_empty, helper.validate_date, unicode,
+              converters.convert_to_extras],
+            'temporal_coverage-to': [validators.ignore_empty, helper.validate_date, unicode,
+              converters.convert_to_extras],
             'temporal_granularity': [validators.ignore_missing,
             converters.convert_to_tags('temporal_granularities')],
             'geographical_granularity': [validators.ignore_missing,
@@ -91,12 +95,12 @@ class BerlinPlugin(plugins.SingletonPlugin,
               validators.ignore_missing],
             'date_released': [converters.convert_from_extras,
               validators.ignore_missing],
-            # 'date_updated': [converters.convert_from_extras,
-            #   validators.ignore_missing],
-            # 'temporal_coverage-from': [converters.convert_from_extras,
-            #   validators.ignore_missing],
-            # 'temporal_coverage-to': [converters.convert_from_extras,
-            #   validators.ignore_missing],
+            'date_updated': [converters.convert_from_extras,
+              validators.ignore_missing],
+            'temporal_coverage-from': [converters.convert_from_extras,
+              validators.ignore_missing],
+            'temporal_coverage-to': [converters.convert_from_extras,
+              validators.ignore_missing],
             'temporal_granularity': [converters.convert_from_tags('temporal_granularities'),
             validators.ignore_missing],
             'geographical_granularity': [converters.convert_from_tags('geographical_granularities'),
@@ -293,3 +297,4 @@ class BerlinPlugin(plugins.SingletonPlugin,
         ]
         self.create_vocab(vocab_name, tags)
 
+    
