@@ -143,6 +143,8 @@ class BerlinPlugin(plugins.SingletonPlugin,
               validators.ignore_missing],
             'misc': [converters.convert_from_extras,
               validators.ignore_missing],
+            # need to do something with "isopen" to prevent it from being stripped off the dataset dict during validation:
+            'isopen': [validators.ignore_missing],             
         })
     
         return schema
