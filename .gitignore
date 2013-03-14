@@ -2,3 +2,5 @@
 ._*
 ckanext_berlin.egg-info/**
 ckanext/berlin/theme/public/.DS_Store
+
+.DS_Store
