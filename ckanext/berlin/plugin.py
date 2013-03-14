@@ -10,18 +10,21 @@ import ckan.logic as logic
 import ckan.logic.converters as converters
 import ckan.lib.base as base
 import validation as helper
+from ckan.lib.navl.dictization_functions import DataError, StopOnError
 
 log = logging.getLogger(__name__)
 
 class BerlinPlugin(plugins.SingletonPlugin,
     lib_plugins.DefaultDatasetForm):
 
+    log.debug("BerlinPlugin")
+
     plugins.implements(plugins.IConfigurer, inherit=False)
     plugins.implements(plugins.IDatasetForm, inherit=False)
-
-    # Implementation IConfigurer
-
-    def update_config(self, config):	
+# 
+#     # Implementation IConfigurer
+# 
+    def update_config(self, config):  
         our_public_dir = os.path.join('theme', 'public')
         template_dir = os.path.join('theme', 'templates')
 
@@ -31,10 +34,13 @@ class BerlinPlugin(plugins.SingletonPlugin,
         toolkit.add_template_directory(config, template_dir)
 
         config['ckan.site_title'] = "Datenregister Berlin"
-        # config['ckan.site_description'] = "CKAN - Die Datenzentrale"
         config['ckan.site_logo'] = "/CKAN-logo.png"
         config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
-        # config['ckan.template_footer_end'] = '<div class="footer">Ein Service von Fraunhofer FOKUS.</div>'
+
+        # setting fix_partial_updates to True prevents empty lists from being stripped from dataset dicts,
+        # which could cause errors in genshi calls such as package.resources in templates such as package_list.html
+        config['ckan.fix_partial_updates'] = True
+        
 
     # Implementation IDatasetForm
 
@@ -48,6 +54,31 @@ class BerlinPlugin(plugins.SingletonPlugin,
         # package types not handled by any other IDatasetForm plugin.
         return True
 
+#     # def check_data_dict(self, data_dict, schema=None):
+#     #     log.warning("check_data_dict")
+#     #     
+#     #     # make sure the dataset has been linked to a group
+#     #     # one group set:
+#     #     # { ... 'groups': [{'id': u'3cb2d53a-120d-4d2d-81f7-b79eaa3874f8'}], }
+#     #     # two groups set ('eine-testgruppe' per checkbox, the other one per drop-down list):
+#     #     # 'groups': [{'id': u'3cb2d53a-120d-4d2d-81f7-b79eaa3874f8',
+#     #     #             'name': u'eine-testgruppe'},
+#     #     #            {'id': u'3eb0e87a-11eb-4e00-bba6-35d35c92b105'}],
+#     #     # two groups set (both per checkbox):
+#     #     # 'groups': [{'id': u'3cb2d53a-120d-4d2d-81f7-b79eaa3874f8',
+#     #     #             'name': u'eine-testgruppe'},
+#     #     #            {'id': u'3eb0e87a-11eb-4e00-bba6-35d35c92b105',
+#     #     #             'name': u'eine-zweite-testgruppe'}],
+#     #     # no group set (unchecked checkboxes):
+#     #     # 'groups': [{'name': u'eine-testgruppe'}, {'name': u'eine-zweite-testgruppe'}],
+#     #     # no group set (nothing selected from drop-down list)
+#     #     # 'groups': [],
+#     #     if helper.at_least_one_id(data_dict['groups']):
+#     #         log.debug("We have at least one group")
+#     #     else:
+#     #         log.debug("There is no group")
+#     #         raise DataError('Der Datensatz muss mindestens einer Kategorie zugeordnet werden')
+# 
     def form_to_db_schema(self):
         log.warning("form_to_db_schema")
 
@@ -58,7 +89,8 @@ class BerlinPlugin(plugins.SingletonPlugin,
             # default fields
             'author': [helper.not_missing],
             'maintainer_email': [helper.not_missing, helper.validate_email_address, unicode],
-            # add our custom fields        
+
+            # custom fields
             'username': [validators.ignore_missing, unicode,
               converters.convert_to_extras],
             'date_released': [helper.not_missing, helper.validate_date, unicode,
@@ -85,10 +117,10 @@ class BerlinPlugin(plugins.SingletonPlugin,
 
     def db_to_form_schema(self):
         log.warning("db_to_form_schema")
-
+    
         # get base dataset schema
         schema = logic.schema.db_to_form_package_schema()
-
+        
         # add our custom fields
         schema.update({
             'username': [converters.convert_from_extras,
@@ -112,9 +144,9 @@ class BerlinPlugin(plugins.SingletonPlugin,
             'misc': [converters.convert_from_extras,
               validators.ignore_missing],
         })
-
+    
         return schema
-
+    
     def setup_template_variables(self, context, data_dict=None):
         lib_plugins.DefaultDatasetForm.setup_template_variables(self, context, data_dict)
 
