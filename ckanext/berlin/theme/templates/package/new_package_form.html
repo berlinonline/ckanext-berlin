@@ -181,7 +181,9 @@
         </py:for>
 
         <select py:if="c.groups_available" id="groups__${len(groups)}__id" name="groups__${len(groups)}__id">
-          <option selected="selected" value="">(None)</option>
+          <!-- <py:if test="len(groups)>0"> -->
+            <option selected="selected" value="">(None)</option>
+          <!-- </py:if> -->
           <py:for each="group in c.groups_available">
             <option value="${group['id']}" >${group_name_to_title(group['name'])}</option>
           </py:for>
@@ -195,7 +197,7 @@
     <label class="control-label">Schlagwörter</label>
     <div class="controls">
       <input class="long autocomplete-tag" id="tag_string" name="tag_string" size="60" type="text"
-               value="${data.get('tag_string') or ' '.join([tag['name'] for tag in data.get('tags', []) if not tag.get('vocabulary_id')])}" />
+               value="${data.get('tag_string') or ', '.join([tag['name'] for tag in data.get('tags', []) if not tag.get('vocabulary_id')])}" />
       <p class="instructions basic">Begriffe, die den Datensatz einordnen.</p>
       <p class="hints">z.B. Umwelt Arbeit Gastronomie</p>
       <p class="field_error" py:if="errors.get('tag_string', '')">${errors.get('tag_string', '')}</p>
@@ -294,17 +296,6 @@
       <input id="misc" name="misc" type="text" value="${data.get('misc', '')}"/>
       <p class="instructions basic">Weitere Angaben zum Datensatz</p>
       <p class="hints">Freitext, 200 Zeichen</p>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <label class="control-label field_opt">Status</label>
-    <div class="controls">
-      <select id="state" class="dataset-delete" name="state" style="display:inline;">
-        <option py:attrs="{'selected': 'selected' if data.get('state') == 'active' else None}" value="active">aktiv</option>
-        <option py:attrs="{'selected': 'selected' if data.get('state') == 'deleted' else None}" value="deleted">deaktiviert (unsichtbar)</option>
-      </select>
-      <p class="instructions basic">Legt fest, ob der Datensatz auf dem Datenportal <a href='http://daten.berlin.de' title="Berlin Open Data">daten.berlin.de</a> sichtbar ist.</p>
     </div>
   </div>
 
@@ -444,6 +435,7 @@
       </span>
     </dd>
   </dl>
+  <p class="instructions basic">Legt fest, ob der Datensatz auf dem Datenportal <a href='http://daten.berlin.de' title="Berlin Open Data">daten.berlin.de</a> sichtbar ist.</p>
 </fieldset>
 
 <fieldset id='summary'>
