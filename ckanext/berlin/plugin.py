@@ -7,6 +7,7 @@ import ckan.plugins.toolkit as toolkit
 import ckan.lib.plugins as lib_plugins
 import ckan.lib.navl.validators as validators
 import ckan.logic as logic
+import ckan.logic.action.get as get
 import ckan.logic.converters as converters
 import ckan.lib.base as base
 import validation as helper
@@ -17,13 +18,12 @@ log = logging.getLogger(__name__)
 class BerlinPlugin(plugins.SingletonPlugin,
     lib_plugins.DefaultDatasetForm):
 
-    log.debug("BerlinPlugin")
-
     plugins.implements(plugins.IConfigurer, inherit=False)
     plugins.implements(plugins.IDatasetForm, inherit=False)
-# 
-#     # Implementation IConfigurer
-# 
+    plugins.implements(plugins.IActions, inherit=False)
+
+    # Implementation IConfigurer
+
     def update_config(self, config):  
         our_public_dir = os.path.join('theme', 'public')
         template_dir = os.path.join('theme', 'templates')
@@ -37,10 +37,44 @@ class BerlinPlugin(plugins.SingletonPlugin,
         config['ckan.site_logo'] = "/CKAN-logo.png"
         config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
 
-        # setting fix_partial_updates to True prevents empty lists from being stripped from dataset dicts,
-        # which could cause errors in genshi calls such as package.resources in templates such as package_list.html
-        config['ckan.fix_partial_updates'] = True
         
+    # Implementation IActions
+    
+    def get_actions(self):
+        
+        log.debug("get_actions")
+        
+        def package_show(context, data_dict):
+            
+            log.debug("ckanext.berlin package_show")
+
+            dataset = get.package_show(context, data_dict)
+            
+            if 'resources' not in package_dict:
+                log.debug("no resources in dataset, adding empty list")
+                dataset['resources'] = []
+            
+            return dataset
+
+        def user_show(context, data_dict):
+            
+            log.debug("ckanext.berlin user_show")
+            
+            user_dict = get.user_show(context, data_dict)
+            datasets = user_dict['datasets']
+            for dataset in datasets:
+                if 'resources' not in dataset:
+                    log.debug("no resources in dataset, adding empty list")
+                    dataset['resources'] = []
+            
+            return user_dict
+        
+        return {
+            'package_show': package_show,
+            'user_show': user_show,
+        }
+
+
 
     # Implementation IDatasetForm
 
