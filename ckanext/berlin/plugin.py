@@ -54,6 +54,9 @@ class BerlinPlugin(plugins.SingletonPlugin,
                 if 'resources' not in dataset:
                     log.debug("no resources in dataset, adding empty list")
                     dataset['resources'] = []
+                if 'notes' not in dataset:
+                    log.debug('no notes in dataset, adding empty string')
+                    dataset['notes'] = u''
             
             return user_dict
         
