@@ -198,8 +198,8 @@
     <div class="controls">
       <input class="long autocomplete-tag" id="tag_string" name="tag_string" size="60" type="text"
                value="${data.get('tag_string') or ', '.join([tag['name'] for tag in data.get('tags', []) if not tag.get('vocabulary_id')])}" />
-      <p class="instructions basic">Begriffe, die den Datensatz einordnen.</p>
-      <p class="hints">z.B. Umwelt Arbeit Gastronomie</p>
+      <p class="instructions basic">Begriffe, die den Datensatz einordnen. Begriffe mit Kommas trennen.</p>
+      <p class="hints">z.B. Umwelt, Arbeit, Gastronomie</p>
       <p class="field_error" py:if="errors.get('tag_string', '')">${errors.get('tag_string', '')}</p>
     </div>
   </div>
