@@ -58,7 +58,6 @@ class BerlinPlugin(plugins.SingletonPlugin,
             return user_dict
         
         return {
-            'package_show': package_show,
             'user_show': user_show,
         }
 
