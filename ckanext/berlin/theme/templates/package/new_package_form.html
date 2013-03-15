@@ -13,7 +13,8 @@
 <h2>Errors in form</h2>
 <p>The form contains invalid entries:</p>
 <ul>
-  <li py:for="key, error in error_summary.items()">${"%s: %s" % (key if not key=='Name' else 'URL', error)}
+  <li py:for="key, error in error_summary.items()"><strong>${"%s:" % (key if not key=='Name' else 'URL')}</strong>
+    ${" %s" % (error)}
     <py:if test="key=='Resources'">
       <ul>
         <py:for each="idx, errordict in enumerate(errors.get('resources', []))">
