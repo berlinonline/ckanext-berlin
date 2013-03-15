@@ -44,18 +44,6 @@ class BerlinPlugin(plugins.SingletonPlugin,
         
         log.debug("get_actions")
         
-        def package_show(context, data_dict):
-            
-            log.debug("ckanext.berlin package_show")
-
-            dataset = get.package_show(context, data_dict)
-            
-            if 'resources' not in package_dict:
-                log.debug("no resources in dataset, adding empty list")
-                dataset['resources'] = []
-            
-            return dataset
-
         def user_show(context, data_dict):
             
             log.debug("ckanext.berlin user_show")
