@@ -22,7 +22,9 @@ class BerlinPlugin(plugins.SingletonPlugin,
     plugins.implements(plugins.IDatasetForm, inherit=False)
     plugins.implements(plugins.IActions, inherit=False)
 
+    # -------------------------------------------------------------------
     # Implementation IConfigurer
+    # -------------------------------------------------------------------
 
     def update_config(self, config):  
         our_public_dir = os.path.join('theme', 'public')
@@ -37,8 +39,9 @@ class BerlinPlugin(plugins.SingletonPlugin,
         config['ckan.site_logo'] = "/CKAN-logo.png"
         config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
 
-        
+    # -------------------------------------------------------------------
     # Implementation IActions
+    # -------------------------------------------------------------------
     
     def get_actions(self):
         
@@ -64,9 +67,9 @@ class BerlinPlugin(plugins.SingletonPlugin,
             'user_show': user_show,
         }
 
-
-
+    # -------------------------------------------------------------------
     # Implementation IDatasetForm
+    # -------------------------------------------------------------------
 
     def package_types(self):
         # This plugin doesn't handle any special package types, it just
@@ -78,31 +81,6 @@ class BerlinPlugin(plugins.SingletonPlugin,
         # package types not handled by any other IDatasetForm plugin.
         return True
 
-#     # def check_data_dict(self, data_dict, schema=None):
-#     #     log.warning("check_data_dict")
-#     #     
-#     #     # make sure the dataset has been linked to a group
-#     #     # one group set:
-#     #     # { ... 'groups': [{'id': u'3cb2d53a-120d-4d2d-81f7-b79eaa3874f8'}], }
-#     #     # two groups set ('eine-testgruppe' per checkbox, the other one per drop-down list):
-#     #     # 'groups': [{'id': u'3cb2d53a-120d-4d2d-81f7-b79eaa3874f8',
-#     #     #             'name': u'eine-testgruppe'},
-#     #     #            {'id': u'3eb0e87a-11eb-4e00-bba6-35d35c92b105'}],
-#     #     # two groups set (both per checkbox):
-#     #     # 'groups': [{'id': u'3cb2d53a-120d-4d2d-81f7-b79eaa3874f8',
-#     #     #             'name': u'eine-testgruppe'},
-#     #     #            {'id': u'3eb0e87a-11eb-4e00-bba6-35d35c92b105',
-#     #     #             'name': u'eine-zweite-testgruppe'}],
-#     #     # no group set (unchecked checkboxes):
-#     #     # 'groups': [{'name': u'eine-testgruppe'}, {'name': u'eine-zweite-testgruppe'}],
-#     #     # no group set (nothing selected from drop-down list)
-#     #     # 'groups': [],
-#     #     if helper.at_least_one_id(data_dict['groups']):
-#     #         log.debug("We have at least one group")
-#     #     else:
-#     #         log.debug("There is no group")
-#     #         raise DataError('Der Datensatz muss mindestens einer Kategorie zugeordnet werden')
-# 
     def form_to_db_schema(self):
         log.warning("form_to_db_schema")
 
@@ -113,6 +91,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
             # default fields
             'author': [helper.not_missing],
             'maintainer_email': [helper.not_missing, helper.validate_email_address, unicode],
+            'license_id': [helper.not_missing],
 
             # custom fields
             'username': [validators.ignore_missing, unicode,
@@ -172,7 +151,13 @@ class BerlinPlugin(plugins.SingletonPlugin,
         })
     
         return schema
+
     
+    def form_to_db_schema_api_create(self):
+        
+        return self.form_to_db_schema()
+        
+
     def setup_template_variables(self, context, data_dict=None):
         lib_plugins.DefaultDatasetForm.setup_template_variables(self, context, data_dict)
 
@@ -200,6 +185,9 @@ class BerlinPlugin(plugins.SingletonPlugin,
         except logic.NotFound:
             log.warning("no geographical_coverages vocab found, that should not happen!")
             toolkit.c.geographical_coverages = None
+
+    # -------------------------------------------------------------------
+
 
     def create_vocab(self, vocab_name, tags):
         user = logic.get_action('get_site_user')({
