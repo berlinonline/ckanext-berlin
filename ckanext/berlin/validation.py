@@ -33,7 +33,8 @@ def at_least_one_id(data):
 def not_missing(key, data, errors, context):
 
     value = data.get(key)
-    key = convert_key(key)
+    log.debug("context: " + capture(pprint, context)[1])
+    key = convert_key(key, context)
     
     if not value or value is missing:
         add_error_message(key, errors, u'Wert für ein Pflichtfeld fehlt')
@@ -43,7 +44,7 @@ def not_missing(key, data, errors, context):
 def validate_email_address(key, data, errors, context):
 
     value = data.get(key)
-    key = convert_key(key)
+    key = convert_key(key, context)
     
     if not re.match(email_pattern, value, re.IGNORECASE):
         add_error_message(key, errors, u'Dies scheint keine gültige E-Mail-Adresse zu sein')
@@ -53,7 +54,7 @@ def validate_email_address(key, data, errors, context):
 def validate_date(key, data, errors, context):
 
     value = data.get(key)
-    key = convert_key(key)
+    key = convert_key(key, context)
 
     try:
         date_object = datetime.strptime(value, date_pattern)
@@ -61,8 +62,10 @@ def validate_date(key, data, errors, context):
         add_error_message(key, errors, u'Datum bitte im Format JJJJ-MM-TT angeben')
         raise StopOnError
 
-def convert_key(key):
-    if key in error_key_mapping:
+# translate keys, but only when not in API context
+# 
+def convert_key(key, context):
+    if key in error_key_mapping and 'api_version' not in context:
         return error_key_mapping[key]
     else:
         return key
