@@ -217,14 +217,17 @@
   </div>
 
   <div py:if="c.temporal_granularities" class="control-group">
-    <label class="control-label field_opt" for="temporal_granularity">Zeitlche Auflösung</label>
+    <?python
+      # set a default is not temporal granularity is given (i.e., this is a new dataset)
+      if not data.get('temporal_granularity'):
+        data['temporal_granularity'] = "Keine"
+    ?>
+    <label class="control-label field_opt" for="temporal_granularity">Zeitliche Auflösung</label>
     <div class="controls">
       <select id="temporal_granularity" name="temporal_granularity">
         <py:for each="temporal_granularity in c.temporal_granularities">
           <?python
             if temporal_granularity in data.get('temporal_granularity', []):
-              selected = {'selected': 'selected'}
-            elif temporal_granularity == 'Keine':
               selected = {'selected': 'selected'}
             else:
               selected = None
@@ -239,14 +242,17 @@
   </div>
 
   <div py:if="c.geographical_coverages" class="control-group">
+    <?python
+      # set a default is not geographical coverage is given (i.e., this is a new dataset)
+      if not data.get('geographical_coverage'):
+        data['geographical_coverage'] = "Berlin"
+    ?>
     <label class="control-label field_opt">Geopraphische Abdeckung</label>
     <div class="controls">
       <select id="geographical_coverage" name="geographical_coverage">
         <py:for each="geographical_coverage in c.geographical_coverages">
         <?python
           if geographical_coverage in data.get('geographical_coverage', []):
-            selected = {'selected': 'selected'}
-          elif geographical_coverage == 'Berlin':
             selected = {'selected': 'selected'}
           else:
             selected = None
@@ -261,14 +267,17 @@
   </div>
 
   <div py:if="c.geographical_granularities" class="control-group">
+    <?python
+      # set a default is not geographical coverage is given (i.e., this is a new dataset)
+      if not data.get('geographical_granularity'):
+        data['geographical_coverage'] = "Berlin"
+    ?>
     <label class="control-label field_opt">Geopraphische Auflösung</label>
     <div class="controls">
       <select id="geographical_granularity" name="geographical_granularity">
         <py:for each="geographical_granularity in c.geographical_granularities">
         <?python
           if geographical_granularity in data.get('geographical_granularity', []):
-            selected = {'selected': 'selected'}
-          elif geographical_granularity == 'Berlin':
             selected = {'selected': 'selected'}
           else:
             selected = None
