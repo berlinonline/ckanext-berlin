@@ -8,6 +8,7 @@ import ckan.lib.plugins as lib_plugins
 import ckan.lib.navl.validators as validators
 import ckan.logic as logic
 import ckan.logic.action.get as get
+import ckan.logic.action.update as update
 import ckan.logic.converters as converters
 import ckan.lib.base as base
 import validation as helper
@@ -38,6 +39,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
         config['ckan.site_title'] = "Datenregister Berlin"
         config['ckan.site_logo'] = "/CKAN-logo.png"
         config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
+        # config['ckan.fix_partial_updates'] = False
 
     # -------------------------------------------------------------------
     # Implementation IActions
@@ -63,8 +65,25 @@ class BerlinPlugin(plugins.SingletonPlugin,
             
             return user_dict
         
+        
+        
+        # def package_update_rest(context, data_dict):
+        #     
+        #     log.debug("ckanext.berlin package_update_rest")
+        #     
+        #     name = data_dict.get("name")
+        #     current_data_dict = get.package_show(context, {'name_or_id': name})
+        #     
+        #     date_updated = current_data_dict.get('date_updated', None)
+        #     
+        #     data_dict['date_updated'] = date_updated
+        #     
+        #     context["extras_as_string"] = True
+        #     return  update.package_update(context, data_dict)
+        
         return {
             'user_show': user_show,
+            # 'package_update_rest': package_update_rest,
         }
 
     # -------------------------------------------------------------------
@@ -147,16 +166,31 @@ class BerlinPlugin(plugins.SingletonPlugin,
             'misc': [converters.convert_from_extras,
               validators.ignore_missing],
             # need to do something with "isopen" to prevent it from being stripped off the dataset dict during validation:
-            'isopen': [validators.ignore_missing],             
+            'isopen': [validators.ignore_missing],
         })
     
         return schema
 
     
-    def form_to_db_schema_api_create(self):
-        
-        return self.form_to_db_schema()
-        
+    # def form_to_db_schema_api_create(self):
+    #     
+    #     log.warning("form_to_db_schema_api_create")
+    #     schema = self.form_to_db_schema()
+    #     schema.update({
+    #         'tags': logic.schema.default_tags_schema(),
+    #         # 'extras': [validators.ignore],
+    #     })
+    #     return schema
+    #     
+    # def form_to_db_schema_api_update(self):
+    # 
+    #     log.warning("form_to_db_schema_api_update")
+    #     schema = self.form_to_db_schema()
+    #     schema.update({
+    #         'tags': logic.schema.default_tags_schema(),
+    #     })
+    #     return schema
+    # 
 
     def setup_template_variables(self, context, data_dict=None):
         lib_plugins.DefaultDatasetForm.setup_template_variables(self, context, data_dict)
@@ -187,7 +221,6 @@ class BerlinPlugin(plugins.SingletonPlugin,
             toolkit.c.geographical_coverages = None
 
     # -------------------------------------------------------------------
-
 
     def create_vocab(self, vocab_name, tags):
         user = logic.get_action('get_site_user')({
