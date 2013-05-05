@@ -59,6 +59,11 @@
         </tr>
       </thead>
       <tbody>
+        <tr py:if="c.pkg.type">
+          <td class="dataset-label">Art</td>
+          <td class="dataset-details">${c.pkg.type}</td>
+        </tr>
+
         <tr py:if="c.pkg.url">
           <td class="dataset-label">Source</td>
           <td class="dataset-details" property="foaf:homepage">${c.pkg_url_link}</td>
