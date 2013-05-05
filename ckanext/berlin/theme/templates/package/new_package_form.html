@@ -41,25 +41,6 @@
     <div class="controls"><p class="instructions basic"><em>kennzeichnet ein Pflichtfeld</em></p></div>
   </div>
 
-  <div class="control-group type-field required-field">
-    <label class="control-label" for="type">Art<i class="icon-asterisk icon-large"></i></label>
-    <div class="controls">
-      <select id="type" name="type">
-        <option>Anwendung</option>
-        <option selected="selected">Daten</option>
-        <option>Dokument</option>
-      </select>
-      <p class="instructions basic">Art des Datensatzes<br/>
-          Die folgenden drei Möglichkeiten werden unterschieden:
-       <ul>
-        <li>Daten</li>
-        <li>Dokumente</li>
-        <li>Anwendungen</li>
-       </ul>
-      </p>
-    </div>
-  </div>
-
   <div class="control-group title-field required-field">
     <label class="control-label" for="title">Titel<i class="icon-asterisk icon-large"></i></label>
     <div class="controls">
@@ -89,6 +70,48 @@
       <p class="instructions further">Zwei oder mehr Zeichen, nur Kleinbuchstaben ('a-z'), Ziffern ('0-9'), '-' und '_'. Soll trotzdem verständlich sein für Menschen. Eine spätere Änderung ist nicht vorgesehen.</p>
       <p class="hints">Z.B. <code>abgeordnetenhaus-berlin-wahl-2006</code></p>
       <p class="field_error" py:if="errors.get('name', '')">${errors.get('name', '')}</p>
+    </div>
+  </div>
+
+  <div class="control-group type-field required-field">
+    <?python
+      # set a default if no type is given (i.e., this is a new dataset)
+      if not data.get('type'):
+        data['type'] = "datensatz"
+    ?>
+    <label class="control-label" for="type">Art<i class="icon-asterisk icon-large"></i></label>
+    <div class="controls">
+      <select id="type" name="type">
+        <?python
+          if "app" in data.get('type', []):
+            selected = {'selected': 'selected'}
+          else:
+            selected = None
+        ?>
+        <option value="app" py:attrs="selected">Anwendung</option>
+        <?python
+          if "datensatz" in data.get('type', []):
+            selected = {'selected': 'selected'}
+          else:
+            selected = None
+        ?>
+        <option value="datensatz" py:attrs="selected">Daten</option>
+        <?python
+          if "dokument" in data.get('type', []):
+            selected = {'selected': 'selected'}
+          else:
+            selected = None
+        ?>
+        <option value="dokument" py:attrs="selected">Dokument</option>
+      </select>
+      <p class="instructions basic">Art des Datensatzes<br/>
+          Die folgenden drei Möglichkeiten werden unterschieden:
+       <ul>
+        <li>Daten</li>
+        <li>Dokumente</li>
+        <li>Anwendungen</li>
+       </ul>
+      </p>
     </div>
   </div>
 
