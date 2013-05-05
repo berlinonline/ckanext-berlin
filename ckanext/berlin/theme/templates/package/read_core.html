@@ -5,6 +5,14 @@
   >
   <xi:include href="../_util.html" />
 
+  <?python
+    type_mapping = {
+      'datensatz': 'Datensatz', 
+      'dokument': 'Dokument',
+      'app': 'Anwendung'
+    }
+  ?>
+
   <div id="dataset" class="dataset">
     <!-- Overview Section -->
     <div id="dataset-overview">
@@ -61,7 +69,7 @@
       <tbody>
         <tr py:if="c.pkg.type">
           <td class="dataset-label">Art</td>
-          <td class="dataset-details">${c.pkg.type}</td>
+          <td class="dataset-details">${type_mapping[c.pkg.type]}</td>
         </tr>
 
         <tr py:if="c.pkg.url">
