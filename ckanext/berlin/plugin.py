@@ -263,6 +263,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
     def create_geographical_granularities(self):
         vocab_name = 'geographical_granularities'
         tags = [
+            u'Deutschland',
             u'Berlin',
             u'Bezirk',
             u'Ortsteil',
@@ -299,6 +300,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
             u'Charlottenburg',
             u'Charlottenburg-Nord',
             u'Dahlem',
+            u'Deutschland',
             u'Friedenau',
             u'Friedrichsfelde',
             u'Friedrichshagen',
