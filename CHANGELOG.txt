@@ -1,0 +1,36 @@
+CKANEXT-BERLIN CHANGELOG
+++++++++++++++++++++++++
+
+release v1.0-regelbetrieb
+=========================
+
+Dataset Form:
+
+ * layout of datasetform based on CKAN 1.8 defaults, rather than 1.4 (as before)
+ * the dataset form doesn't refer directly to extras fields, but to field names defined in the schema (of course, internally extras are still being used)
+ * form validation is no longer handled via javascript, but by using a modified schema in form_to_db_schema, etc.
+ * dataset type added to form
+
+Schema:
+ 
+ * "Deutschland" added to geo coverage and granularity vocabs
+ * dataset type added to schema: "datensatz", "dokument" or "app"
+ * custom validation functions have been added for e-mail addresses and dates
+ * geographical coverage and granularity, as well as temporal granularities are now implemented as tag vocabularies
+
+Layout:
+
+ * various layout improvements, including new logo, reducing number of additional links in footer, limiting number of available languages to German and English, etc.
+ * new "about" page
+
+General:
+ 
+ * The whole extension structure has been changed to reflect the "best practices" outlined at https://github.com/okfn/ckan/blob/2750-add-docs-and-examples-for-idatasetform-and-igroupform/ckanext/example_idatasetform/plugin.py
+ * Berlin-specific license group file added - this can be updated when new licenses should be added
+ 
+ 
+
+release beta
+============
+
+As developed by Fraunhofer, based on CKAN 1.4.
