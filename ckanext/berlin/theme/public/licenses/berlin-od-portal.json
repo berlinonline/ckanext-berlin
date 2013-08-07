@@ -39,6 +39,20 @@
     "url": "http://creativecommons.org/licenses/by-nc/2.0/"
   }, 
   {
+    "domain_content": true, 
+    "domain_data": true, 
+    "domain_software": false, 
+    "family": "", 
+    "id": "geonutzv", 
+    "is_generic": true, 
+    "is_okd_compliant": false, 
+    "is_osi_compliant": false, 
+    "maintainer": "", 
+    "status": "active", 
+    "title": "GeoNutzV", 
+    "url": "http://www.gesetze-im-internet.de/geonutzv/BJNR054700013.html"
+  }
+  {
     "domain_content": false, 
     "domain_data": false, 
     "domain_software": false, 
