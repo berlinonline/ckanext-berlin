@@ -38,7 +38,7 @@ class BerlinPlugin(plugins.SingletonPlugin,
 
         config['ckan.site_title'] = "Datenregister Berlin"
         config['ckan.site_logo'] = "/CKAN-logo.png"
-        config['ckan.favicon'] = "http://datenregister.berlin.de/favicon.ico"
+        config['ckan.favicon'] = "/favicon.ico"
         # config['ckan.fix_partial_updates'] = False
 
     # -------------------------------------------------------------------

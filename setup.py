@@ -17,7 +17,7 @@ setup(
 	keywords='',
 	author='Knud M\xc3\xb6ller',
 	author_email='knud@datalysator.com',
-	url='https://github.com/knudmoeller/ckanext-berlin',
+	url='https://github.com/berlinonline/ckanext-berlin',
 	license='',
 	packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
 	namespace_packages=['ckanext', 'ckanext.berlin'],
