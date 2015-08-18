@@ -1,0 +1,26 @@
+<div role="main" class="hero">
+  <div class="container">
+    <div class="row row1">
+      <div class="span12">
+        <div class="module-content box">
+          <header>
+            <div style="float: left; padding: 0px 20px 0px 0px;">
+              <img src="/images/opendatalogo.png"/>
+            </div>
+            <h1 class="page-heading">Wilkommen bei datenregister.berlin.de</h1>
+            <p>
+              Das <strong>Datenregister</strong> ist die nicht-öffentliche Datenbank hinter dem öffentlichen <a href="https://daten.berlin.de" title="Offene Daten Berlin">Open Data Portal des Landes Berlin</a>. Hier werden Metadaten zu neuen Datensätzen zum Datenportal hinzugefügt und gewartet.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+    <div class="row row2">
+      <div class="span12">
+        {% block search %}
+          {% snippet 'home/snippets/search.html' %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

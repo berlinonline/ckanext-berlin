@@ -1,0 +1,41 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('About') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('About'), controller='home', action='about' %}</li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module">
+    <div class="module-content">
+      {% block about %}
+        <h1 class="page-heading">{{ _('About') }}</h1>
+        <p><strong>Datenregister Berlin</strong> ist die nicht-öffentliche Datenbank hinter dem öffentlichen <a href="https://daten.berlin.de" title="Offene Daten Berlin">Open Data Portal des Landes Berlin</a>. Hier werden Metadaten zu neuen Datensätzen zum Datenportal hinzugefügt und gewartet.</p>
+
+        <h2>Impressum</h2>
+        
+        <ul>
+          <li>
+              Herausgeber:<br/>
+              <a href="http://www.berlin.de/sen/wirtschaft/struktur/impressum.html">Senatsverwaltung für Wirtschaft, Technologie und Forschung</a>
+          </li>
+          <li>
+              Betreiber:<br/>
+              <a href="https://www.berlinonline.de/wir-ueber-uns/impressum/">BerlinOnline Stadtportal GmbH &amp; Co. KG</a>
+          </li>
+          <li>
+              Basiert auf:<br/>
+               <a href="http://ckan.org">CKAN</a> v{{c.__version__}}, 
+              &copy; 2012
+              <img src="https://assets.okfn.org/images/logo/okf_logo_white_and_green_tiny.png" id="footer-okf-logo" />
+              <a href="http://okfn.org/">Open Knowledge Foundation</a>
+           </li>
+        </ul>
+
+      {% endblock %}
+    </div>
+  </article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}
