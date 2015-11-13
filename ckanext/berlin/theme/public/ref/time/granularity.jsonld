@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "granularity": "https://daten.berlin.de/ref/time/granularity/"
+  },
+  "@graph": [
+    {
+      "@id": "granularity:keine",
+      "label": "Keine"
+    },
+    {
+      "@id": "granularity:jahre_5",
+      "label": "5 Jahre"
+    },
+    {
+      "@id": "granularity:jahr",
+      "label": "Jahr"
+    },
+    {
+      "@id": "granularity:quartal",
+      "label": "Quartal"
+    },
+    {
+      "@id": "granularity:monat",
+      "label": "Monat"
+    },
+    {
+      "@id": "granularity:woche",
+      "label": "Woche"
+    },
+    {
+      "@id": "granularity:tag",
+      "label": "Tag"
+    },
+    {
+      "@id": "granularity:stunde",
+      "label": "Stunde"
+    },
+    {
+      "@id": "granularity:minute",
+      "label": "Minute"
+    },
+    {
+      "@id": "granularity:sekunde",
+      "label": "Sekunde"
+    }
+  ]
+}
+

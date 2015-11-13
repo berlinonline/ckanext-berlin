@@ -1,0 +1,69 @@
+{
+  "@context": {
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "granularity": "https://daten.berlin.de/ref/geo/granularity/"
+  },
+  "@graph": [
+    {
+      "@id": "granularity:deutschland",
+      "label": "Deutschland"
+    },
+    {
+      "@id": "granularity:berlin",
+      "label": "Berlin"
+    },
+    {
+      "@id": "granularity:bezirk",
+      "label": "Bezirk"
+    },
+    {
+      "@id": "granularity:ortsteil",
+      "label": "Ortsteil"
+    },
+    {
+      "@id": "granularity:prognoseraum",
+      "label": "Prognoseraum"
+    },
+    {
+      "@id": "granularity:bezirksregion",
+      "label": "Bezirksregion"
+    },
+    {
+      "@id": "granularity:planungsraum",
+      "label": "Planungsraum"
+    },
+    {
+      "@id": "granularity:block",
+      "label": "Block"
+    },
+    {
+      "@id": "granularity:einschulbereich",
+      "label": "Einschulbereich"
+    },
+    {
+      "@id": "granularity:kontaktbereich",
+      "label": "Kontaktbereich"
+    },
+    {
+      "@id": "granularity:plz",
+      "label": "PLZ"
+    },
+    {
+      "@id": "granularity:stimmbezirk",
+      "label": "Stimmbezirk"
+    },
+    {
+      "@id": "granularity:quartiersmanagement",
+      "label": "Quartiersmanagement"
+    },
+    {
+      "@id": "granularity:wohnanlage",
+      "label": "Wohnanlage"
+    },
+    {
+      "@id": "granularity:wahlkreis",
+      "label": "Wahlkreis"
+    }
+  ]
+}
+
