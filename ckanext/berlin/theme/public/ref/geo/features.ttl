@@ -1,0 +1,954 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix geo:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+@prefix berlin_geo: <http://daten.berlin.de/ref/geo/vocab/> .
+@prefix :     <http://daten.berlin.de/ref/geo/feature/> .
+
+
+# Countries
+
+:Germany a berlin_geo:Land ;
+    rdfs:label "Germany"@en ;
+    rdfs:label "Deutschland"@de ;
+    berlin_geo:has_part :Berlin ;
+    berlin_geo:pathDepth 0 ;
+.
+
+
+# Bundesländer
+
+:Berlin a berlin_geo:Bundesland ;
+    rdfs:label "Berlin"@en ;
+    rdfs:label "Berlin"@de ;
+    berlin_geo:part_of :Germany ;
+    berlin_geo:has_part 
+        :b_1, :b_2, :b_3, :b_4, :b_5, :b_6, :b_7, :b_8, :b_9, :b_10,
+        :b_11, :b_12 ;
+    berlin_geo:pathDepth 1 ;
+.
+
+
+# Bezirke
+
+:b_1 a berlin_geo:Bezirk ;
+    rdfs:label "Mitte"@de ;
+    berlin_geo:ref_code "1" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0101, :o_0102, :o_0103, :o_0104, :o_0105, :o_0106 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_2 a berlin_geo:Bezirk ;
+    rdfs:label "Friedrichshain-Kreuzberg"@de ;
+    berlin_geo:ref_code "2" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0201, :o_0202 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_3 a berlin_geo:Bezirk ;
+    rdfs:label "Pankow"@de ;
+    berlin_geo:ref_code "3" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0301, :o_0302, :o_0303, :o_0304, :o_0305, :o_0306,
+        :o_0307, :o_0308, :o_0309, :o_0310, :o_0311, :o_0312,
+        :o_0313 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_4 a berlin_geo:Bezirk ;
+    rdfs:label "Charlottenburg-Wilmersdorf"@de ;
+    berlin_geo:ref_code "4" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0401, :o_0402, :o_0403, :o_0404, :o_0405, :o_0406,
+        :o_0407 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_5 a berlin_geo:Bezirk ;
+    rdfs:label "Spandau"@de ;
+    berlin_geo:ref_code "5" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0501, :o_0502, :o_0503, :o_0504, :o_0505, :o_0506,
+        :o_0507, :o_0508, :o_0509 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_6 a berlin_geo:Bezirk ;
+    rdfs:label "Steglitz-Zehlendorf"@de ;
+    berlin_geo:ref_code "6" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0601, :o_0602, :o_0603, :o_0604, :o_0605, :o_0606,
+        :o_0607 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_7 a berlin_geo:Bezirk ;
+    rdfs:label "Tempelhof-Schöneberg"@de ;
+    berlin_geo:ref_code "7" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0701, :o_0702, :o_0703, :o_0704, :o_0705, :o_0706 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_8 a berlin_geo:Bezirk ;
+    rdfs:label "Neukölln"@de ;
+    berlin_geo:ref_code "8" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0801, :o_0802, :o_0803, :o_0804, :o_0805 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_9 a berlin_geo:Bezirk ;
+    rdfs:label "Treptow-Köpenick"@de ;
+    berlin_geo:ref_code "9" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_0901, :o_0902, :o_0903, :o_0904, :o_0905, :o_0906,
+        :o_0907, :o_0908, :o_0909, :o_0910, :o_0911, :o_0912,
+        :o_0913, :o_0914, :o_0915 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_10 a berlin_geo:Bezirk ;
+    rdfs:label "Marzahn-Hellersdorf"@de ;
+    berlin_geo:ref_code "10" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_1001, :o_1002, :o_1003, :o_1004, :o_1005 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_11 a berlin_geo:Bezirk ;
+    rdfs:label "Lichtenberg"@de ;
+    berlin_geo:ref_code "11" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_1101, :o_1102, :o_1103, :o_1104, :o_1105, :o_1106,
+        :o_1107, :o_1109, :o_1110, :o_1111, :o_1112 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+:b_12 a berlin_geo:Bezirk ;
+    rdfs:label "Reinickendorf"@de ;
+    berlin_geo:ref_code "12" ;
+    berlin_geo:part_of :Berlin ;
+    berlin_geo:has_part 
+        :o_1201, :o_1202, :o_1203, :o_1204, :o_1205, :o_1206,
+        :o_1207, :o_1208, :o_1209, :o_1210, :o_1211 ;    
+    berlin_geo:pathDepth 2 ;
+.
+
+
+# Ortsteile
+
+:o_0101
+    berlin_geo:part_of :b_1 ;
+    berlin_geo:ref_code "0101" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Mitte"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0102
+    berlin_geo:part_of :b_1 ;
+    berlin_geo:ref_code "0102" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Moabit"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0103
+    berlin_geo:part_of :b_1 ;
+    berlin_geo:ref_code "0103" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Hansaviertel"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0104
+    berlin_geo:part_of :b_1 ;
+    berlin_geo:ref_code "0104" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Tiergarten"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0105
+    berlin_geo:part_of :b_1 ;
+    berlin_geo:ref_code "0105" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wedding"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0106
+    berlin_geo:part_of :b_1 ;
+    berlin_geo:ref_code "0106" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Gesundbrunnen"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0201
+    berlin_geo:part_of :b_2 ;
+    berlin_geo:ref_code "0201" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Friedrichshain"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0202
+    berlin_geo:part_of :b_2 ;
+    berlin_geo:ref_code "0202" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Kreuzberg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0301
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0301" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Prenzlauer Berg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0302
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0302" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Weißensee"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0303
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0303" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Blankenburg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0304
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0304" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Heinersdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0305
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0305" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Karow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0306
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0306" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Stadtrandsiedlung Malchow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0307
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0307" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Pankow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0308
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0308" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Blankenfelde"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0309
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0309" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Buch"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0310
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0310" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Französisch Buchholz"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0311
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0311" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Niederschönhausen"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0312
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0312" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Rosenthal"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0313
+    berlin_geo:part_of :b_3 ;
+    berlin_geo:ref_code "0313" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wilhelmsruh"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0401
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0401" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Charlottenburg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0402
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0402" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wilmersdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0403
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0403" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Schmargendorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0404
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0404" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Grunewald"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0405
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0405" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Westend"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0406
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0406" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Charlottenburg-Nord"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0407
+    berlin_geo:part_of :b_4 ;
+    berlin_geo:ref_code "0407" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Halensee"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0501
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0501" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Spandau"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0502
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0502" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Haselhorst"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0503
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0503" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Siemensstadt"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0504
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0504" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Staaken"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0505
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0505" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Gatow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0506
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0506" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Kladow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0507
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0507" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Hakenfelde"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0508
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0508" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Falkenhagener Feld"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0509
+    berlin_geo:part_of :b_5 ;
+    berlin_geo:ref_code "0509" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wilhelmstadt"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0601
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0601" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Steglitz"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0602
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0602" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Lichterfelde"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0603
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0603" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Lankwitz"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0604
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0604" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Zehlendorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0605
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0605" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Dahlem"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0606
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0606" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Nikolassee"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0607
+    berlin_geo:part_of :b_6 ;
+    berlin_geo:ref_code "0607" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wannsee"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0701
+    berlin_geo:part_of :b_7 ;
+    berlin_geo:ref_code "0701" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Schöneberg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0702
+    berlin_geo:part_of :b_7 ;
+    berlin_geo:ref_code "0702" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Friedenau"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0703
+    berlin_geo:part_of :b_7 ;
+    berlin_geo:ref_code "0703" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Tempelhof"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0704
+    berlin_geo:part_of :b_7 ;
+    berlin_geo:ref_code "0704" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Mariendorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0705
+    berlin_geo:part_of :b_7 ;
+    berlin_geo:ref_code "0705" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Marienfelde"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0706
+    berlin_geo:part_of :b_7 ;
+    berlin_geo:ref_code "0706" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Lichtenrade"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0801
+    berlin_geo:part_of :b_8 ;
+    berlin_geo:ref_code "0801" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Neukölln"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0802
+    berlin_geo:part_of :b_8 ;
+    berlin_geo:ref_code "0802" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Britz"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0803
+    berlin_geo:part_of :b_8 ;
+    berlin_geo:ref_code "0803" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Buckow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0804
+    berlin_geo:part_of :b_8 ;
+    berlin_geo:ref_code "0804" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Rudow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0805
+    berlin_geo:part_of :b_8 ;
+    berlin_geo:ref_code "0805" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Gropiusstadt"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_0901
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0901" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Alt-Treptow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0902
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0902" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Plänterwald"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0903
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0903" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Baumschulenweg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0904
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0904" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Johannisthal"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0905
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0905" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Niederschöneweide"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0906
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0906" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Altglienicke"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0907
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0907" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Adlershof"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0908
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0908" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Bohnsdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0909
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0909" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Oberschöneweide"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0910
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0910" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Köpenick"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0911
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0911" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Friedrichshagen"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0912
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0912" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Rahnsdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0913
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0913" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Grünau"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0914
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0914" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Müggelheim"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_0915
+    berlin_geo:part_of :b_9 ;
+    berlin_geo:ref_code "0915" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Schmöckwitz"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_1001
+    berlin_geo:part_of :b_10 ;
+    berlin_geo:ref_code "1001" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Marzahn"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1002
+    berlin_geo:part_of :b_10 ;
+    berlin_geo:ref_code "1002" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Biesdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1003
+    berlin_geo:part_of :b_10 ;
+    berlin_geo:ref_code "1003" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Kaulsdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1004
+    berlin_geo:part_of :b_10 ;
+    berlin_geo:ref_code "1004" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Mahlsdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1005
+    berlin_geo:part_of :b_10 ;
+    berlin_geo:ref_code "1005" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Hellersdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_1101
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1101" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Friedrichsfelde"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1102
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1102" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Karlshorst"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1103
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1103" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Lichtenberg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1104
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1104" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Falkenberg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1105
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1105" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Hohenschönhausen"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1106
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1106" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Malchow"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1107
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1107" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wartenberg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1109
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1109" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Neu-Hohenschönhausen"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1110
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1110" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Alt-Hohenschönhausen"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1111
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1111" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Fennpfuhl"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1112
+    berlin_geo:part_of :b_11 ;
+    berlin_geo:ref_code "1112" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Rummelsburg"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+
+
+:o_1201
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1201" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Reinickendorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1202
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1202" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Tegel"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1203
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1203" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Konradshöhe"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1204
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1204" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Heiligensee"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1205
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1205" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Frohnau"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1206
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1206" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Hermsdorf"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1207
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1207" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Waidmannslust"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1208
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1208" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Lübars"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1209
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1209" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Wittenau"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1210
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1210" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Märkisches Viertel"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+:o_1211
+    berlin_geo:part_of :b_12 ;
+    berlin_geo:ref_code "1211" ;
+    a berlin_geo:Ortsteil ;
+    rdfs:label "Borsigwalde"@de ;
+    berlin_geo:pathDepth 3 ;
+.
+
+

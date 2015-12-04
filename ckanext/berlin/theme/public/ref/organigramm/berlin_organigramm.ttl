@@ -1,0 +1,1033 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix orni: <http://daten.berlin.de/ref/organigramm/vocab#> .
+@prefix verwaltung: <http://daten.berlin.de/ref/organigramm/verwaltungen/> .
+
+verwaltung:id-00e92098612d55cf7c379de58d8debb97214e4c0
+    orni:code "IV" ;
+    orni:fullName "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung IV: Gemeinsames Juristisches Prüfungsamt der Länder Berlin und Brandenburg"@de ;
+    orni:longName "Abteilung IV: Gemeinsames Juristisches Prüfungsamt der Länder Berlin und Brandenburg"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-justiz/gemeinsames-juristisches-prufungsamt-der" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Gemeinsames Juristisches Prüfungsamt der Länder Berlin und Brandenburg"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb .
+
+verwaltung:id-03e20da609d06c90bf2abbdb3ea89f1ac7fad5dc
+    orni:fullName "Stromnetz Berlin GmbH"@de ;
+    orni:longName "Stromnetz Berlin GmbH"@de ;
+    orni:orgType orni:OffentlichesUnternehmen ;
+    orni:path "stromnetz-berlin-gmbh" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Stromnetz Berlin GmbH"@de ;
+    a org:Organization ;
+    foaf:homepage "https://www.stromnetz-berlin.de/" .
+
+verwaltung:id-0551c2f7f5ec932502b3a18c073b643917b1bbc5
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Arbeit, Integration und Frauen / Abteilung I: Frauen und Gleichstellung"@de ;
+    orni:longName "Abteilung I: Frauen und Gleichstellung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-aif/frauen-und-gleichstellung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Frauen und Gleichstellung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-f0f5d3d9191e643cc567bd235a0604497477449d .
+
+verwaltung:id-0d74e6aeb86185b813d3b1c72262de39c82efa77
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Stadtentwicklungsamt / Bau- und Wohnungsaufsicht"@de ;
+    orni:longName "Bau- und Wohnungsaufsicht"@de ;
+    orni:orgType orni:Fachbereich ;
+    orni:path "ba-lichtenberg/stadtentwicklung/stadtentwicklungsamt/bau-und-wohnungsaufsicht" ;
+    orni:pathDepth 3 ;
+    orni:shortName "Bau- und Wohnungsaufsicht"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-6610f59b3aeed92cc3c5258f883f78f35746a600 .
+
+verwaltung:id-153f07c5c09cbd2f4f753bd1c749483c195ea663
+    orni:fullName "Bezirksamt Charlottenburg-Wilmersdorf / Abteilung Jugend, Familie, Schule, Sport und Umwelt / Umwelt- und Naturschutzamt"@de ;
+    orni:longName "Umwelt- und Naturschutzamt"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-charlottenburg-wilmersdorf/jugend-familie-schule-sport-und-umwel/umwelt-und-naturschutzamt" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Umwelt- und Naturschutzamt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-5286186825f41b95cc1e47fca8bc4869e3ba9dd5 ;
+    foaf:homepage "http://www.berlin.de/ba-charlottenburg-wilmersdorf/verwaltung/aemter/umwelt-und-naturschutzamt/" .
+
+verwaltung:id-16552430daccf6b7a740c83f1525c0c09e73ae20
+    orni:code "IX" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung IX: Umweltpolitik, Abfallwirtschaft, Immissions und Klimaschutz"@de ;
+    orni:longName "Abteilung IX: Umweltpolitik, Abfallwirtschaft, Immissions und Klimaschutz"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/umweltpolitik-abfallwirtschaft-immissi" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Umweltpolitik, Abfallwirtschaft, Immissions und Klimaschutz"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-24c46c59e3053a63d97aabcdce44c778cd1e17a7
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Landesstelle für Entwicklungszusammenarbeit"@de ;
+    orni:longName "Landesstelle für Entwicklungszusammenarbeit"@de ;
+    orni:orgType orni:Landesstelle ;
+    orni:path "sen-wirtschaft/lez" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Landesstelle für Entwicklungszusammenarbeit"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f .
+
+verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung"@de ;
+    orni:longName "Senatsverwaltung für Wirtschaft, Technologie und Forschung"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-wirtschaft" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Wirtschaft, Technologie und Forschung"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-24c46c59e3053a63d97aabcdce44c778cd1e17a7, verwaltung:id-5f0516cfd06e334f7de86bf8e46210c86ce4bcda, verwaltung:id-9e67dc1e4e0e32a1f24ba5d4f12bf80f09024d8f, verwaltung:id-ba5260d476caadd93dfb9ba53503a216a0115cd0, verwaltung:id-de9c56af80a35b69c1318363e141d0c5834230cd ;
+    foaf:homepage "http://www.berlin.de/sen/wirtschaft/" .
+
+verwaltung:id-2b39fb9c3e2a19512480c6cd5b7f42ae96e9bb38
+    orni:code "VI" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung VI: Ministerielle Angelegenheiten des Bauwesens"@de ;
+    orni:longName "Abteilung VI: Ministerielle Angelegenheiten des Bauwesens"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/ministerielle-angelegenheiten-des-bauwes" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Ministerielle Angelegenheiten des Bauwesens"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-2da9b1c70cf0c9a478e715740b33d8734b2dfd97
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Wirtschaft, Personal und Finanzen"@de ;
+    orni:longName "Abteilung Wirtschaft, Personal und Finanzen"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-lichtenberg/wirtschaft-personal-und-finanzen" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Wirtschaft, Personal und Finanzen"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46 .
+
+verwaltung:id-3206e97fbe15dfb1a88dac9ff21ca36679cfbab3
+    orni:code "IV" ;
+    orni:fullName "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung IV: Hochschulen"@de ;
+    orni:longName "Abteilung IV: Hochschulen"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-bjw/hochschulen" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Hochschulen"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2 .
+
+verwaltung:id-327cdf161a4cf2a50f415ca87aa2f943d029b621
+    orni:fullName "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Familie, Gesundheit und Personal / Jugendamt / Koordination Frühe Bildung und Erziehung"@de ;
+    orni:longName "Koordination Frühe Bildung und Erziehung"@de ;
+    orni:orgType orni:Fachdienst ;
+    orni:path "ba-friedrichshain-kreuzberg/familie-gesundheit-und-personal/jugendamt/koordination-fruhe-bildung-und-erziehung" ;
+    orni:pathDepth 3 ;
+    orni:shortName "Koordination Frühe Bildung und Erziehung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-91fec3ae8c23b475a2f3057884cb800fa7dcbe9f ;
+    foaf:homepage "https://www.berlin.de/ba-friedrichshain-kreuzberg/politik-und-verwaltung/aemter/jugendamt/fachdienste/koordination-fruehe-bildung-und-erziehung/" .
+
+verwaltung:id-3309c639a3931184f8ec23a225556ca2f2a3cb6e
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Inneres und Sport / Abteilung III: Öffentliche Sicherheit und Ordnung"@de ;
+    orni:longName "Abteilung III: Öffentliche Sicherheit und Ordnung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-inneres/offentliche-sicherheit-und-ordnung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Öffentliche Sicherheit und Ordnung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-469ce78ad2dfa1ffdb246502866356cbdf0ce715 .
+
+verwaltung:id-353ec498df7df7af876fab8c62c9bdedf77acd2f
+    orni:fullName "Landesamt für Bürger- und Ordnungsangelegenheiten"@de ;
+    orni:longName "Landesamt für Bürger- und Ordnungsangelegenheiten"@de ;
+    orni:orgType orni:Landesamt ;
+    orni:path "labo" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Landesamt für Bürger- und Ordnungsangelegenheiten"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/labo/" .
+
+verwaltung:id-39a2102a6d5dd5c6d02aa1096d5909bc0d75a6b6
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Finanzen / Abteilung II: Finanzpolitik und Haushalt"@de ;
+    orni:longName "Abteilung II: Finanzpolitik und Haushalt"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-finanzen/finanzpolitik-und-haushalt" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Finanzpolitik und Haushalt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e62e823e5ddeb0072b5343f38ee1162a5b8d0001 .
+
+verwaltung:id-39cc1bbbb3204c6233b3b49c40c157fd3e9d4e28
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung I: Richterrecht, Anwalts- und Notariatswesen, Personal, Organisation, Informations- und Kommunikationstechnik, Gerichtsverfassung, Haushalt"@de ;
+    orni:longName "Abteilung I: Richterrecht, Anwalts- und Notariatswesen, Personal, Organisation, Informations- und Kommunikationstechnik, Gerichtsverfassung, Haushalt"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-justiz/richterrecht-anwalts-und-notariatswese" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Richterrecht, Anwalts- und Notariatswesen, Personal, Organisation, Informations- und Kommunikationstechnik, Gerichtsverfassung, Haushalt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb .
+
+verwaltung:id-41106434e2f51fe56b86a238fc7e54c0c1b17ac2
+    orni:fullName "Bezirksamt Spandau"@de ;
+    orni:longName "Bezirksamt Spandau"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-spandau" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Spandau"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-spandau/" .
+
+verwaltung:id-435eab0cc8a61c1e2e7282b6c83a0f1bac53d339
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Inneres und Sport / Abteilung II: Verfassungsschutz"@de ;
+    orni:longName "Abteilung II: Verfassungsschutz"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-inneres/verfassungsschutz" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Verfassungsschutz"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-469ce78ad2dfa1ffdb246502866356cbdf0ce715 .
+
+verwaltung:id-447b577723345b1e9d4a7a8adda10fbc2e0d4eb7
+    orni:code "VII" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung VII: Verkehr"@de ;
+    orni:longName "Abteilung VII: Verkehr"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/verkehr" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Verkehr"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-44f9fd600e82b395d60aa9b47b310c307e97c61d
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Inneres und Sport / Abteilung I: Staats-, Verwaltungs- und Dienstrecht"@de ;
+    orni:longName "Abteilung I: Staats-, Verwaltungs- und Dienstrecht"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-inneres/staats-verwaltungs-und-dienstrecht" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Staats-, Verwaltungs- und Dienstrecht"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-469ce78ad2dfa1ffdb246502866356cbdf0ce715 .
+
+verwaltung:id-469ce78ad2dfa1ffdb246502866356cbdf0ce715
+    orni:fullName "Senatsverwaltung für Inneres und Sport"@de ;
+    orni:longName "Senatsverwaltung für Inneres und Sport"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-inneres" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Inneres und Sport"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-3309c639a3931184f8ec23a225556ca2f2a3cb6e, verwaltung:id-435eab0cc8a61c1e2e7282b6c83a0f1bac53d339, verwaltung:id-44f9fd600e82b395d60aa9b47b310c307e97c61d, verwaltung:id-47542433241bd009e51cea583512b602bb5fbd35 ;
+    foaf:homepage "http://www.berlin.de/sen/inneres/" .
+
+verwaltung:id-47542433241bd009e51cea583512b602bb5fbd35
+    orni:code "IV" ;
+    orni:fullName "Senatsverwaltung für Inneres und Sport / Abteilung IV: Sport"@de ;
+    orni:longName "Abteilung IV: Sport"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-inneres/sport" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Sport"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-469ce78ad2dfa1ffdb246502866356cbdf0ce715 .
+
+verwaltung:id-4b42575eb79c055e45146627fa6804031c9d01f4
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Bildung, Kultur, Soziales und Sport"@de ;
+    orni:longName "Abteilung Bildung, Kultur, Soziales und Sport"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-lichtenberg/bildung-kultur-soziales-und-sport" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Bildung, Kultur, Soziales und Sport"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-513fbd345294ccdf782745ba60938e9bc8c0df78 ;
+    org:subOrganizationOf verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46 .
+
+verwaltung:id-513fbd345294ccdf782745ba60938e9bc8c0df78
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Bildung, Kultur, Soziales und Sport / Amt für Soziales"@de ;
+    orni:longName "Amt für Soziales"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-lichtenberg/bildung-kultur-soziales-und-sport/amt-fur-soziales" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Amt für Soziales"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-4b42575eb79c055e45146627fa6804031c9d01f4 .
+
+verwaltung:id-5286186825f41b95cc1e47fca8bc4869e3ba9dd5
+    orni:fullName "Bezirksamt Charlottenburg-Wilmersdorf / Abteilung Jugend, Familie, Schule, Sport und Umwelt"@de ;
+    orni:longName "Abteilung Jugend, Familie, Schule, Sport und Umwelt"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-charlottenburg-wilmersdorf/jugend-familie-schule-sport-und-umwel" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Jugend, Familie, Schule, Sport und Umwelt"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-153f07c5c09cbd2f4f753bd1c749483c195ea663 ;
+    org:subOrganizationOf verwaltung:id-5e6a85c26149328f4dfc77cec189d6000e5a9d6a ;
+    foaf:homepage "http://www.berlin.de/ba-charlottenburg-wilmersdorf/politik/bezirksamt/jugend-familie-schule-sport-und-umwelt/" .
+
+verwaltung:id-53832d91564c9c3b045ce5c98ca8b403a5237a19
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung III: Jugend und Familie, Landesjugendamt"@de ;
+    orni:longName "Abteilung III: Jugend und Familie, Landesjugendamt"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-bjw/jugend-und-familie-landesjugendamt" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Jugend und Familie, Landesjugendamt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2 .
+
+verwaltung:id-54df550adfb253c22403554dbe635352b5005009
+    orni:fullName "Bezirksamt Pankow"@de ;
+    orni:longName "Bezirksamt Pankow"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-pankow" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Pankow"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-pankow/" .
+
+verwaltung:id-5555253ac9beab6ba88d3cca4cc4e4e07a3abd62
+    orni:fullName "Bezirksamt Marzahn-Hellersdorf / Abteilung Jugend und Familie, Weiterbildung und Kultur / Jugendamt"@de ;
+    orni:longName "Jugendamt"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-marzahn-hellersdorf/jugend-und-familie-weiterbildung-und-ku/jugendamt" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Jugendamt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-df6186a8d89294905db41b40aaddfec8cebd4e02 ;
+    foaf:homepage "http://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/aemter/jugendamt/" .
+
+verwaltung:id-55d9a68450bb0e9bfa015818d36c6284e6495607
+    orni:fullName "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Familie, Gesundheit und Personal"@de ;
+    orni:longName "Abteilung Familie, Gesundheit und Personal"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-friedrichshain-kreuzberg/familie-gesundheit-und-personal" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Familie, Gesundheit und Personal"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-91fec3ae8c23b475a2f3057884cb800fa7dcbe9f ;
+    org:subOrganizationOf verwaltung:id-77a09f323c1eb885077a4f404fcbcfe6d59b81a4 ;
+    foaf:homepage "https://www.berlin.de/ba-friedrichshain-kreuzberg/politik-und-verwaltung/bezirksamt/das-kollegium/artikel.89166.php" .
+
+verwaltung:id-58f882d299e2200f7c25df4bdfcc008d3c09600b
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung I: Stadt- und Freiraumplanung"@de ;
+    orni:longName "Abteilung I: Stadt- und Freiraumplanung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/stadt-und-freiraumplanung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Stadt- und Freiraumplanung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-5dad0215814472e2b778fb7eb21e4fc2a5df7cc2
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung III: Geoinformation"@de ;
+    orni:longName "Abteilung III: Geoinformation"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/geoinformation" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Geoinformation"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-5e2bb93238fbeff6aeea44e6941a7ee2b8daf47d
+    orni:code "IV" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung IV: Wohnungswesen, Stadterneuerung, Soziale Stadt"@de ;
+    orni:longName "Abteilung IV: Wohnungswesen, Stadterneuerung, Soziale Stadt"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/wohnungswesen-stadterneuerung-soziale" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Wohnungswesen, Stadterneuerung, Soziale Stadt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-5e6a85c26149328f4dfc77cec189d6000e5a9d6a
+    orni:fullName "Bezirksamt Charlottenburg-Wilmersdorf"@de ;
+    orni:longName "Bezirksamt Charlottenburg-Wilmersdorf"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-charlottenburg-wilmersdorf" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Charlottenburg-Wilmersdorf"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-5286186825f41b95cc1e47fca8bc4869e3ba9dd5 ;
+    foaf:homepage "http://www.berlin.de/ba-charlottenburg-wilmersdorf/" .
+
+verwaltung:id-5f0516cfd06e334f7de86bf8e46210c86ce4bcda
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung I: Zentralabteilung"@de ;
+    orni:longName "Abteilung I: Zentralabteilung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-wirtschaft/zentralabteilung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Zentralabteilung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f .
+
+verwaltung:id-610c719cc153f3c69309f276d1a70534aab67570
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung"@de ;
+    orni:longName "Abteilung Stadtentwicklung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-lichtenberg/stadtentwicklung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Stadtentwicklung"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-6610f59b3aeed92cc3c5258f883f78f35746a600, verwaltung:id-e1a84ca9929d0702abea82053b31c776028a45f0 ;
+    org:subOrganizationOf verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46 .
+
+verwaltung:id-613c2bef7eebb0d3d57e8131ab4e8e1f359ca605
+    orni:code "VI" ;
+    orni:fullName "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung VI: Unterrichtsfächer, Qualitätssicherung, Lehrerbildung"@de ;
+    orni:longName "Abteilung VI: Unterrichtsfächer, Qualitätssicherung, Lehrerbildung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-bjw/unterrichtsfacher-qualitatssicherung-l" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Unterrichtsfächer, Qualitätssicherung, Lehrerbildung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2 .
+
+verwaltung:id-64ed3c7ad41eaf5eed00a2d95e024deeca061d13
+    orni:fullName "Bezirksamt Marzahn-Hellersdorf / Abteilung Schule, Sport, Finanzen und Personal"@de ;
+    orni:longName "Abteilung Schule, Sport, Finanzen und Personal"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-marzahn-hellersdorf/schule-sport-finanzen-und-personal" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Schule, Sport, Finanzen und Personal"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-884550fae196c34b6b7807d733645eff1ca648f4 ;
+    org:subOrganizationOf verwaltung:id-bb67584c4c095544f82ca6ce21cdaafd00f85fb3 .
+
+verwaltung:id-6610f59b3aeed92cc3c5258f883f78f35746a600
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Stadtentwicklungsamt"@de ;
+    orni:longName "Stadtentwicklungsamt"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-lichtenberg/stadtentwicklung/stadtentwicklungsamt" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Stadtentwicklungsamt"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-0d74e6aeb86185b813d3b1c72262de39c82efa77, verwaltung:id-c08810420fee3e41cd30e59d39e332f116843044 ;
+    org:subOrganizationOf verwaltung:id-610c719cc153f3c69309f276d1a70534aab67570 .
+
+verwaltung:id-6a159c6480211200cda369aa24b5925e08186dbf
+    orni:fullName "Amt für Statistik Berlin-Brandenburg"@de ;
+    orni:longName "Amt für Statistik Berlin-Brandenburg"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "amt-fur-statistik-berlin-brandenburg" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Amt für Statistik Berlin-Brandenburg"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.statistik-berlin-brandenburg.de" .
+
+verwaltung:id-6ffc2f057e6753b3880a18e02e1ff213b60fe327
+    orni:fullName "Bezirksamt Treptow-Köpenick / Büro des Bezirksbürgermeisters"@de ;
+    orni:longName "Büro des Bezirksbürgermeisters"@de ;
+    orni:orgType orni:Buro ;
+    orni:path "ba-treptow-koepenick/buro-des-bezirksburgermeisters" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Büro des Bezirksbürgermeisters"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-b6d6261bf709f4fe09066ee1d900407dd0cdb0b6 .
+
+verwaltung:id-72dba82de4dbd8bfdfd3aaf47e2135d0327459a0
+    orni:code "V" ;
+    orni:fullName "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung V: Verbraucherschutz"@de ;
+    orni:longName "Abteilung V: Verbraucherschutz"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-justiz/verbraucherschutz" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Verbraucherschutz"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb .
+
+verwaltung:id-7375b61fd7977086a0875e9dafbf88be913c80f4
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung II: Grundsatzangelegenheiten der Schularten, Schulentwicklung, Schulrecht, Privatschulangelegenheiten"@de ;
+    orni:longName "Abteilung II: Grundsatzangelegenheiten der Schularten, Schulentwicklung, Schulrecht, Privatschulangelegenheiten"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-bjw/grundsatzangelegenheiten-der-schularten" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Grundsatzangelegenheiten der Schularten, Schulentwicklung, Schulrecht, Privatschulangelegenheiten"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2 .
+
+verwaltung:id-74028178739c1065c8dd9428b4bc0f2b888b70ae
+    orni:code "II E" ;
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung II: Wirtschafts- und Technologiepolitik, Wirtschaftsordnung / Referat II E: IKT, Medien, Kreativwirtschaft"@de ;
+    orni:longName "Referat II E: IKT, Medien, Kreativwirtschaft"@de ;
+    orni:orgType orni:Referat ;
+    orni:path "sen-wirtschaft/wirtschafts-und-technologiepolitik-wir/ikt-medien-kreativwirtschaft" ;
+    orni:pathDepth 2 ;
+    orni:shortName "IKT, Medien, Kreativwirtschaft"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9e67dc1e4e0e32a1f24ba5d4f12bf80f09024d8f .
+
+verwaltung:id-77a09f323c1eb885077a4f404fcbcfe6d59b81a4
+    orni:fullName "Bezirksamt Friedrichshain-Kreuzberg"@de ;
+    orni:longName "Bezirksamt Friedrichshain-Kreuzberg"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-friedrichshain-kreuzberg" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Friedrichshain-Kreuzberg"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-55d9a68450bb0e9bfa015818d36c6284e6495607, verwaltung:id-b10970a30a88dbe692c8b507f87cf8b699be6970 ;
+    foaf:homepage "http://www.berlin.de/ba-friedrichshain-kreuzberg/" .
+
+verwaltung:id-7a16661fad15d66893b363d8eed87b35a8cd7564
+    orni:fullName "BerlinOnline Stadtportal GmbH & Co KG"@de ;
+    orni:longName "BerlinOnline Stadtportal GmbH & Co KG"@de ;
+    orni:orgType orni:Ppp ;
+    orni:path "berlinonline-stadtportal-gmbh-co-kg" ;
+    orni:pathDepth 0 ;
+    orni:shortName "BerlinOnline Stadtportal GmbH & Co KG"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlinonline.de" .
+
+verwaltung:id-7f547dcd11bae684d2c7e13b4fca786798a93209
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Gesundheit und Soziales / Abteilung I: Gesundheit"@de ;
+    orni:longName "Abteilung I: Gesundheit"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-gessoz/gesundheit" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Gesundheit"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-d1b7f968727d45b714f877b2cecb41b61a9a4abf .
+
+verwaltung:id-884550fae196c34b6b7807d733645eff1ca648f4
+    orni:fullName "Bezirksamt Marzahn-Hellersdorf / Abteilung Schule, Sport, Finanzen und Personal / Serviceeinheit Finanzservice"@de ;
+    orni:longName "Serviceeinheit Finanzservice"@de ;
+    orni:orgType orni:Serviceeinheit ;
+    orni:path "ba-marzahn-hellersdorf/schule-sport-finanzen-und-personal/finanzservice" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Finanzservice"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-64ed3c7ad41eaf5eed00a2d95e024deeca061d13 ;
+    foaf:homepage "http://www.berlin.de/ba-marzahn-hellersdorf/politik-und-verwaltung/service-und-organisationseinheiten/finanzen/" .
+
+verwaltung:id-887a63923539ebba4195bf9b952b2ef5eac3b2e2
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Gesundheit und Soziales / Abteilung II: Soziales"@de ;
+    orni:longName "Abteilung II: Soziales"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-gessoz/soziales" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Soziales"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-d1b7f968727d45b714f877b2cecb41b61a9a4abf .
+
+verwaltung:id-918cf1805dca8b27d8f5fed63fa160e6669d7412
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Finanzen / Abteilung III: Angelegenheiten der Steuerverwaltung"@de ;
+    orni:longName "Abteilung III: Angelegenheiten der Steuerverwaltung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-finanzen/angelegenheiten-der-steuerverwaltung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Angelegenheiten der Steuerverwaltung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e62e823e5ddeb0072b5343f38ee1162a5b8d0001 .
+
+verwaltung:id-91fec3ae8c23b475a2f3057884cb800fa7dcbe9f
+    orni:fullName "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Familie, Gesundheit und Personal / Jugendamt"@de ;
+    orni:longName "Jugendamt"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-friedrichshain-kreuzberg/familie-gesundheit-und-personal/jugendamt" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Jugendamt"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-327cdf161a4cf2a50f415ca87aa2f943d029b621 ;
+    org:subOrganizationOf verwaltung:id-55d9a68450bb0e9bfa015818d36c6284e6495607 ;
+    foaf:homepage "https://www.berlin.de/ba-friedrichshain-kreuzberg/politik-und-verwaltung/aemter/jugendamt/" .
+
+verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2
+    orni:fullName "Senatsverwaltung für Bildung, Jugend und Wissenschaft"@de ;
+    orni:longName "Senatsverwaltung für Bildung, Jugend und Wissenschaft"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-bjw" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Bildung, Jugend und Wissenschaft"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-3206e97fbe15dfb1a88dac9ff21ca36679cfbab3, verwaltung:id-53832d91564c9c3b045ce5c98ca8b403a5237a19, verwaltung:id-613c2bef7eebb0d3d57e8131ab4e8e1f359ca605, verwaltung:id-7375b61fd7977086a0875e9dafbf88be913c80f4, verwaltung:id-facaf4499f0e9fee8228488463c94f59df045ce4 ;
+    foaf:homepage "http://www.berlin.de/sen/bjw/" .
+
+verwaltung:id-93dc80c2fd595d0d609ed697084ea7ea7a9ce4cd
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Arbeit, Integration und Frauen / Abteilung II: Arbeit und berufliche Bildung"@de ;
+    orni:longName "Abteilung II: Arbeit und berufliche Bildung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-aif/arbeit-und-berufliche-bildung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Arbeit und berufliche Bildung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-f0f5d3d9191e643cc567bd235a0604497477449d .
+
+verwaltung:id-9563e254e9ee5d61f7a4aa70abbf0c4e72d0c412
+    orni:fullName "Bezirksamt Steglitz-Zehlendorf"@de ;
+    orni:longName "Bezirksamt Steglitz-Zehlendorf"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-steglitz-zehlendorf" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Steglitz-Zehlendorf"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-steglitz-zehlendorf/" .
+
+verwaltung:id-98af23bedad9efd7c601aa7f6476f1b2555b2acd
+    orni:fullName "Bezirksamt Neukölln"@de ;
+    orni:longName "Bezirksamt Neukölln"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-neukoelln" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Neukölln"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-neukoelln/" .
+
+verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt"@de ;
+    orni:longName "Senatsverwaltung für Stadtentwicklung und Umwelt"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-stadtentwicklung" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Stadtentwicklung und Umwelt"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-16552430daccf6b7a740c83f1525c0c09e73ae20, verwaltung:id-2b39fb9c3e2a19512480c6cd5b7f42ae96e9bb38, verwaltung:id-447b577723345b1e9d4a7a8adda10fbc2e0d4eb7, verwaltung:id-58f882d299e2200f7c25df4bdfcc008d3c09600b, verwaltung:id-5dad0215814472e2b778fb7eb21e4fc2a5df7cc2, verwaltung:id-5e2bb93238fbeff6aeea44e6941a7ee2b8daf47d, verwaltung:id-a0a9c9591c6bde080772003cef54b9ef779f1030, verwaltung:id-c3e59e72f65f40e1bb03829b36c847b13e0d821c, verwaltung:id-e3bfa55c37809e5e1154fdce0050bedf1a225784, verwaltung:id-ef6693ac54f408eab9640aeef91d4e6a004062d0 ;
+    foaf:homepage "http://www.stadtentwicklung.berlin.de" .
+
+verwaltung:id-9e67dc1e4e0e32a1f24ba5d4f12bf80f09024d8f
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung II: Wirtschafts- und Technologiepolitik, Wirtschaftsordnung"@de ;
+    orni:longName "Abteilung II: Wirtschafts- und Technologiepolitik, Wirtschaftsordnung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-wirtschaft/wirtschafts-und-technologiepolitik-wir" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Wirtschafts- und Technologiepolitik, Wirtschaftsordnung"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-74028178739c1065c8dd9428b4bc0f2b888b70ae ;
+    org:subOrganizationOf verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f .
+
+verwaltung:id-a0a9c9591c6bde080772003cef54b9ef779f1030
+    orni:code "V" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung V: Hochbau"@de ;
+    orni:longName "Abteilung V: Hochbau"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/hochbau" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Hochbau"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-a8a844b33d837060440e4ff19e831b925b32a698
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung II: Recht"@de ;
+    orni:longName "Abteilung II: Recht"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-justiz/recht" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Recht"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb .
+
+verwaltung:id-ab39296ebff865e478065d0c80a75304a86a33c9
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Arbeit, Integration und Frauen / Abteilung III: Beauftragter des Senats von Berlin für Integration und Migration"@de ;
+    orni:longName "Abteilung III: Beauftragter des Senats von Berlin für Integration und Migration"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-aif/beauftragter-des-senats-von-berlin-fur-i" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Beauftragter des Senats von Berlin für Integration und Migration"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-f0f5d3d9191e643cc567bd235a0604497477449d .
+
+verwaltung:id-ad4d3c17c577ef30328ccb0c8523fe5743d1f3e0
+    orni:fullName "Der Regierende Bürgermeister von Berlin"@de ;
+    orni:longName "Der Regierende Bürgermeister von Berlin"@de ;
+    orni:orgType orni:Senatskanzlei ;
+    orni:path "der-regierende-burgermeister-von-berlin" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Der Regierende Bürgermeister von Berlin"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-fb6b99e887b1c7ae72457b947183ad7e25906793 ;
+    foaf:homepage "http://www.berlin.de/rbmskzl/" .
+
+verwaltung:id-af06b15350da2a196832ce69e40850b6bea89db0
+    orni:fullName "VBB - Verkehrsverbund Berlin-Brandenburg GmbH"@de ;
+    orni:longName "VBB - Verkehrsverbund Berlin-Brandenburg GmbH"@de ;
+    orni:orgType orni:OffentlichesUnternehmen ;
+    orni:path "vbb-verkehrsverbund-berlin-brandenburg" ;
+    orni:pathDepth 0 ;
+    orni:shortName "VBB - Verkehrsverbund Berlin-Brandenburg GmbH"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.vbb.de/" .
+
+verwaltung:id-b10970a30a88dbe692c8b507f87cf8b699be6970
+    orni:fullName "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Finanzen, Facility Management, Kultur und Weiterbildung"@de ;
+    orni:longName "Abteilung Finanzen, Facility Management, Kultur und Weiterbildung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-friedrichshain-kreuzberg/finanzen-facility-management-kultur-un" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Finanzen, Facility Management, Kultur und Weiterbildung"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-b6dcfe81bed93265ffd663bcc7d6cebb5131bc12 ;
+    org:subOrganizationOf verwaltung:id-77a09f323c1eb885077a4f404fcbcfe6d59b81a4 ;
+    foaf:homepage "https://www.berlin.de/ba-friedrichshain-kreuzberg/politik-und-verwaltung/bezirksamt/das-kollegium/artikel.103646.php" .
+
+verwaltung:id-b2e73b05960c9be9b02e4670201918f24ec32b23
+    orni:fullName "BSR - Berliner Stadtreinigungsbetriebe"@de ;
+    orni:longName "BSR - Berliner Stadtreinigungsbetriebe"@de ;
+    orni:orgType orni:OffentlichesUnternehmen ;
+    orni:path "bsr-berliner-stadtreinigungsbetriebe" ;
+    orni:pathDepth 0 ;
+    orni:shortName "BSR - Berliner Stadtreinigungsbetriebe"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.bsr.de" .
+
+verwaltung:id-b6d6261bf709f4fe09066ee1d900407dd0cdb0b6
+    orni:fullName "Bezirksamt Treptow-Köpenick"@de ;
+    orni:longName "Bezirksamt Treptow-Köpenick"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-treptow-koepenick" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Treptow-Köpenick"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-6ffc2f057e6753b3880a18e02e1ff213b60fe327 ;
+    foaf:homepage "http://www.berlin.de/ba-treptow-koepenick/" .
+
+verwaltung:id-b6dcfe81bed93265ffd663bcc7d6cebb5131bc12
+    orni:fullName "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Finanzen, Facility Management, Kultur und Weiterbildung / Serviceeinheit Finanzen"@de ;
+    orni:longName "Serviceeinheit Finanzen"@de ;
+    orni:orgType orni:Serviceeinheit ;
+    orni:path "ba-friedrichshain-kreuzberg/finanzen-facility-management-kultur-un/finanzen" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Finanzen"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-b10970a30a88dbe692c8b507f87cf8b699be6970 ;
+    foaf:homepage "https://www.berlin.de/ba-friedrichshain-kreuzberg/politik-und-verwaltung/service-und-organisationseinheiten/finanzen/" .
+
+verwaltung:id-b7ac05f486cdc3fadab1ea090b5a106ad04354fb
+    orni:fullName "Koordinierungsstelle Stolpersteine Berlin"@de ;
+    orni:longName "Koordinierungsstelle Stolpersteine Berlin"@de ;
+    orni:orgType <http://daten.berlin.de/ref/organigramm/vocab#> ;
+    orni:path "koordinierungsstelle-stolpersteine-berli" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Koordinierungsstelle Stolpersteine Berlin"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.stolpersteine-berlin.de/" .
+
+verwaltung:id-b975314ccba917bf9d37efa75db1d7bdd659f9ba
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Bürgerdienste, Ordnungsangelegenheiten und Immobilien"@de ;
+    orni:longName "Abteilung Bürgerdienste, Ordnungsangelegenheiten und Immobilien"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-lichtenberg/burgerdienste-ordnungsangelegenheiten-u" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Bürgerdienste, Ordnungsangelegenheiten und Immobilien"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46 .
+
+verwaltung:id-ba5260d476caadd93dfb9ba53503a216a0115cd0
+    orni:code "IV" ;
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung IV: Forschung"@de ;
+    orni:longName "Abteilung IV: Forschung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-wirtschaft/forschung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Forschung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f .
+
+verwaltung:id-bb67584c4c095544f82ca6ce21cdaafd00f85fb3
+    orni:fullName "Bezirksamt Marzahn-Hellersdorf"@de ;
+    orni:longName "Bezirksamt Marzahn-Hellersdorf"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-marzahn-hellersdorf" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Marzahn-Hellersdorf"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-64ed3c7ad41eaf5eed00a2d95e024deeca061d13, verwaltung:id-df6186a8d89294905db41b40aaddfec8cebd4e02 ;
+    foaf:homepage "http://www.berlin.de/ba-marzahn-hellersdorf/" .
+
+verwaltung:id-be6779fb1a60b1fcf385673645acc30763c9a8a6
+    orni:fullName "Gedenkstätte Deutscher Widerstand"@de ;
+    orni:longName "Gedenkstätte Deutscher Widerstand"@de ;
+    orni:orgType orni:Museum ;
+    orni:path "gedenkstatte-deutscher-widerstand" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Gedenkstätte Deutscher Widerstand"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.gdw-berlin.de/" .
+
+verwaltung:id-bf4809aa277f91789f1bf5bf546091086d39685a
+    orni:fullName "Bezirksamt Reinickendorf"@de ;
+    orni:longName "Bezirksamt Reinickendorf"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-reinickendorf" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Reinickendorf"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-reinickendorf" .
+
+verwaltung:id-c08810420fee3e41cd30e59d39e332f116843044
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Stadtentwicklungsamt / Stadtplanung"@de ;
+    orni:longName "Stadtplanung"@de ;
+    orni:orgType orni:Fachbereich ;
+    orni:path "ba-lichtenberg/stadtentwicklung/stadtentwicklungsamt/stadtplanung" ;
+    orni:pathDepth 3 ;
+    orni:shortName "Stadtplanung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-6610f59b3aeed92cc3c5258f883f78f35746a600 .
+
+verwaltung:id-c3e59e72f65f40e1bb03829b36c847b13e0d821c
+    orni:code "VIII" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung VIII: Integrativer Umweltschutz"@de ;
+    orni:longName "Abteilung VIII: Integrativer Umweltschutz"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/integrativer-umweltschutz" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Integrativer Umweltschutz"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-c9940265d0df19fe4d3f74248252172e30d89828
+    orni:fullName "DBpedia"@de ;
+    orni:longName "DBpedia"@de ;
+    orni:orgType orni:Other ;
+    orni:path "dbpedia" ;
+    orni:pathDepth 0 ;
+    orni:shortName "DBpedia"@de ;
+    a org:Organization ;
+    foaf:homepage "http://dbpedia.org" .
+
+verwaltung:id-cf19b134516cdd050ffb7a9a4f67a99d910ad711
+    orni:fullName "Landesamt für Gesundheit und Soziales"@de ;
+    orni:longName "Landesamt für Gesundheit und Soziales"@de ;
+    orni:orgType orni:Landesamt ;
+    orni:path "lageso" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Landesamt für Gesundheit und Soziales"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/lageso/" .
+
+verwaltung:id-d10fecca49260c5133426c3156af25c9255896b6
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Finanzen / Abteilung I: Vermögen und Beteiligungen"@de ;
+    orni:longName "Abteilung I: Vermögen und Beteiligungen"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-finanzen/vermogen-und-beteiligungen" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Vermögen und Beteiligungen"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e62e823e5ddeb0072b5343f38ee1162a5b8d0001 .
+
+verwaltung:id-d1999039d545a41e53a6ffcfc360f16d9cd48f3a
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Jugend und Gesundheit"@de ;
+    orni:longName "Abteilung Jugend und Gesundheit"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-lichtenberg/jugend-und-gesundheit" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Jugend und Gesundheit"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-ec392ed8ad284294918f757ae8f789c87a281b9b, verwaltung:id-fa60e3a5a9157d80bfd1fa4596ed63f9492c5be7 ;
+    org:subOrganizationOf verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46 .
+
+verwaltung:id-d1b11900f00e45356f23120c2e6248211b36def8
+    orni:fullName "OpenStreetMap"@de ;
+    orni:longName "OpenStreetMap"@de ;
+    orni:orgType orni:Other ;
+    orni:path "openstreetmap" ;
+    orni:pathDepth 0 ;
+    orni:shortName "OpenStreetMap"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.openstreetmap.org" .
+
+verwaltung:id-d1b7f968727d45b714f877b2cecb41b61a9a4abf
+    orni:fullName "Senatsverwaltung für Gesundheit und Soziales"@de ;
+    orni:longName "Senatsverwaltung für Gesundheit und Soziales"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-gessoz" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Gesundheit und Soziales"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-7f547dcd11bae684d2c7e13b4fca786798a93209, verwaltung:id-887a63923539ebba4195bf9b952b2ef5eac3b2e2 ;
+    foaf:homepage "http://www.berlin.de/sen/gessoz/" .
+
+verwaltung:id-dbc47c9edbaa73602927886849447c2de6b91402
+    orni:fullName "Bezirksamt Tempelhof-Schöneberg"@de ;
+    orni:longName "Bezirksamt Tempelhof-Schöneberg"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-tempelhof-schoneberg" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Tempelhof-Schöneberg"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-tempelhof-schoeneberg/" .
+
+verwaltung:id-de9c56af80a35b69c1318363e141d0c5834230cd
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung III: Wirtschaftsförderung"@de ;
+    orni:longName "Abteilung III: Wirtschaftsförderung"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-wirtschaft/wirtschaftsforderung" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Wirtschaftsförderung"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f .
+
+verwaltung:id-df6186a8d89294905db41b40aaddfec8cebd4e02
+    orni:fullName "Bezirksamt Marzahn-Hellersdorf / Abteilung Jugend und Familie, Weiterbildung und Kultur"@de ;
+    orni:longName "Abteilung Jugend und Familie, Weiterbildung und Kultur"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "ba-marzahn-hellersdorf/jugend-und-familie-weiterbildung-und-ku" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Jugend und Familie, Weiterbildung und Kultur"@de ;
+    a org:OrganizationalUnit ;
+    org:hasSubOrganization verwaltung:id-5555253ac9beab6ba88d3cca4cc4e4e07a3abd62 ;
+    org:subOrganizationOf verwaltung:id-bb67584c4c095544f82ca6ce21cdaafd00f85fb3 .
+
+verwaltung:id-e1a84ca9929d0702abea82053b31c776028a45f0
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Serviceeinheit Facility Management"@de ;
+    orni:longName "Serviceeinheit Facility Management"@de ;
+    orni:orgType orni:Serviceeinheit ;
+    orni:path "ba-lichtenberg/stadtentwicklung/facility-management" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Facility Management"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-610c719cc153f3c69309f276d1a70534aab67570 .
+
+verwaltung:id-e3bfa55c37809e5e1154fdce0050bedf1a225784
+    orni:code "II" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung II: Städtebau und Projekte"@de ;
+    orni:longName "Abteilung II: Städtebau und Projekte"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/stadtebau-und-projekte" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Städtebau und Projekte"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-e62e823e5ddeb0072b5343f38ee1162a5b8d0001
+    orni:fullName "Senatsverwaltung für Finanzen"@de ;
+    orni:longName "Senatsverwaltung für Finanzen"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-finanzen" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Finanzen"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-39a2102a6d5dd5c6d02aa1096d5909bc0d75a6b6, verwaltung:id-918cf1805dca8b27d8f5fed63fa160e6669d7412, verwaltung:id-d10fecca49260c5133426c3156af25c9255896b6 ;
+    foaf:homepage "http://www.berlin.de/sen/finanzen/" .
+
+verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb
+    orni:fullName "Senatsverwaltung für Justiz und Verbraucherschutz"@de ;
+    orni:longName "Senatsverwaltung für Justiz und Verbraucherschutz"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-justiz" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Justiz und Verbraucherschutz"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-00e92098612d55cf7c379de58d8debb97214e4c0, verwaltung:id-39cc1bbbb3204c6233b3b49c40c157fd3e9d4e28, verwaltung:id-72dba82de4dbd8bfdfd3aaf47e2135d0327459a0, verwaltung:id-a8a844b33d837060440e4ff19e831b925b32a698, verwaltung:id-f4828773a13b8abe2221d2070f508e7dba1e3f9f ;
+    foaf:homepage "http://www.berlin.de/sen/justiz/" .
+
+verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46
+    orni:fullName "Bezirksamt Lichtenberg"@de ;
+    orni:longName "Bezirksamt Lichtenberg"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-lichtenberg" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Lichtenberg"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-2da9b1c70cf0c9a478e715740b33d8734b2dfd97, verwaltung:id-4b42575eb79c055e45146627fa6804031c9d01f4, verwaltung:id-610c719cc153f3c69309f276d1a70534aab67570, verwaltung:id-b975314ccba917bf9d37efa75db1d7bdd659f9ba, verwaltung:id-d1999039d545a41e53a6ffcfc360f16d9cd48f3a ;
+    foaf:homepage "http://www.berlin.de/ba-lichtenberg/" .
+
+verwaltung:id-ec392ed8ad284294918f757ae8f789c87a281b9b
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Jugend und Gesundheit / Gesundheitsamt"@de ;
+    orni:longName "Gesundheitsamt"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-lichtenberg/jugend-und-gesundheit/gesundheitsamt" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Gesundheitsamt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-d1999039d545a41e53a6ffcfc360f16d9cd48f3a .
+
+verwaltung:id-ef6693ac54f408eab9640aeef91d4e6a004062d0
+    orni:code "X" ;
+    orni:fullName "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung X: Tiefbau"@de ;
+    orni:longName "Abteilung X: Tiefbau"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-stadtentwicklung/tiefbau" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Tiefbau"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc .
+
+verwaltung:id-f0f5d3d9191e643cc567bd235a0604497477449d
+    orni:fullName "Senatsverwaltung für Arbeit, Integration und Frauen"@de ;
+    orni:longName "Senatsverwaltung für Arbeit, Integration und Frauen"@de ;
+    orni:orgType orni:Senatsverwaltung ;
+    orni:path "sen-aif" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Senatsverwaltung für Arbeit, Integration und Frauen"@de ;
+    a org:Organization ;
+    org:hasSubOrganization verwaltung:id-0551c2f7f5ec932502b3a18c073b643917b1bbc5, verwaltung:id-93dc80c2fd595d0d609ed697084ea7ea7a9ce4cd, verwaltung:id-ab39296ebff865e478065d0c80a75304a86a33c9 ;
+    foaf:homepage "http://www.berlin.de/sen/aif/" .
+
+verwaltung:id-f2dcc0e65adbf760452241926a1015a933e7567e
+    orni:fullName "Bezirksamt Mitte"@de ;
+    orni:longName "Bezirksamt Mitte"@de ;
+    orni:orgType orni:Bezirksamt ;
+    orni:path "ba-mitte" ;
+    orni:pathDepth 0 ;
+    orni:shortName "Bezirksamt Mitte"@de ;
+    a org:Organization ;
+    foaf:homepage "http://www.berlin.de/ba-mitte/" .
+
+verwaltung:id-f4828773a13b8abe2221d2070f508e7dba1e3f9f
+    orni:code "III" ;
+    orni:fullName "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung III: Justizvollzug, Gnadenwesen, Soziale Dienste der Justiz, Führungsaufsichtsstelle"@de ;
+    orni:longName "Abteilung III: Justizvollzug, Gnadenwesen, Soziale Dienste der Justiz, Führungsaufsichtsstelle"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-justiz/justizvollzug-gnadenwesen-soziale-dien" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Justizvollzug, Gnadenwesen, Soziale Dienste der Justiz, Führungsaufsichtsstelle"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb .
+
+verwaltung:id-fa60e3a5a9157d80bfd1fa4596ed63f9492c5be7
+    orni:fullName "Bezirksamt Lichtenberg / Abteilung Jugend und Gesundheit / Jugendamt"@de ;
+    orni:longName "Jugendamt"@de ;
+    orni:orgType orni:Amt ;
+    orni:path "ba-lichtenberg/jugend-und-gesundheit/jugendamt" ;
+    orni:pathDepth 2 ;
+    orni:shortName "Jugendamt"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-d1999039d545a41e53a6ffcfc360f16d9cd48f3a .
+
+verwaltung:id-facaf4499f0e9fee8228488463c94f59df045ce4
+    orni:code "I" ;
+    orni:fullName "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung I: Unterstützung und Beratung der Schulen, operative Schulaufsicht, Schulpsychologie, Personalmanagement, Bildungsstatistik und Prognose, Weiterbildung, Berufliche und Zentral verwaltete Schulen"@de ;
+    orni:longName "Abteilung I: Unterstützung und Beratung der Schulen, operative Schulaufsicht, Schulpsychologie, Personalmanagement, Bildungsstatistik und Prognose, Weiterbildung, Berufliche und Zentral verwaltete Schulen"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "sen-bjw/unterstutzung-und-beratung-der-schulen" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Unterstützung und Beratung der Schulen, operative Schulaufsicht, Schulpsychologie, Personalmanagement, Bildungsstatistik und Prognose, Weiterbildung, Berufliche und Zentral verwaltete Schulen"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2 .
+
+verwaltung:id-fb6b99e887b1c7ae72457b947183ad7e25906793
+    orni:code "V" ;
+    orni:fullName "Der Regierende Bürgermeister von Berlin / Abteilung V: Senatskanzlei - Kulturelle Angelegenheiten"@de ;
+    orni:longName "Abteilung V: Senatskanzlei - Kulturelle Angelegenheiten"@de ;
+    orni:orgType orni:Abteilung ;
+    orni:path "der-regierende-burgermeister-von-berlin/senatskanzlei-kulturelle-angelegenheit" ;
+    orni:pathDepth 1 ;
+    orni:shortName "Senatskanzlei - Kulturelle Angelegenheiten"@de ;
+    a org:OrganizationalUnit ;
+    org:subOrganizationOf verwaltung:id-ad4d3c17c577ef30328ccb0c8523fe5743d1f3e0 ;
+    foaf:homepage "https://www.berlin.de/sen/kultur/" .
+

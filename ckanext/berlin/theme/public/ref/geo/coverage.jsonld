@@ -1,0 +1,1035 @@
+{
+  "@context": {
+    "feature": "http://daten.berlin.de/ref/geo/feature/",
+    "berlin_geo": "http://daten.berlin.de/ref/geo/vocab/",
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "part_of": "http://daten.berlin.de/ref/geo/vocab/part_of",
+    "has_part": "http://daten.berlin.de/ref/geo/vocab/has_part"
+  },
+  "@graph": [
+    {
+      "@id": "feature:o_0907",
+      "label": "Adlershof",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1110",
+      "label": "Alt-Hohenschönhausen",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0901",
+      "label": "Alt-Treptow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0906",
+      "label": "Altglienicke",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0903",
+      "label": "Baumschulenweg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:Berlin",
+      "label": "Berlin",
+      "@type": "berlin_geo:Bundesland",
+      "pathDepth": 1,
+      "has_part": [
+        {
+          "@id": "feature:b_1"
+        },
+        {
+          "@id": "feature:b_2"
+        },
+        {
+          "@id": "feature:b_3"
+        },
+        {
+          "@id": "feature:b_4"
+        },
+        {
+          "@id": "feature:b_5"
+        },
+        {
+          "@id": "feature:b_6"
+        },
+        {
+          "@id": "feature:b_7"
+        },
+        {
+          "@id": "feature:b_8"
+        },
+        {
+          "@id": "feature:b_9"
+        },
+        {
+          "@id": "feature:b_10"
+        },
+        {
+          "@id": "feature:b_11"
+        },
+        {
+          "@id": "feature:b_12"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_1002",
+      "label": "Biesdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0303",
+      "label": "Blankenburg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0308",
+      "label": "Blankenfelde",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0908",
+      "label": "Bohnsdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1211",
+      "label": "Borsigwalde",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0802",
+      "label": "Britz",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0309",
+      "label": "Buch",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0803",
+      "label": "Buckow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0401",
+      "label": "Charlottenburg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0406",
+      "label": "Charlottenburg-Nord",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_4",
+      "label": "Charlottenburg-Wilmersdorf",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0401"
+        },
+        {
+          "@id": "feature:o_0402"
+        },
+        {
+          "@id": "feature:o_0403"
+        },
+        {
+          "@id": "feature:o_0404"
+        },
+        {
+          "@id": "feature:o_0405"
+        },
+        {
+          "@id": "feature:o_0406"
+        },
+        {
+          "@id": "feature:o_0407"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0605",
+      "label": "Dahlem",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:Germany",
+      "label": "Deutschland",
+      "@type": "berlin_geo:Land",
+      "pathDepth": 0,
+      "has_part": [
+        {
+          "@id": "feature:Berlin"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_1104",
+      "label": "Falkenberg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0508",
+      "label": "Falkenhagener Feld",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1111",
+      "label": "Fennpfuhl",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0310",
+      "label": "Französisch Buchholz",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0702",
+      "label": "Friedenau",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1101",
+      "label": "Friedrichsfelde",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0911",
+      "label": "Friedrichshagen",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0201",
+      "label": "Friedrichshain",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_2",
+      "label": "Friedrichshain-Kreuzberg",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0201"
+        },
+        {
+          "@id": "feature:o_0202"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_1205",
+      "label": "Frohnau",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0505",
+      "label": "Gatow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0106",
+      "label": "Gesundbrunnen",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0805",
+      "label": "Gropiusstadt",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0404",
+      "label": "Grunewald",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0913",
+      "label": "Grünau",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0507",
+      "label": "Hakenfelde",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0407",
+      "label": "Halensee",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0103",
+      "label": "Hansaviertel",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0502",
+      "label": "Haselhorst",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1204",
+      "label": "Heiligensee",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0304",
+      "label": "Heinersdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1005",
+      "label": "Hellersdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1206",
+      "label": "Hermsdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1105",
+      "label": "Hohenschönhausen",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0904",
+      "label": "Johannisthal",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1102",
+      "label": "Karlshorst",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0305",
+      "label": "Karow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1003",
+      "label": "Kaulsdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0506",
+      "label": "Kladow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1203",
+      "label": "Konradshöhe",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0202",
+      "label": "Kreuzberg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0910",
+      "label": "Köpenick",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0603",
+      "label": "Lankwitz",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1103",
+      "label": "Lichtenberg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_11",
+      "label": "Lichtenberg",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_1101"
+        },
+        {
+          "@id": "feature:o_1102"
+        },
+        {
+          "@id": "feature:o_1103"
+        },
+        {
+          "@id": "feature:o_1104"
+        },
+        {
+          "@id": "feature:o_1105"
+        },
+        {
+          "@id": "feature:o_1106"
+        },
+        {
+          "@id": "feature:o_1107"
+        },
+        {
+          "@id": "feature:o_1109"
+        },
+        {
+          "@id": "feature:o_1110"
+        },
+        {
+          "@id": "feature:o_1111"
+        },
+        {
+          "@id": "feature:o_1112"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0706",
+      "label": "Lichtenrade",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0602",
+      "label": "Lichterfelde",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1208",
+      "label": "Lübars",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1004",
+      "label": "Mahlsdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1106",
+      "label": "Malchow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0704",
+      "label": "Mariendorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0705",
+      "label": "Marienfelde",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1001",
+      "label": "Marzahn",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_10",
+      "label": "Marzahn-Hellersdorf",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_1001"
+        },
+        {
+          "@id": "feature:o_1002"
+        },
+        {
+          "@id": "feature:o_1003"
+        },
+        {
+          "@id": "feature:o_1004"
+        },
+        {
+          "@id": "feature:o_1005"
+        }
+      ]
+    },
+    {
+      "@id": "feature:b_1",
+      "label": "Mitte",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0101"
+        },
+        {
+          "@id": "feature:o_0102"
+        },
+        {
+          "@id": "feature:o_0103"
+        },
+        {
+          "@id": "feature:o_0104"
+        },
+        {
+          "@id": "feature:o_0105"
+        },
+        {
+          "@id": "feature:o_0106"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0101",
+      "label": "Mitte",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0102",
+      "label": "Moabit",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1210",
+      "label": "Märkisches Viertel",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0914",
+      "label": "Müggelheim",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1109",
+      "label": "Neu-Hohenschönhausen",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0801",
+      "label": "Neukölln",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_8",
+      "label": "Neukölln",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0801"
+        },
+        {
+          "@id": "feature:o_0802"
+        },
+        {
+          "@id": "feature:o_0803"
+        },
+        {
+          "@id": "feature:o_0804"
+        },
+        {
+          "@id": "feature:o_0805"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0905",
+      "label": "Niederschöneweide",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0311",
+      "label": "Niederschönhausen",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0606",
+      "label": "Nikolassee",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0909",
+      "label": "Oberschöneweide",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_3",
+      "label": "Pankow",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0301"
+        },
+        {
+          "@id": "feature:o_0302"
+        },
+        {
+          "@id": "feature:o_0303"
+        },
+        {
+          "@id": "feature:o_0304"
+        },
+        {
+          "@id": "feature:o_0305"
+        },
+        {
+          "@id": "feature:o_0306"
+        },
+        {
+          "@id": "feature:o_0307"
+        },
+        {
+          "@id": "feature:o_0308"
+        },
+        {
+          "@id": "feature:o_0309"
+        },
+        {
+          "@id": "feature:o_0310"
+        },
+        {
+          "@id": "feature:o_0311"
+        },
+        {
+          "@id": "feature:o_0312"
+        },
+        {
+          "@id": "feature:o_0313"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0307",
+      "label": "Pankow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0902",
+      "label": "Plänterwald",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0301",
+      "label": "Prenzlauer Berg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0912",
+      "label": "Rahnsdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1201",
+      "label": "Reinickendorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_12",
+      "label": "Reinickendorf",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_1201"
+        },
+        {
+          "@id": "feature:o_1202"
+        },
+        {
+          "@id": "feature:o_1203"
+        },
+        {
+          "@id": "feature:o_1204"
+        },
+        {
+          "@id": "feature:o_1205"
+        },
+        {
+          "@id": "feature:o_1206"
+        },
+        {
+          "@id": "feature:o_1207"
+        },
+        {
+          "@id": "feature:o_1208"
+        },
+        {
+          "@id": "feature:o_1209"
+        },
+        {
+          "@id": "feature:o_1210"
+        },
+        {
+          "@id": "feature:o_1211"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0312",
+      "label": "Rosenthal",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0804",
+      "label": "Rudow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1112",
+      "label": "Rummelsburg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0403",
+      "label": "Schmargendorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0915",
+      "label": "Schmöckwitz",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0701",
+      "label": "Schöneberg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0503",
+      "label": "Siemensstadt",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_5",
+      "label": "Spandau",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0501"
+        },
+        {
+          "@id": "feature:o_0502"
+        },
+        {
+          "@id": "feature:o_0503"
+        },
+        {
+          "@id": "feature:o_0504"
+        },
+        {
+          "@id": "feature:o_0505"
+        },
+        {
+          "@id": "feature:o_0506"
+        },
+        {
+          "@id": "feature:o_0507"
+        },
+        {
+          "@id": "feature:o_0508"
+        },
+        {
+          "@id": "feature:o_0509"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0501",
+      "label": "Spandau",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0504",
+      "label": "Staaken",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0306",
+      "label": "Stadtrandsiedlung Malchow",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0601",
+      "label": "Steglitz",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_6",
+      "label": "Steglitz-Zehlendorf",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0601"
+        },
+        {
+          "@id": "feature:o_0602"
+        },
+        {
+          "@id": "feature:o_0603"
+        },
+        {
+          "@id": "feature:o_0604"
+        },
+        {
+          "@id": "feature:o_0605"
+        },
+        {
+          "@id": "feature:o_0606"
+        },
+        {
+          "@id": "feature:o_0607"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_1202",
+      "label": "Tegel",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0703",
+      "label": "Tempelhof",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_7",
+      "label": "Tempelhof-Schöneberg",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0701"
+        },
+        {
+          "@id": "feature:o_0702"
+        },
+        {
+          "@id": "feature:o_0703"
+        },
+        {
+          "@id": "feature:o_0704"
+        },
+        {
+          "@id": "feature:o_0705"
+        },
+        {
+          "@id": "feature:o_0706"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_0104",
+      "label": "Tiergarten",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:b_9",
+      "label": "Treptow-Köpenick",
+      "@type": "berlin_geo:Bezirk",
+      "pathDepth": 2,
+      "has_part": [
+        {
+          "@id": "feature:o_0901"
+        },
+        {
+          "@id": "feature:o_0902"
+        },
+        {
+          "@id": "feature:o_0903"
+        },
+        {
+          "@id": "feature:o_0904"
+        },
+        {
+          "@id": "feature:o_0905"
+        },
+        {
+          "@id": "feature:o_0906"
+        },
+        {
+          "@id": "feature:o_0907"
+        },
+        {
+          "@id": "feature:o_0908"
+        },
+        {
+          "@id": "feature:o_0909"
+        },
+        {
+          "@id": "feature:o_0910"
+        },
+        {
+          "@id": "feature:o_0911"
+        },
+        {
+          "@id": "feature:o_0912"
+        },
+        {
+          "@id": "feature:o_0913"
+        },
+        {
+          "@id": "feature:o_0914"
+        },
+        {
+          "@id": "feature:o_0915"
+        }
+      ]
+    },
+    {
+      "@id": "feature:o_1207",
+      "label": "Waidmannslust",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0607",
+      "label": "Wannsee",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1107",
+      "label": "Wartenberg",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0105",
+      "label": "Wedding",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0302",
+      "label": "Weißensee",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0405",
+      "label": "Westend",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0313",
+      "label": "Wilhelmsruh",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0509",
+      "label": "Wilhelmstadt",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0402",
+      "label": "Wilmersdorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_1209",
+      "label": "Wittenau",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    },
+    {
+      "@id": "feature:o_0604",
+      "label": "Zehlendorf",
+      "@type": "berlin_geo:Ortsteil",
+      "pathDepth": 3
+    }
+  ]
+}

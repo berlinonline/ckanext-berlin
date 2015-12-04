@@ -1,0 +1,819 @@
+{
+  "@context": {
+    "verwaltung": "http://daten.berlin.de/ref/organigramm/verwaltungen/",
+    "fullName": "http://daten.berlin.de/ref/organigramm/vocab#fullName",
+    "longName": "http://daten.berlin.de/ref/organigramm/vocab#longName",
+    "hasSubOrganization": "http://daten.berlin.de/ref/organigramm/vocab#hasSubOrganization"
+  },
+  "@graph": [
+    {
+      "@id": "verwaltung:id-6a159c6480211200cda369aa24b5925e08186dbf",
+      "fullName": "Amt für Statistik Berlin-Brandenburg",
+      "longName": "Amt für Statistik Berlin-Brandenburg",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-b2e73b05960c9be9b02e4670201918f24ec32b23",
+      "fullName": "BSR - Berliner Stadtreinigungsbetriebe",
+      "longName": "BSR - Berliner Stadtreinigungsbetriebe",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-7a16661fad15d66893b363d8eed87b35a8cd7564",
+      "fullName": "BerlinOnline Stadtportal GmbH & Co KG",
+      "longName": "BerlinOnline Stadtportal GmbH & Co KG",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-5e6a85c26149328f4dfc77cec189d6000e5a9d6a",
+      "fullName": "Bezirksamt Charlottenburg-Wilmersdorf",
+      "longName": "Bezirksamt Charlottenburg-Wilmersdorf",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-5286186825f41b95cc1e47fca8bc4869e3ba9dd5"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-5286186825f41b95cc1e47fca8bc4869e3ba9dd5",
+      "fullName": "Bezirksamt Charlottenburg-Wilmersdorf / Abteilung Jugend, Familie, Schule, Sport und Umwelt",
+      "longName": "Abteilung Jugend, Familie, Schule, Sport und Umwelt",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-153f07c5c09cbd2f4f753bd1c749483c195ea663"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-153f07c5c09cbd2f4f753bd1c749483c195ea663",
+      "fullName": "Bezirksamt Charlottenburg-Wilmersdorf / Abteilung Jugend, Familie, Schule, Sport und Umwelt / Umwelt- und Naturschutzamt",
+      "longName": "Umwelt- und Naturschutzamt",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-77a09f323c1eb885077a4f404fcbcfe6d59b81a4",
+      "fullName": "Bezirksamt Friedrichshain-Kreuzberg",
+      "longName": "Bezirksamt Friedrichshain-Kreuzberg",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-b10970a30a88dbe692c8b507f87cf8b699be6970"
+        },
+        {
+          "@id": "verwaltung:id-55d9a68450bb0e9bfa015818d36c6284e6495607"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-55d9a68450bb0e9bfa015818d36c6284e6495607",
+      "fullName": "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Familie, Gesundheit und Personal",
+      "longName": "Abteilung Familie, Gesundheit und Personal",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-91fec3ae8c23b475a2f3057884cb800fa7dcbe9f"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-91fec3ae8c23b475a2f3057884cb800fa7dcbe9f",
+      "fullName": "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Familie, Gesundheit und Personal / Jugendamt",
+      "longName": "Jugendamt",
+      "pathDepth": 2,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-327cdf161a4cf2a50f415ca87aa2f943d029b621"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-327cdf161a4cf2a50f415ca87aa2f943d029b621",
+      "fullName": "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Familie, Gesundheit und Personal / Jugendamt / Koordination Frühe Bildung und Erziehung",
+      "longName": "Koordination Frühe Bildung und Erziehung",
+      "pathDepth": 3
+    },
+    {
+      "@id": "verwaltung:id-b10970a30a88dbe692c8b507f87cf8b699be6970",
+      "fullName": "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Finanzen, Facility Management, Kultur und Weiterbildung",
+      "longName": "Abteilung Finanzen, Facility Management, Kultur und Weiterbildung",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-b6dcfe81bed93265ffd663bcc7d6cebb5131bc12"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-b6dcfe81bed93265ffd663bcc7d6cebb5131bc12",
+      "fullName": "Bezirksamt Friedrichshain-Kreuzberg / Abteilung Finanzen, Facility Management, Kultur und Weiterbildung / Serviceeinheit Finanzen",
+      "longName": "Serviceeinheit Finanzen",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-ead3a7dc099c70b7fc9209e200732b742d490b46",
+      "fullName": "Bezirksamt Lichtenberg",
+      "longName": "Bezirksamt Lichtenberg",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-2da9b1c70cf0c9a478e715740b33d8734b2dfd97"
+        },
+        {
+          "@id": "verwaltung:id-d1999039d545a41e53a6ffcfc360f16d9cd48f3a"
+        },
+        {
+          "@id": "verwaltung:id-4b42575eb79c055e45146627fa6804031c9d01f4"
+        },
+        {
+          "@id": "verwaltung:id-b975314ccba917bf9d37efa75db1d7bdd659f9ba"
+        },
+        {
+          "@id": "verwaltung:id-610c719cc153f3c69309f276d1a70534aab67570"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-4b42575eb79c055e45146627fa6804031c9d01f4",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Bildung, Kultur, Soziales und Sport",
+      "longName": "Abteilung Bildung, Kultur, Soziales und Sport",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-513fbd345294ccdf782745ba60938e9bc8c0df78"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-513fbd345294ccdf782745ba60938e9bc8c0df78",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Bildung, Kultur, Soziales und Sport / Amt für Soziales",
+      "longName": "Amt für Soziales",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-b975314ccba917bf9d37efa75db1d7bdd659f9ba",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Bürgerdienste, Ordnungsangelegenheiten und Immobilien",
+      "longName": "Abteilung Bürgerdienste, Ordnungsangelegenheiten und Immobilien",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-d1999039d545a41e53a6ffcfc360f16d9cd48f3a",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Jugend und Gesundheit",
+      "longName": "Abteilung Jugend und Gesundheit",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-ec392ed8ad284294918f757ae8f789c87a281b9b"
+        },
+        {
+          "@id": "verwaltung:id-fa60e3a5a9157d80bfd1fa4596ed63f9492c5be7"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-ec392ed8ad284294918f757ae8f789c87a281b9b",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Jugend und Gesundheit / Gesundheitsamt",
+      "longName": "Gesundheitsamt",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-fa60e3a5a9157d80bfd1fa4596ed63f9492c5be7",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Jugend und Gesundheit / Jugendamt",
+      "longName": "Jugendamt",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-610c719cc153f3c69309f276d1a70534aab67570",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung",
+      "longName": "Abteilung Stadtentwicklung",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-6610f59b3aeed92cc3c5258f883f78f35746a600"
+        },
+        {
+          "@id": "verwaltung:id-e1a84ca9929d0702abea82053b31c776028a45f0"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-e1a84ca9929d0702abea82053b31c776028a45f0",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Serviceeinheit Facility Management",
+      "longName": "Serviceeinheit Facility Management",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-6610f59b3aeed92cc3c5258f883f78f35746a600",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Stadtentwicklungsamt",
+      "longName": "Stadtentwicklungsamt",
+      "pathDepth": 2,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-0d74e6aeb86185b813d3b1c72262de39c82efa77"
+        },
+        {
+          "@id": "verwaltung:id-c08810420fee3e41cd30e59d39e332f116843044"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-0d74e6aeb86185b813d3b1c72262de39c82efa77",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Stadtentwicklungsamt / Bau- und Wohnungsaufsicht",
+      "longName": "Bau- und Wohnungsaufsicht",
+      "pathDepth": 3
+    },
+    {
+      "@id": "verwaltung:id-c08810420fee3e41cd30e59d39e332f116843044",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Stadtentwicklung / Stadtentwicklungsamt / Stadtplanung",
+      "longName": "Stadtplanung",
+      "pathDepth": 3
+    },
+    {
+      "@id": "verwaltung:id-2da9b1c70cf0c9a478e715740b33d8734b2dfd97",
+      "fullName": "Bezirksamt Lichtenberg / Abteilung Wirtschaft, Personal und Finanzen",
+      "longName": "Abteilung Wirtschaft, Personal und Finanzen",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-bb67584c4c095544f82ca6ce21cdaafd00f85fb3",
+      "fullName": "Bezirksamt Marzahn-Hellersdorf",
+      "longName": "Bezirksamt Marzahn-Hellersdorf",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-df6186a8d89294905db41b40aaddfec8cebd4e02"
+        },
+        {
+          "@id": "verwaltung:id-64ed3c7ad41eaf5eed00a2d95e024deeca061d13"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-df6186a8d89294905db41b40aaddfec8cebd4e02",
+      "fullName": "Bezirksamt Marzahn-Hellersdorf / Abteilung Jugend und Familie, Weiterbildung und Kultur",
+      "longName": "Abteilung Jugend und Familie, Weiterbildung und Kultur",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-5555253ac9beab6ba88d3cca4cc4e4e07a3abd62"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-5555253ac9beab6ba88d3cca4cc4e4e07a3abd62",
+      "fullName": "Bezirksamt Marzahn-Hellersdorf / Abteilung Jugend und Familie, Weiterbildung und Kultur / Jugendamt",
+      "longName": "Jugendamt",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-64ed3c7ad41eaf5eed00a2d95e024deeca061d13",
+      "fullName": "Bezirksamt Marzahn-Hellersdorf / Abteilung Schule, Sport, Finanzen und Personal",
+      "longName": "Abteilung Schule, Sport, Finanzen und Personal",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-884550fae196c34b6b7807d733645eff1ca648f4"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-884550fae196c34b6b7807d733645eff1ca648f4",
+      "fullName": "Bezirksamt Marzahn-Hellersdorf / Abteilung Schule, Sport, Finanzen und Personal / Serviceeinheit Finanzservice",
+      "longName": "Serviceeinheit Finanzservice",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-f2dcc0e65adbf760452241926a1015a933e7567e",
+      "fullName": "Bezirksamt Mitte",
+      "longName": "Bezirksamt Mitte",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-98af23bedad9efd7c601aa7f6476f1b2555b2acd",
+      "fullName": "Bezirksamt Neukölln",
+      "longName": "Bezirksamt Neukölln",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-54df550adfb253c22403554dbe635352b5005009",
+      "fullName": "Bezirksamt Pankow",
+      "longName": "Bezirksamt Pankow",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-bf4809aa277f91789f1bf5bf546091086d39685a",
+      "fullName": "Bezirksamt Reinickendorf",
+      "longName": "Bezirksamt Reinickendorf",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-41106434e2f51fe56b86a238fc7e54c0c1b17ac2",
+      "fullName": "Bezirksamt Spandau",
+      "longName": "Bezirksamt Spandau",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-9563e254e9ee5d61f7a4aa70abbf0c4e72d0c412",
+      "fullName": "Bezirksamt Steglitz-Zehlendorf",
+      "longName": "Bezirksamt Steglitz-Zehlendorf",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-dbc47c9edbaa73602927886849447c2de6b91402",
+      "fullName": "Bezirksamt Tempelhof-Schöneberg",
+      "longName": "Bezirksamt Tempelhof-Schöneberg",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-b6d6261bf709f4fe09066ee1d900407dd0cdb0b6",
+      "fullName": "Bezirksamt Treptow-Köpenick",
+      "longName": "Bezirksamt Treptow-Köpenick",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-6ffc2f057e6753b3880a18e02e1ff213b60fe327"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-6ffc2f057e6753b3880a18e02e1ff213b60fe327",
+      "fullName": "Bezirksamt Treptow-Köpenick / Büro des Bezirksbürgermeisters",
+      "longName": "Büro des Bezirksbürgermeisters",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-c9940265d0df19fe4d3f74248252172e30d89828",
+      "fullName": "DBpedia",
+      "longName": "DBpedia",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-ad4d3c17c577ef30328ccb0c8523fe5743d1f3e0",
+      "fullName": "Der Regierende Bürgermeister von Berlin",
+      "longName": "Der Regierende Bürgermeister von Berlin",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-fb6b99e887b1c7ae72457b947183ad7e25906793"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-fb6b99e887b1c7ae72457b947183ad7e25906793",
+      "fullName": "Der Regierende Bürgermeister von Berlin / Abteilung V: Senatskanzlei - Kulturelle Angelegenheiten",
+      "longName": "Abteilung V: Senatskanzlei - Kulturelle Angelegenheiten",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-be6779fb1a60b1fcf385673645acc30763c9a8a6",
+      "fullName": "Gedenkstätte Deutscher Widerstand",
+      "longName": "Gedenkstätte Deutscher Widerstand",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-b7ac05f486cdc3fadab1ea090b5a106ad04354fb",
+      "fullName": "Koordinierungsstelle Stolpersteine Berlin",
+      "longName": "Koordinierungsstelle Stolpersteine Berlin",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-353ec498df7df7af876fab8c62c9bdedf77acd2f",
+      "fullName": "Landesamt für Bürger- und Ordnungsangelegenheiten",
+      "longName": "Landesamt für Bürger- und Ordnungsangelegenheiten",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-cf19b134516cdd050ffb7a9a4f67a99d910ad711",
+      "fullName": "Landesamt für Gesundheit und Soziales",
+      "longName": "Landesamt für Gesundheit und Soziales",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-d1b11900f00e45356f23120c2e6248211b36def8",
+      "fullName": "OpenStreetMap",
+      "longName": "OpenStreetMap",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-f0f5d3d9191e643cc567bd235a0604497477449d",
+      "fullName": "Senatsverwaltung für Arbeit, Integration und Frauen",
+      "longName": "Senatsverwaltung für Arbeit, Integration und Frauen",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-0551c2f7f5ec932502b3a18c073b643917b1bbc5"
+        },
+        {
+          "@id": "verwaltung:id-93dc80c2fd595d0d609ed697084ea7ea7a9ce4cd"
+        },
+        {
+          "@id": "verwaltung:id-ab39296ebff865e478065d0c80a75304a86a33c9"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-0551c2f7f5ec932502b3a18c073b643917b1bbc5",
+      "fullName": "Senatsverwaltung für Arbeit, Integration und Frauen / Abteilung I: Frauen und Gleichstellung",
+      "longName": "Abteilung I: Frauen und Gleichstellung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-93dc80c2fd595d0d609ed697084ea7ea7a9ce4cd",
+      "fullName": "Senatsverwaltung für Arbeit, Integration und Frauen / Abteilung II: Arbeit und berufliche Bildung",
+      "longName": "Abteilung II: Arbeit und berufliche Bildung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-ab39296ebff865e478065d0c80a75304a86a33c9",
+      "fullName": "Senatsverwaltung für Arbeit, Integration und Frauen / Abteilung III: Beauftragter des Senats von Berlin für Integration und Migration",
+      "longName": "Abteilung III: Beauftragter des Senats von Berlin für Integration und Migration",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-92178fd78ccba5745d2aeb33ca71803f11d770a2",
+      "fullName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft",
+      "longName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-facaf4499f0e9fee8228488463c94f59df045ce4"
+        },
+        {
+          "@id": "verwaltung:id-7375b61fd7977086a0875e9dafbf88be913c80f4"
+        },
+        {
+          "@id": "verwaltung:id-53832d91564c9c3b045ce5c98ca8b403a5237a19"
+        },
+        {
+          "@id": "verwaltung:id-3206e97fbe15dfb1a88dac9ff21ca36679cfbab3"
+        },
+        {
+          "@id": "verwaltung:id-613c2bef7eebb0d3d57e8131ab4e8e1f359ca605"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-facaf4499f0e9fee8228488463c94f59df045ce4",
+      "fullName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung I: Unterstützung und Beratung der Schulen, operative Schulaufsicht, Schulpsychologie, Personalmanagement, Bildungsstatistik und Prognose, Weiterbildung, Berufliche und Zentral verwaltete Schulen",
+      "longName": "Abteilung I: Unterstützung und Beratung der Schulen, operative Schulaufsicht, Schulpsychologie, Personalmanagement, Bildungsstatistik und Prognose, Weiterbildung, Berufliche und Zentral verwaltete Schulen",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-7375b61fd7977086a0875e9dafbf88be913c80f4",
+      "fullName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung II: Grundsatzangelegenheiten der Schularten, Schulentwicklung, Schulrecht, Privatschulangelegenheiten",
+      "longName": "Abteilung II: Grundsatzangelegenheiten der Schularten, Schulentwicklung, Schulrecht, Privatschulangelegenheiten",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-53832d91564c9c3b045ce5c98ca8b403a5237a19",
+      "fullName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung III: Jugend und Familie, Landesjugendamt",
+      "longName": "Abteilung III: Jugend und Familie, Landesjugendamt",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-3206e97fbe15dfb1a88dac9ff21ca36679cfbab3",
+      "fullName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung IV: Hochschulen",
+      "longName": "Abteilung IV: Hochschulen",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-613c2bef7eebb0d3d57e8131ab4e8e1f359ca605",
+      "fullName": "Senatsverwaltung für Bildung, Jugend und Wissenschaft / Abteilung VI: Unterrichtsfächer, Qualitätssicherung, Lehrerbildung",
+      "longName": "Abteilung VI: Unterrichtsfächer, Qualitätssicherung, Lehrerbildung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-e62e823e5ddeb0072b5343f38ee1162a5b8d0001",
+      "fullName": "Senatsverwaltung für Finanzen",
+      "longName": "Senatsverwaltung für Finanzen",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-d10fecca49260c5133426c3156af25c9255896b6"
+        },
+        {
+          "@id": "verwaltung:id-39a2102a6d5dd5c6d02aa1096d5909bc0d75a6b6"
+        },
+        {
+          "@id": "verwaltung:id-918cf1805dca8b27d8f5fed63fa160e6669d7412"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-d10fecca49260c5133426c3156af25c9255896b6",
+      "fullName": "Senatsverwaltung für Finanzen / Abteilung I: Vermögen und Beteiligungen",
+      "longName": "Abteilung I: Vermögen und Beteiligungen",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-39a2102a6d5dd5c6d02aa1096d5909bc0d75a6b6",
+      "fullName": "Senatsverwaltung für Finanzen / Abteilung II: Finanzpolitik und Haushalt",
+      "longName": "Abteilung II: Finanzpolitik und Haushalt",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-918cf1805dca8b27d8f5fed63fa160e6669d7412",
+      "fullName": "Senatsverwaltung für Finanzen / Abteilung III: Angelegenheiten der Steuerverwaltung",
+      "longName": "Abteilung III: Angelegenheiten der Steuerverwaltung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-d1b7f968727d45b714f877b2cecb41b61a9a4abf",
+      "fullName": "Senatsverwaltung für Gesundheit und Soziales",
+      "longName": "Senatsverwaltung für Gesundheit und Soziales",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-7f547dcd11bae684d2c7e13b4fca786798a93209"
+        },
+        {
+          "@id": "verwaltung:id-887a63923539ebba4195bf9b952b2ef5eac3b2e2"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-7f547dcd11bae684d2c7e13b4fca786798a93209",
+      "fullName": "Senatsverwaltung für Gesundheit und Soziales / Abteilung I: Gesundheit",
+      "longName": "Abteilung I: Gesundheit",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-887a63923539ebba4195bf9b952b2ef5eac3b2e2",
+      "fullName": "Senatsverwaltung für Gesundheit und Soziales / Abteilung II: Soziales",
+      "longName": "Abteilung II: Soziales",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-469ce78ad2dfa1ffdb246502866356cbdf0ce715",
+      "fullName": "Senatsverwaltung für Inneres und Sport",
+      "longName": "Senatsverwaltung für Inneres und Sport",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-44f9fd600e82b395d60aa9b47b310c307e97c61d"
+        },
+        {
+          "@id": "verwaltung:id-435eab0cc8a61c1e2e7282b6c83a0f1bac53d339"
+        },
+        {
+          "@id": "verwaltung:id-3309c639a3931184f8ec23a225556ca2f2a3cb6e"
+        },
+        {
+          "@id": "verwaltung:id-47542433241bd009e51cea583512b602bb5fbd35"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-44f9fd600e82b395d60aa9b47b310c307e97c61d",
+      "fullName": "Senatsverwaltung für Inneres und Sport / Abteilung I: Staats-, Verwaltungs- und Dienstrecht",
+      "longName": "Abteilung I: Staats-, Verwaltungs- und Dienstrecht",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-435eab0cc8a61c1e2e7282b6c83a0f1bac53d339",
+      "fullName": "Senatsverwaltung für Inneres und Sport / Abteilung II: Verfassungsschutz",
+      "longName": "Abteilung II: Verfassungsschutz",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-3309c639a3931184f8ec23a225556ca2f2a3cb6e",
+      "fullName": "Senatsverwaltung für Inneres und Sport / Abteilung III: Öffentliche Sicherheit und Ordnung",
+      "longName": "Abteilung III: Öffentliche Sicherheit und Ordnung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-47542433241bd009e51cea583512b602bb5fbd35",
+      "fullName": "Senatsverwaltung für Inneres und Sport / Abteilung IV: Sport",
+      "longName": "Abteilung IV: Sport",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-e7d451198c20771211264c3c5f85e1dd46a51bbb",
+      "fullName": "Senatsverwaltung für Justiz und Verbraucherschutz",
+      "longName": "Senatsverwaltung für Justiz und Verbraucherschutz",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-39cc1bbbb3204c6233b3b49c40c157fd3e9d4e28"
+        },
+        {
+          "@id": "verwaltung:id-a8a844b33d837060440e4ff19e831b925b32a698"
+        },
+        {
+          "@id": "verwaltung:id-f4828773a13b8abe2221d2070f508e7dba1e3f9f"
+        },
+        {
+          "@id": "verwaltung:id-00e92098612d55cf7c379de58d8debb97214e4c0"
+        },
+        {
+          "@id": "verwaltung:id-72dba82de4dbd8bfdfd3aaf47e2135d0327459a0"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-39cc1bbbb3204c6233b3b49c40c157fd3e9d4e28",
+      "fullName": "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung I: Richterrecht, Anwalts- und Notariatswesen, Personal, Organisation, Informations- und Kommunikationstechnik, Gerichtsverfassung, Haushalt",
+      "longName": "Abteilung I: Richterrecht, Anwalts- und Notariatswesen, Personal, Organisation, Informations- und Kommunikationstechnik, Gerichtsverfassung, Haushalt",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-a8a844b33d837060440e4ff19e831b925b32a698",
+      "fullName": "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung II: Recht",
+      "longName": "Abteilung II: Recht",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-f4828773a13b8abe2221d2070f508e7dba1e3f9f",
+      "fullName": "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung III: Justizvollzug, Gnadenwesen, Soziale Dienste der Justiz, Führungsaufsichtsstelle",
+      "longName": "Abteilung III: Justizvollzug, Gnadenwesen, Soziale Dienste der Justiz, Führungsaufsichtsstelle",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-00e92098612d55cf7c379de58d8debb97214e4c0",
+      "fullName": "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung IV: Gemeinsames Juristisches Prüfungsamt der Länder Berlin und Brandenburg",
+      "longName": "Abteilung IV: Gemeinsames Juristisches Prüfungsamt der Länder Berlin und Brandenburg",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-72dba82de4dbd8bfdfd3aaf47e2135d0327459a0",
+      "fullName": "Senatsverwaltung für Justiz und Verbraucherschutz / Abteilung V: Verbraucherschutz",
+      "longName": "Abteilung V: Verbraucherschutz",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-9a83635b5e4bd4e6e9705002e9678c040be4afdc",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt",
+      "longName": "Senatsverwaltung für Stadtentwicklung und Umwelt",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-58f882d299e2200f7c25df4bdfcc008d3c09600b"
+        },
+        {
+          "@id": "verwaltung:id-e3bfa55c37809e5e1154fdce0050bedf1a225784"
+        },
+        {
+          "@id": "verwaltung:id-5dad0215814472e2b778fb7eb21e4fc2a5df7cc2"
+        },
+        {
+          "@id": "verwaltung:id-5e2bb93238fbeff6aeea44e6941a7ee2b8daf47d"
+        },
+        {
+          "@id": "verwaltung:id-a0a9c9591c6bde080772003cef54b9ef779f1030"
+        },
+        {
+          "@id": "verwaltung:id-2b39fb9c3e2a19512480c6cd5b7f42ae96e9bb38"
+        },
+        {
+          "@id": "verwaltung:id-447b577723345b1e9d4a7a8adda10fbc2e0d4eb7"
+        },
+        {
+          "@id": "verwaltung:id-c3e59e72f65f40e1bb03829b36c847b13e0d821c"
+        },
+        {
+          "@id": "verwaltung:id-16552430daccf6b7a740c83f1525c0c09e73ae20"
+        },
+        {
+          "@id": "verwaltung:id-ef6693ac54f408eab9640aeef91d4e6a004062d0"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-58f882d299e2200f7c25df4bdfcc008d3c09600b",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung I: Stadt- und Freiraumplanung",
+      "longName": "Abteilung I: Stadt- und Freiraumplanung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-e3bfa55c37809e5e1154fdce0050bedf1a225784",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung II: Städtebau und Projekte",
+      "longName": "Abteilung II: Städtebau und Projekte",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-5dad0215814472e2b778fb7eb21e4fc2a5df7cc2",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung III: Geoinformation",
+      "longName": "Abteilung III: Geoinformation",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-5e2bb93238fbeff6aeea44e6941a7ee2b8daf47d",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung IV: Wohnungswesen, Stadterneuerung, Soziale Stadt",
+      "longName": "Abteilung IV: Wohnungswesen, Stadterneuerung, Soziale Stadt",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-16552430daccf6b7a740c83f1525c0c09e73ae20",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung IX: Umweltpolitik, Abfallwirtschaft, Immissions und Klimaschutz",
+      "longName": "Abteilung IX: Umweltpolitik, Abfallwirtschaft, Immissions und Klimaschutz",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-a0a9c9591c6bde080772003cef54b9ef779f1030",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung V: Hochbau",
+      "longName": "Abteilung V: Hochbau",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-2b39fb9c3e2a19512480c6cd5b7f42ae96e9bb38",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung VI: Ministerielle Angelegenheiten des Bauwesens",
+      "longName": "Abteilung VI: Ministerielle Angelegenheiten des Bauwesens",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-447b577723345b1e9d4a7a8adda10fbc2e0d4eb7",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung VII: Verkehr",
+      "longName": "Abteilung VII: Verkehr",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-c3e59e72f65f40e1bb03829b36c847b13e0d821c",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung VIII: Integrativer Umweltschutz",
+      "longName": "Abteilung VIII: Integrativer Umweltschutz",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-ef6693ac54f408eab9640aeef91d4e6a004062d0",
+      "fullName": "Senatsverwaltung für Stadtentwicklung und Umwelt / Abteilung X: Tiefbau",
+      "longName": "Abteilung X: Tiefbau",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-255820693ecc18cc4b0d4b001213a58ab0e9716f",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung",
+      "longName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung",
+      "pathDepth": 0,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-5f0516cfd06e334f7de86bf8e46210c86ce4bcda"
+        },
+        {
+          "@id": "verwaltung:id-9e67dc1e4e0e32a1f24ba5d4f12bf80f09024d8f"
+        },
+        {
+          "@id": "verwaltung:id-de9c56af80a35b69c1318363e141d0c5834230cd"
+        },
+        {
+          "@id": "verwaltung:id-ba5260d476caadd93dfb9ba53503a216a0115cd0"
+        },
+        {
+          "@id": "verwaltung:id-24c46c59e3053a63d97aabcdce44c778cd1e17a7"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-5f0516cfd06e334f7de86bf8e46210c86ce4bcda",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung I: Zentralabteilung",
+      "longName": "Abteilung I: Zentralabteilung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-9e67dc1e4e0e32a1f24ba5d4f12bf80f09024d8f",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung II: Wirtschafts- und Technologiepolitik, Wirtschaftsordnung",
+      "longName": "Abteilung II: Wirtschafts- und Technologiepolitik, Wirtschaftsordnung",
+      "pathDepth": 1,
+      "hasSubOrganization": [
+        {
+          "@id": "verwaltung:id-74028178739c1065c8dd9428b4bc0f2b888b70ae"
+        }
+      ]
+    },
+    {
+      "@id": "verwaltung:id-74028178739c1065c8dd9428b4bc0f2b888b70ae",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung II: Wirtschafts- und Technologiepolitik, Wirtschaftsordnung / Referat II E: IKT, Medien, Kreativwirtschaft",
+      "longName": "Referat II E: IKT, Medien, Kreativwirtschaft",
+      "pathDepth": 2
+    },
+    {
+      "@id": "verwaltung:id-de9c56af80a35b69c1318363e141d0c5834230cd",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung III: Wirtschaftsförderung",
+      "longName": "Abteilung III: Wirtschaftsförderung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-ba5260d476caadd93dfb9ba53503a216a0115cd0",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Abteilung IV: Forschung",
+      "longName": "Abteilung IV: Forschung",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-24c46c59e3053a63d97aabcdce44c778cd1e17a7",
+      "fullName": "Senatsverwaltung für Wirtschaft, Technologie und Forschung / Landesstelle für Entwicklungszusammenarbeit",
+      "longName": "Landesstelle für Entwicklungszusammenarbeit",
+      "pathDepth": 1
+    },
+    {
+      "@id": "verwaltung:id-03e20da609d06c90bf2abbdb3ea89f1ac7fad5dc",
+      "fullName": "Stromnetz Berlin GmbH",
+      "longName": "Stromnetz Berlin GmbH",
+      "pathDepth": 0
+    },
+    {
+      "@id": "verwaltung:id-af06b15350da2a196832ce69e40850b6bea89db0",
+      "fullName": "VBB - Verkehrsverbund Berlin-Brandenburg GmbH",
+      "longName": "VBB - Verkehrsverbund Berlin-Brandenburg GmbH",
+      "pathDepth": 0
+    }
+  ]
+}

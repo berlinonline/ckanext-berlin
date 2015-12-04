@@ -1,5 +1,5 @@
 {
-  "@context": {
+  "@context": { 
     "label": "http://www.w3.org/2000/01/rdf-schema#label",
     "granularity": "https://daten.berlin.de/ref/geo/granularity/"
   },
