@@ -12,11 +12,15 @@
     {{ h.build_nav_main(
       ('about', _('About'))
     ) }}
-  {% else %}
+  {% elif c.userobj %}
     {{ h.build_nav_main(
       ('search', _('Datasets')),
       ('organizations_index', _('Organizations')),
       ('group_index', _('Kategorien')),
+      ('about', _('About'))
+    ) }}
+  {% else %}
+    {{ h.build_nav_main(
       ('about', _('About'))
     ) }}
   {% endif %}

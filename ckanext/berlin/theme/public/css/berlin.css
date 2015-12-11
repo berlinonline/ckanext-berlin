@@ -65,7 +65,7 @@ body {
 }
 
 /*
-* Other
+* Forms
 */
 
 .none-value {
@@ -77,3 +77,14 @@ th[scope="col"] {
   background-color: #726E60; 
   color: #D9E7EB;
 }
+
+.control-label {
+/*-ms-word-break: break-all;
+     word-break: break-all;
+
+     word-break: break-word;
+*/
+-webkit-hyphens: manual;
+/*   -moz-hyphens: auto;
+        hyphens: auto;
+*/}

@@ -13,7 +13,7 @@
         {# Dataset Type #}
         <tr>
           <th scope="row" class="dataset-label">{{ _("Art") }}</th>
-          <td class="dataset-details">{{ h.berlin_dataset_type_mapping()[h.get_pkg_dict_extra(pkg_dict, 'berlin.type')] }}</th>
+          <td class="dataset-details">{{ h.berlin_dataset_type_mapping()[pkg_dict.berlin_type] }}</th>
         </tr>
 
         {# Status #}
@@ -45,10 +45,10 @@
         {# Veröffentlichende Person #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Veröffentlichende Person') }}</th>
-          {% if h.get_pkg_dict_extra(pkg_dict, 'username') == None %}
+          {% if not pkg_dict.username %}
             <td class="dataset-details none-value" property="dc:contributor">undefiniert</td>
           {% else %}
-            <td class="dataset-details" property="dc:contributor">{{ h.get_pkg_dict_extra(pkg_dict, 'username') }}</td>
+            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.username }}</td>
           {% endif %}
         </tr>
         
@@ -73,53 +73,59 @@
         {# Veröffentlichungsdatum #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Veröffentlichungsdatum') }}</th>
-          {% if h.get_pkg_dict_extra(pkg_dict, 'date_released') == None %}
+          {% if pkg_dict.date_released == None %}
             <td class="dataset-details none-value">undefiniert</td>
           {% else %}
-            <td class="dataset-details">{{ h.render_datetime(h.get_pkg_dict_extra(pkg_dict, 'date_released')) }}</td>
+            <td class="dataset-details">{{ h.render_datetime(pkg_dict.date_released) }}</td>
           {% endif %}
         </tr>
         
         {# Aktualisierungsdatum #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Aktualisierungsdatum') }}</th>
-          {% if h.get_pkg_dict_extra(pkg_dict, 'date_updated') == None %}
+          {% if pkg_dict.date_updated == None %}
             <td class="dataset-details none-value">undefiniert</td>
           {% else %}
-            <td class="dataset-details">{{ h.render_datetime(h.get_pkg_dict_extra(pkg_dict, 'date_updated')) }}</td>
+            <td class="dataset-details">{{ h.render_datetime(pkg_dict.date_updated) }}</td>
           {% endif %}
         </tr>
         
         {# Zeitliche Abdeckung von ... #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Zeitliche Abdeckung von') }} &hellip;</th>
-          {% if h.get_pkg_dict_extra(pkg_dict, 'temporal_coverage_from') == None %}
+          {% if pkg_dict.temporal_coverage_from == None %}
             <td class="dataset-details none-value">undefiniert</td>
           {% else %}
-            <td class="dataset-details">{{ h.render_datetime(h.get_pkg_dict_extra(pkg_dict, 'temporal_coverage_from')) }}</td>
+            <td class="dataset-details">{{ h.render_datetime(pkg_dict.temporal_coverage_from) }}</td>
           {% endif %}
         </tr>
         
         {# Zeitliche Abdeckung ... bis #}
         <tr>
           <th scope="row" class="dataset-label">&hellip; {{ _('bis') }}</th>
-          {% if h.get_pkg_dict_extra(pkg_dict, 'temporal_coverage_to') == None %}
+          {% if pkg_dict.temporal_coverage_to == None %}
             <td class="dataset-details none-value">undefiniert</td>
           {% else %}
-            <td class="dataset-details">{{ h.render_datetime(h.get_pkg_dict_extra(pkg_dict, 'temporal_coverage_to')) }}</td>
+            <td class="dataset-details">{{ h.render_datetime(pkg_dict.temporal_coverage_to) }}</td>
           {% endif %}
         </tr>
         
         {# Zeitliche Auflösung #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Zeitliche Auflösung') }}</th>
-          <td class="dataset-details">{{ h.get_pkg_dict_extra(pkg_dict, 'temporal_granularity') }}</td>
+          <td class="dataset-details">{{ pkg_dict.temporal_granularity }}</td>
         </tr>
         
         {# Geografische Abdeckung #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Geografische Abdeckung') }}</th>
-          <td class="dataset-details">{{ h.get_pkg_dict_extra(pkg_dict, 'geographical_coverage') }}</td>
+          <td class="dataset-details">{{ pkg_dict.geographical_coverage }}</td>
+        </tr>
+        
+        {# Geografische Auflösung #}
+        <tr>
+          <th scope="row" class="dataset-label">{{ _('Geografische Auflösung') }}</th>
+          <td class="dataset-details">{{ pkg_dict.geographical_granularity }}</td>
         </tr>
       </tbody>
     </table>

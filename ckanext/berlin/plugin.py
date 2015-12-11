@@ -4,17 +4,30 @@ import os
 import logging
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-# import ckan.lib.plugins as lib_plugins
-# import ckan.lib.navl.validators as validators
-# import ckan.logic as logic
+import ckan.logic.validators as validators
+import validation as berlin_validators
+import ckan.lib.plugins as lib_plugins
+import ckan.logic as logic
 # import ckan.logic.action.get as get
 # import ckan.logic.action.update as update
 # import ckan.logic.converters as converters
-# import ckan.lib.base as base
+import ckan.lib.base as base
+
 # import validation as helper
 # from ckan.lib.navl.dictization_functions import DataError, StopOnError
+from routes import url_for as url_for
+from pylons import config
 
 log = logging.getLogger(__name__)
+
+# rather brutal implementation: if you're not logged in,
+# you're not allowd to see anything. Not even the landing page
+def berlin_site_read(context, data_dict=None):
+    if context['user']:
+        return { 'success': True }
+    else:
+        return { 'success': False }
+
 
 def dataset_type_mapping():
     return {
@@ -23,20 +36,161 @@ def dataset_type_mapping():
       'app': 'Anwendung'
     }
 
+def author_select_options():
+    return org_register().org_hierarchy_list()
+
+# eventually, these values should come from a JSON API
+# ids should be URIs, not just the label string
+def geo_coverage_select_options():
+    return [
+        { u'id': u'Adlershof', u'label': u'Adlershof' } ,
+        { u'id': u'Alt-Hohenschönhausen', u'label': u'Alt-Hohenschönhausen' } ,
+        { u'id': u'Alt-Treptow', u'label': u'Alt-Treptow' } ,
+        { u'id': u'Altglienicke', u'label': u'Altglienicke' } ,
+        { u'id': u'Baumschulenweg', u'label': u'Baumschulenweg' } ,
+        { u'id': u'Berlin', u'label': u'Berlin' } ,
+        { u'id': u'Biesdorf', u'label': u'Biesdorf' } ,
+        { u'id': u'Blankenburg', u'label': u'Blankenburg' } ,
+        { u'id': u'Blankenfelde', u'label': u'Blankenfelde' } ,
+        { u'id': u'Bohnsdorf', u'label': u'Bohnsdorf' } ,
+        { u'id': u'Britz', u'label': u'Britz' } ,
+        { u'id': u'Buch', u'label': u'Buch' } ,
+        { u'id': u'Buckow', u'label': u'Buckow' } ,
+        { u'id': u'Charlottenburg', u'label': u'Charlottenburg' } ,
+        { u'id': u'Charlottenburg-Nord', u'label': u'Charlottenburg-Nord' } ,
+        { u'id': u'Dahlem', u'label': u'Dahlem' } ,
+        { u'id': u'Deutschland', u'label': u'Deutschland' } ,
+        { u'id': u'Friedenau', u'label': u'Friedenau' } ,
+        { u'id': u'Friedrichsfelde', u'label': u'Friedrichsfelde' } ,
+        { u'id': u'Friedrichshagen', u'label': u'Friedrichshagen' } ,
+        { u'id': u'Friedrichshain', u'label': u'Friedrichshain' } ,
+        { u'id': u'Frohnau', u'label': u'Frohnau' } ,
+        { u'id': u'Gatow', u'label': u'Gatow' } ,
+        { u'id': u'Gesundbrunnen', u'label': u'Gesundbrunnen' } ,
+        { u'id': u'Gropiusstadt', u'label': u'Gropiusstadt' } ,
+        { u'id': u'Grunewald', u'label': u'Grunewald' } ,
+        { u'id': u'Grünau', u'label': u'Grünau' } ,
+        { u'id': u'Hakenfelde', u'label': u'Hakenfelde' } ,
+        { u'id': u'Halensee', u'label': u'Halensee' } ,
+        { u'id': u'Hansaviertel', u'label': u'Hansaviertel' } ,
+        { u'id': u'Haselhorst', u'label': u'Haselhorst' } ,
+        { u'id': u'Heiligensee', u'label': u'Heiligensee' } ,
+        { u'id': u'Heinersdorf', u'label': u'Heinersdorf' } ,
+        { u'id': u'Hellersdorf', u'label': u'Hellersdorf' } ,
+        { u'id': u'Hermsdorf', u'label': u'Hermsdorf' } ,
+        { u'id': u'Hohenschönhausen', u'label': u'Hohenschönhausen' } ,
+        { u'id': u'Johannisthal', u'label': u'Johannisthal' } ,
+        { u'id': u'Karlshorst', u'label': u'Karlshorst' } ,
+        { u'id': u'Karow', u'label': u'Karow' } ,
+        { u'id': u'Kaulsdorf', u'label': u'Kaulsdorf' } ,
+        { u'id': u'Kladow', u'label': u'Kladow' } ,
+        { u'id': u'Lichtenberg', u'label': u'Lichtenberg' } ,
+        { u'id': u'Lichtenrade', u'label': u'Lichtenrade' } ,
+        { u'id': u'Lichterfelde', u'label': u'Lichterfelde' } ,
+        { u'id': u'Lübars', u'label': u'Lübars' } ,
+        { u'id': u'Mahlsdorf', u'label': u'Mahlsdorf' } ,
+        { u'id': u'Malchow', u'label': u'Malchow' } ,
+        { u'id': u'Mariendorf', u'label': u'Mariendorf' } ,
+        { u'id': u'Marienfelde', u'label': u'Marienfelde' } ,
+        { u'id': u'Marzahn', u'label': u'Marzahn' } ,
+        { u'id': u'Marzahn-Hellersdorf', u'label': u'Marzahn-Hellersdorf' } ,
+        { u'id': u'Mitte', u'label': u'Mitte' } ,
+        { u'id': u'Moabit', u'label': u'Moabit' } ,
+        { u'id': u'Märkisches Viertel', u'label': u'Märkisches Viertel' } ,
+        { u'id': u'Müggelheim', u'label': u'Müggelheim' } ,
+        { u'id': u'Neu-Hohenschönhausen', u'label': u'Neu-Hohenschönhausen' } ,
+        { u'id': u'Neukölln', u'label': u'Neukölln' } ,
+        { u'id': u'Niederschöneweide', u'label': u'Niederschöneweide' } ,
+        { u'id': u'Niederschönhausen', u'label': u'Niederschönhausen' } ,
+        { u'id': u'Nikolassee', u'label': u'Nikolassee' } ,
+        { u'id': u'Oberschöneweide', u'label': u'Oberschöneweide' } ,
+        { u'id': u'Pankow', u'label': u'Pankow' } ,
+        { u'id': u'Plänterwald', u'label': u'Plänterwald' } ,
+        { u'id': u'Prenzlauer Berg', u'label': u'Prenzlauer Berg' } ,
+        { u'id': u'Rahnsdorf', u'label': u'Rahnsdorf' } ,
+        { u'id': u'Reinickendorf', u'label': u'Reinickendorf' } ,
+        { u'id': u'Schmöckwitz', u'label': u'Schmöckwitz' } ,
+        { u'id': u'Schöneberg', u'label': u'Schöneberg' } ,
+        { u'id': u'Siemensstadt', u'label': u'Siemensstadt' } ,
+        { u'id': u'Spandau', u'label': u'Spandau' } ,
+        { u'id': u'Staaken', u'label': u'Staaken' } ,
+        { u'id': u'Stadtrandsiedlung Malchow', u'label': u'Stadtrandsiedlung Malchow' } ,
+        { u'id': u'Steglitz', u'label': u'Steglitz' } ,
+        { u'id': u'Steglitz-Zehlendorf', u'label': u'Steglitz-Zehlendorf' } ,
+        { u'id': u'Tegel', u'label': u'Tegel' } ,
+        { u'id': u'Tempelhof', u'label': u'Tempelhof' } ,
+        { u'id': u'Tempelhof-Schöneberg', u'label': u'Tempelhof-Schöneberg' } ,
+        { u'id': u'Tiergarten', u'label': u'Tiergarten' } ,
+        { u'id': u'Treptow-Köpenick', u'label': u'Treptow-Köpenick' } ,
+        { u'id': u'Waidmannslust', u'label': u'Waidmannslust' } ,
+        { u'id': u'Wannsee', u'label': u'Wannsee' } ,
+        { u'id': u'Wartenberg', u'label': u'Wartenberg' } ,
+        { u'id': u'Wedding', u'label': u'Wedding' } ,
+        { u'id': u'Weißensee', u'label': u'Weißensee' } ,
+        { u'id': u'Westend', u'label': u'Westend' } ,
+        { u'id': u'Wilhelmsruh', u'label': u'Wilhelmsruh' } ,
+        { u'id': u'Wilhelmstadt', u'label': u'Wilhelmstadt' } ,
+        { u'id': u'Wilmersdorf', u'label': u'Wilmersdorf' } ,
+        { u'id': u'Wittenau', u'label': u'Wittenau' } ,
+        { u'id': u'Zehlendorf', u'label': u'Zehlendorf' } ,
+    ]
+    
+def type_mapping_select_options():
+    options = []
+    for machine, human in dataset_type_mapping().items():
+        options.append({ 'text': human, 'value': machine})
+    return options
+
+# eventually, these values should come from a JSON API
+# ids should be URIs, not just the label string
+def temporal_granularity_select_options():
+    return [
+        { u'id': u'Keine', u'label': u'Keine' } ,
+        { u'id': u'5 Jahre', u'label': u'5 Jahre' } ,
+        { u'id': u'Jahr', u'label': u'Jahr' } ,
+        { u'id': u'Quartal', u'label': u'Quartal' } ,
+        { u'id': u'Monat', u'label': u'Monat' } ,
+        { u'id': u'Woche', u'label': u'Woche' } ,
+        { u'id': u'Tag', u'label': u'Tag' } ,
+        { u'id': u'Stunde', u'label': u'Stunde' } ,
+        { u'id': u'Minute', u'label': u'Minute' } ,
+        { u'id': u'Sekunde', u'label': u'Sekunde' } ,
+    ]
+
+# eventually, these values should come from a JSON API
+# ids should be URIs, not just the label string
+def geo_granularity_select_options():
+    return [
+        { u'id': u'Deutschland', u'label': u'Deutschland' } ,
+        { u'id': u'Berlin', u'label': u'Berlin' } ,
+        { u'id': u'Bezirk', u'label': u'Bezirk' } ,
+        { u'id': u'Ortsteil', u'label': u'Ortsteil' } ,
+        { u'id': u'Prognoseraum', u'label': u'Prognoseraum' } ,
+        { u'id': u'Bezirksregion', u'label': u'Bezirksregion' } ,
+        { u'id': u'Planungsraum', u'label': u'Planungsraum' } ,
+        { u'id': u'Block', u'label': u'Block' } ,
+        { u'id': u'Einschulbereich', u'label': u'Einschulbereich' } ,
+        { u'id': u'Kontaktbereich', u'label': u'Kontaktbereich' } ,
+        { u'id': u'PLZ', u'label': u'PLZ' } ,
+        { u'id': u'Stimmbezirk', u'label': u'Stimmbezirk' } ,
+        { u'id': u'Quartiersmanagement', u'label': u'Quartiersmanagement' } ,
+        { u'id': u'Wohnanlage', u'label': u'Wohnanlage' } ,
+        { u'id': u'Wahlkreis', u'label': u'Wahlkreis' } ,
+    ]
+
 def state_mapping():
-    log.debug("foo bar")
     return {
-        'active': u'veröffentlicht',
+        'active': u'veröffentlicht' ,
         'deleted': u'gelöscht'
     }
 
 
-class BerlinPlugin(plugins.SingletonPlugin):
-    # lib_plugins.DefaultDatasetForm):
+class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
     plugins.implements(plugins.IConfigurer, inherit=False)
     plugins.implements(plugins.ITemplateHelpers)
-    # plugins.implements(plugins.IDatasetForm, inherit=False)
+    plugins.implements(plugins.IDatasetForm)
+    plugins.implements(plugins.IAuthFunctions)
     # plugins.implements(plugins.IActions, inherit=False)
 
     # -------------------------------------------------------------------
@@ -58,353 +212,199 @@ class BerlinPlugin(plugins.SingletonPlugin):
         config['ckan.locale_default'] = "de"
         config['ckan.locale_order'] = "de en"
         config['ckan.locales_filtered_out'] = "ar bg ca cs_CZ da_DK el en_AU es fa_IR fi fr he hr hu id is it ja km ko_KR lt lv mn_MN ne nl no pl pt_BR pt_PT ro ru sk sl sq sr sr_Latn sv th tr uk_UA vi zh_CN zh_TW"
-        # config['ckan.fix_partial_updates'] = False
+        config['licenses_group_url'] = "https://datenregister.berlin.de/licenses/berlin-od-portal.json"
+
+        # authentication stuff:
+        config['ckan.auth.anon_create_dataset'] = False
+        config['ckan.auth.create_unowned_dataset'] = True
+        config['ckan.auth.create_dataset_if_not_in_organization'] = True
+        config['ckan.auth.user_create_groups'] = False
+        config['ckan.auth.user_create_organizations'] = False
+        config['ckan.auth.user_delete_groups'] = False
+        config['ckan.auth.user_delete_organizations'] = False
+        config['ckan.auth.create_user_via_api'] = False
+        config['ckan.auth.create_user_via_web'] = False
+        config['ckan.auth.roles_that_cascade_to_sub_groups'] = 'admin'
+
 
     # -------------------------------------------------------------------
     # Implementation ITemplateHelpers
     # -------------------------------------------------------------------
 
     def get_helpers(self):
-        return { 
+        return {
             'berlin_dataset_type_mapping': dataset_type_mapping ,
+            'berlin_type_mapping_select_options': type_mapping_select_options ,
+            'berlin_author_select_options': author_select_options ,
+            'berlin_temporal_granularity_select_options': temporal_granularity_select_options ,
+            'berlin_geo_granularity_select_options': geo_granularity_select_options ,
+            'berlin_geo_coverage_select_options':
+                geo_coverage_select_options ,
             'berlin_state_mapping': state_mapping
         }
 
-    # # -------------------------------------------------------------------
-    # # Implementation IActions
-    # # -------------------------------------------------------------------
+    # -------------------------------------------------------------------
+    # Implementation IAuthFunctions
+    # -------------------------------------------------------------------
     
-    # def get_actions(self):
-        
-    #     log.debug("get_actions")
-        
-    #     def user_show(context, data_dict):
-            
-    #         log.debug("ckanext.berlin user_show")
-            
-    #         user_dict = get.user_show(context, data_dict)
-    #         datasets = user_dict['datasets']
-    #         for dataset in datasets:
-    #             if 'resources' not in dataset:
-    #                 log.debug("no resources in dataset, adding empty list")
-    #                 dataset['resources'] = []
-    #             if 'notes' not in dataset:
-    #                 log.debug('no notes in dataset, adding empty string')
-    #                 dataset['notes'] = u''
-            
-    #         return user_dict
-        
-        
-        
-    #     # def package_update_rest(context, data_dict):
-    #     #     
-    #     #     log.debug("ckanext.berlin package_update_rest")
-    #     #     
-    #     #     name = data_dict.get("name")
-    #     #     current_data_dict = get.package_show(context, {'name_or_id': name})
-    #     #     
-    #     #     date_updated = current_data_dict.get('date_updated', None)
-    #     #     
-    #     #     data_dict['date_updated'] = date_updated
-    #     #     
-    #     #     context["extras_as_string"] = True
-    #     #     return  update.package_update(context, data_dict)
-        
-    #     return {
-    #         'user_show': user_show,
-    #         # 'package_update_rest': package_update_rest,
-    #     }
+    def get_auth_functions(self):
+        return {
+            'site_read': berlin_site_read ,
+        }
 
-    # # -------------------------------------------------------------------
-    # # Implementation IDatasetForm
-    # # -------------------------------------------------------------------
-
-    # def package_types(self):
-    #     # This plugin doesn't handle any special package types, it just
-    #     # registers itself as the default (above).
-    #     return []
-
-    # def is_fallback(self):
-    #     # Return True to register this plugin as the default handler for
-    #     # package types not handled by any other IDatasetForm plugin.
-    #     return True
-
-    # def form_to_db_schema(self):
-    #     log.warning("form_to_db_schema")
-
-    #     # get base dataset schema
-    #     schema = logic.schema.form_to_db_package_schema()
-
-    #     schema.update({
-    #         # default fields
-    #         'author': [helper.not_missing],
-    #         'maintainer_email': [helper.not_missing, helper.validate_email_address, unicode],
-    #         'license_id': [helper.not_missing],
-
-    #         # custom fields
-    #         'username': [validators.ignore_missing, unicode,
-    #           converters.convert_to_extras],
-    #         'date_released': [helper.not_missing, helper.validate_date, unicode,
-    #           converters.convert_to_extras],
-    #         'date_updated': [validators.ignore_empty, helper.validate_date, unicode,
-    #           converters.convert_to_extras],
-    #         'temporal_coverage-from': [validators.ignore_empty, helper.validate_date, unicode,
-    #           converters.convert_to_extras],
-    #         'temporal_coverage-to': [validators.ignore_empty, helper.validate_date, unicode,
-    #           converters.convert_to_extras],
-    #         'temporal_granularity': [validators.ignore_missing,
-    #         converters.convert_to_tags('temporal_granularities')],
-    #         'geographical_granularity': [validators.ignore_missing,
-    #         converters.convert_to_tags('geographical_granularities')],
-    #         'geographical_coverage': [validators.ignore_missing,
-    #         converters.convert_to_tags('geographical_coverages')],
-    #         'apps': [validators.ignore_missing, unicode,
-    #           converters.convert_to_extras],
-    #         'misc': [validators.ignore_missing, unicode,
-    #           converters.convert_to_extras],
-    #     })
-
-    #     return schema
-
-    # def db_to_form_schema(self):
-    #     log.warning("db_to_form_schema")
+    # -------------------------------------------------------------------
+    # Implementation IDatasetForm
+    # -------------------------------------------------------------------
     
-    #     # get base dataset schema
-    #     schema = logic.schema.db_to_form_package_schema()
-        
-    #     # add our custom fields
-    #     schema.update({
-    #         'username': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         'date_released': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         'date_updated': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         'temporal_coverage-from': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         'temporal_coverage-to': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         'temporal_granularity': [converters.convert_from_tags('temporal_granularities'),
-    #         validators.ignore_missing],
-    #         'geographical_granularity': [converters.convert_from_tags('geographical_granularities'),
-    #         validators.ignore_missing],
-    #         'geographical_coverage': [converters.convert_from_tags('geographical_coverages'),
-    #         validators.ignore_missing],
-    #         'apps': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         'misc': [converters.convert_from_extras,
-    #           validators.ignore_missing],
-    #         # need to do something with "isopen" to prevent it from being stripped off the dataset dict during validation:
-    #         'isopen': [validators.ignore_missing],
-    #     })
-    
-    #     return schema
+    def package_types(self):
+        # This plugin doesn't handle any special package types, it just
+        # registers itself as the default (above).
+        return []
 
-    
-    # # def form_to_db_schema_api_create(self):
-    # #     
-    # #     log.warning("form_to_db_schema_api_create")
-    # #     schema = self.form_to_db_schema()
-    # #     schema.update({
-    # #         'tags': logic.schema.default_tags_schema(),
-    # #         # 'extras': [validators.ignore],
-    # #     })
-    # #     return schema
-    # #     
-    # # def form_to_db_schema_api_update(self):
-    # # 
-    # #     log.warning("form_to_db_schema_api_update")
-    # #     schema = self.form_to_db_schema()
-    # #     schema.update({
-    # #         'tags': logic.schema.default_tags_schema(),
-    # #     })
-    # #     return schema
-    # # 
+    def is_fallback(self):
+        # Return True to register this plugin as the default handler for
+        # package types not handled by any other IDatasetForm plugin.
+        return True
 
-    # def setup_template_variables(self, context, data_dict=None):
-    #     lib_plugins.DefaultDatasetForm.setup_template_variables(self, context, data_dict)
+    def create_package_schema(self):
+        # let's grab the default schema in our plugin
+        schema = super(BerlinPlugin, self).create_package_schema()
+        schema = self._modify_package_schema(schema)
+        return schema
 
-    #     self.create_temporal_granularities()
-    #     self.create_geographical_granularities()
-    #     self.create_geographical_coverages()
+    def update_package_schema(self):
+        # let's grab the default schema in our plugin
+        schema = super(BerlinPlugin, self).update_package_schema()
+        schema = self._modify_package_schema(schema)
+        return schema
 
-    #     try:
-    #         toolkit.c.temporal_granularities = logic.get_action('tag_list')(
-    #         context, {'vocabulary_id': 'temporal_granularities'})
-    #     except logic.NotFound:
-    #         log.warning("no temporal_granularities vocab found, that should not happen!")
-    #         toolkit.c.country_codes = None
+    def _modify_package_schema(self, schema):
+        schema.update({
+            'username': [
+                toolkit.get_validator('ignore_missing'),
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'berlin_type': [
+                toolkit.get_validator('ignore_missing'),
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'date_released': [
+                toolkit.get_validator('ignore_missing'),
+                berlin_validators.isodate_notime,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'date_updated': [
+                toolkit.get_validator('ignore_missing'),
+                berlin_validators.isodate_notime,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'temporal_granularity': [
+                toolkit.get_validator('ignore_missing'),
+                # TODO: add validation
+                # berlin_validators.contained_in_enum,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'temporal_coverage_from': [
+                toolkit.get_validator('ignore_missing'),
+                berlin_validators.isodate_notime,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'temporal_coverage_to': [
+                toolkit.get_validator('ignore_missing'),
+                berlin_validators.isodate_notime,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'geographical_granularity': [
+                toolkit.get_validator('ignore_missing'),
+                # TODO: add validation
+                # berlin_validators.contained_in_enum,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
+            'geographical_coverage': [
+                toolkit.get_validator('ignore_missing'),
+                # TODO: add validation
+                # berlin_validators.contained_in_enum,
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        return schema
 
-    #     try:
-    #         toolkit.c.geographical_granularities = logic.get_action('tag_list')(
-    #         context, {'vocabulary_id': 'geographical_granularities'})
-    #     except logic.NotFound:
-    #         log.warning("no geographical_granularities vocab found, that should not happen!")
-    #         toolkit.c.geographical_granularities = None
+    def show_package_schema(self):
+        # let's grab the default schema in our plugin
+        schema = super(BerlinPlugin, self).show_package_schema()
+        schema.update({
+            'username': [
+                toolkit.get_converter('convert_from_extras'),
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'berlin_type': [
+                toolkit.get_converter('convert_from_extras'),
+                toolkit.get_validator('not_missing')
+            ]
+        })
+        schema.update({
+            'date_released': [
+                toolkit.get_converter('convert_from_extras'),
+                berlin_validators.isodate_notime,
+                toolkit.get_validator('not_missing')
+            ]
+        })
+        schema.update({
+            'date_updated': [
+                toolkit.get_converter('convert_from_extras'),
+                berlin_validators.isodate_notime,
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'temporal_granularity': [
+                toolkit.get_converter('convert_from_extras'),
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'temporal_coverage_from': [
+                toolkit.get_converter('convert_from_extras'),
+                berlin_validators.isodate_notime,
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'temporal_coverage_to': [
+                toolkit.get_converter('convert_from_extras'),
+                berlin_validators.isodate_notime,
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'geographical_granularity': [
+                toolkit.get_converter('convert_from_extras'),
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'geographical_coverage': [
+                toolkit.get_converter('convert_from_extras'),
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        return schema
 
-    #     try:
-    #         toolkit.c.geographical_coverages = logic.get_action('tag_list')(
-    #         context, {'vocabulary_id': 'geographical_coverages'})
-    #     except logic.NotFound:
-    #         log.warning("no geographical_coverages vocab found, that should not happen!")
-    #         toolkit.c.geographical_coverages = None
-
-    # # -------------------------------------------------------------------
-
-    # def create_vocab(self, vocab_name, tags):
-    #     user = logic.get_action('get_site_user')({
-    #         'model': base.model, 'ignore_auth': True}, {})
-    #     context = {
-    #         'model': base.model, 
-    #         'session': base.model.Session,
-    #         'user': user['name']
-    #     }
-
-    #     try:
-    #         data = {'id': vocab_name}
-    #         logic.get_action('vocabulary_show')(context, data)
-    #         log.info("'{name}' vocabulary already exists, skipping.".format(name=vocab_name))
-    #     except logic.NotFound:
-    #         log.info("Creating vocab '{name}'".format(name=vocab_name))
-    #         data = {'name': vocab_name}
-    #         vocab = logic.get_action('vocabulary_create')(context, data)
-    #         for tag in tags:
-    #             log.info(u"Adding tag {0} to vocab '".format(tag) + vocab_name + "'")
-    #             data = {'name': tag, 'vocabulary_id': vocab['id']}
-    #             logic.get_action('tag_create')(context, data)
-
-    # def create_temporal_granularities(self):
-    #     vocab_name = 'temporal_granularities'
-    #     tags = [
-    #         u'Keine',
-    #         u'5 Jahre',
-    #         u'Jahr',
-    #         u'Quartal',
-    #         u'Monat',
-    #         u'Woche',
-    #         u'Tag',
-    #         u'Stunde',
-    #         u'Minute',
-    #         u'Sekunde'
-    #     ]
-    #     self.create_vocab(vocab_name, tags)
-
-    # def create_geographical_granularities(self):
-    #     vocab_name = 'geographical_granularities'
-    #     tags = [
-    #         u'Deutschland',
-    #         u'Berlin',
-    #         u'Bezirk',
-    #         u'Ortsteil',
-    #         u'Prognoseraum',
-    #         u'Bezirksregion',
-    #         u'Planungsraum',
-    #         u'Block',
-    #         u'Einschulbereich',
-    #         u'Kontaktbereich',
-    #         u'PLZ',
-    #         u'Stimmbezirk',
-    #         u'Quartiersmanagement',
-    #         u'Wohnanlage',
-    #         u'Wahlkreis'
-    #     ]
-    #     self.create_vocab(vocab_name, tags)
-
-    # def create_geographical_coverages(self):
-    #     vocab_name = 'geographical_coverages'
-    #     tags = [
-    #         u'Adlershof',
-    #         u'Alt-Hohenschönhausen',
-    #         u'Alt-Treptow',
-    #         u'Altglienicke',
-    #         u'Baumschulenweg',
-    #         u'Berlin',
-    #         u'Biesdorf',
-    #         u'Blankenburg',
-    #         u'Blankenfelde',
-    #         u'Bohnsdorf',
-    #         u'Britz',
-    #         u'Buch',
-    #         u'Buckow',
-    #         u'Charlottenburg',
-    #         u'Charlottenburg-Nord',
-    #         u'Dahlem',
-    #         u'Deutschland',
-    #         u'Friedenau',
-    #         u'Friedrichsfelde',
-    #         u'Friedrichshagen',
-    #         u'Friedrichshain',
-    #         u'Frohnau',
-    #         u'Gatow',
-    #         u'Gesundbrunnen',
-    #         u'Gropiusstadt',
-    #         u'Grunewald',
-    #         u'Grünau',
-    #         u'Hakenfelde',
-    #         u'Halensee',
-    #         u'Hansaviertel',
-    #         u'Haselhorst',
-    #         u'Heiligensee',
-    #         u'Heinersdorf',
-    #         u'Hellersdorf',
-    #         u'Hermsdorf',
-    #         u'Hohenschönhausen',
-    #         u'Johannisthal',
-    #         u'Karlshorst',
-    #         u'Karow',
-    #         u'Kaulsdorf',
-    #         u'Kladow',
-    #         u'Lichtenberg',
-    #         u'Lichtenrade',
-    #         u'Lichterfelde',
-    #         u'Lübars',
-    #         u'Mahlsdorf',
-    #         u'Malchow',
-    #         u'Mariendorf',
-    #         u'Marienfelde',
-    #         u'Marzahn',
-    #         u'Marzahn-Hellersdorf',
-    #         u'Mitte',
-    #         u'Moabit',
-    #         u'Märkisches Viertel',
-    #         u'Müggelheim',
-    #         u'Neu-Hohenschönhausen',
-    #         u'Neukölln',
-    #         u'Niederschöneweide',
-    #         u'Niederschönhausen',
-    #         u'Nikolassee',
-    #         u'Oberschöneweide',
-    #         u'Pankow ',
-    #         u'Pankow',
-    #         u'Plänterwald',
-    #         u'Prenzlauer Berg',
-    #         u'Rahnsdorf',
-    #         u'Reinickendorf',
-    #         u'Schmöckwitz',
-    #         u'Schöneberg',
-    #         u'Siemensstadt',
-    #         u'Spandau',
-    #         u'Staaken',
-    #         u'Stadtrandsiedlung Malchow',
-    #         u'Steglitz',
-    #         u'Steglitz-Zehlendorf',
-    #         u'Tegel',
-    #         u'Tempelhof',
-    #         u'Tempelhof-Schöneberg',
-    #         u'Tiergarten',
-    #         u'Treptow-Köpenick',
-    #         u'Waidmannslust',
-    #         u'Wannsee',
-    #         u'Wartenberg',
-    #         u'Wedding',
-    #         u'Weißensee',
-    #         u'Westend',
-    #         u'Wilhelmsruh',
-    #         u'Wilhelmstadt',
-    #         u'Wilmersdorf',
-    #         u'Wittenau',
-    #         u'Zehlendorf'
-    #     ]
-    #     self.create_vocab(vocab_name, tags)
-
-    # 
