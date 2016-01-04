@@ -93,7 +93,7 @@
         {# Zeitliche Abdeckung von ... #}
         <tr>
           <th scope="row" class="dataset-label">{{ _('Zeitliche Abdeckung von') }} &hellip;</th>
-          {% if pkg_dict.temporal_coverage_from == None %}
+          {% if not pkg_dict.temporal_coverage_from %}
             <td class="dataset-details none-value">undefiniert</td>
           {% else %}
             <td class="dataset-details">{{ h.render_datetime(pkg_dict.temporal_coverage_from) }}</td>
@@ -103,7 +103,7 @@
         {# Zeitliche Abdeckung ... bis #}
         <tr>
           <th scope="row" class="dataset-label">&hellip; {{ _('bis') }}</th>
-          {% if pkg_dict.temporal_coverage_to == None %}
+          {% if not pkg_dict.temporal_coverage_to %}
             <td class="dataset-details none-value">undefiniert</td>
           {% else %}
             <td class="dataset-details">{{ h.render_datetime(pkg_dict.temporal_coverage_to) }}</td>
