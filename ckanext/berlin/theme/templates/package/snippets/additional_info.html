@@ -16,6 +16,12 @@
           <td class="dataset-details">{{ h.berlin_dataset_type_mapping()[pkg_dict.berlin_type] }}</th>
         </tr>
 
+        {# Dataset Source #}
+        <tr>
+          <th scope="row" class="dataset-label">{{ _("Quelle") }}</th>
+          <td class="dataset-details">{{ pkg_dict.berlin_source }}</th>
+        </tr>
+
         {# Status #}
         {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
           <tr>

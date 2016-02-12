@@ -168,4 +168,6 @@
     </div>
   {% endif %}
 
+  {{ form.input('berlin_source', label=_('Quelle'), id='field-berlin_source', value=data.berlin_source, error=errors.berlin_source, classes=['control-medium']) }}
+
 {% endblock %}

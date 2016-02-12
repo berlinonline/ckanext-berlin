@@ -292,6 +292,12 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             ]
         })
         schema.update({
+            'berlin_source': [
+                toolkit.get_validator('ignore_missing'),
+                toolkit.get_converter('convert_to_extras')
+            ]
+        })
+        schema.update({
             'date_released': [
                 toolkit.get_validator('ignore_missing'),
                 berlin_validators.isodate_notime,
@@ -356,6 +362,12 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         })
         schema.update({
             'berlin_type': [
+                toolkit.get_converter('convert_from_extras'),
+                toolkit.get_validator('not_missing')
+            ]
+        })
+        schema.update({
+            'berlin_source': [
                 toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('not_missing')
             ]
