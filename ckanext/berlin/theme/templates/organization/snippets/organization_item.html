@@ -27,6 +27,8 @@ Example:
     {% endif %}
   {% endblock %}
   {% block datasets %}
+    {# This fix is included in 2.5.1 anyway, so we can remove this file after
+    upgrading #}
     {% if organization.package_count %}
       <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', organization.package_count).format(num=organization.package_count) }}</strong>
     {% else %}
