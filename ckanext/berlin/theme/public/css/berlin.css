@@ -88,3 +88,10 @@ th[scope="col"] {
 /*   -moz-hyphens: auto;
         hyphens: auto;
 */}
+
+/* User Organzation List */
+
+.org-list ul {
+  list-style-type: none;
+  margin: 0px;
+}

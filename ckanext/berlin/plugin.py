@@ -2,6 +2,7 @@
 
 import os
 import logging
+import ckan.model as model
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import ckan.logic.validators as validators
@@ -187,6 +188,19 @@ def state_mapping():
     }
 
 
+def organizations_for_user(user, permission='create_dataset'):
+    '''Return a list of organizations that the given user has the specified
+    permission for.
+    '''
+    context = {'user': user}
+    data_dict = {'permission': permission}
+    return logic.get_action('organization_list_for_user')(context, data_dict)
+
+def is_sysadmin(user_name):
+    user = model.User.get(unicode(user_name))
+    return user.sysadmin
+
+
 class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
     plugins.implements(plugins.IConfigurer, inherit=False)
@@ -242,7 +256,9 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'berlin_geo_granularity_select_options': geo_granularity_select_options ,
             'berlin_geo_coverage_select_options':
                 geo_coverage_select_options ,
-            'berlin_state_mapping': state_mapping
+            'berlin_state_mapping': state_mapping ,
+            'berlin_user_orgs': organizations_for_user ,
+            'berlin_is_sysadmin': is_sysadmin ,
         }
 
     # -------------------------------------------------------------------
