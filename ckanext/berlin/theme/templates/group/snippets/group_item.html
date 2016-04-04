@@ -28,10 +28,12 @@ Example:
     {% endif %}
   {% endblock %}
   {% block datasets %}
-    {% if group.package_count > 0 %}
-      <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', group.package_count).format(num=group.package_count) }}</strong>
-    {% else %}
-      <span class="count">{{ _('0 Datasets') }}</span>
+    {% if group.package_count %}
+      {% if group.package_count > 0 %}
+        <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', group.package_count).format(num=group.package_count) }}</strong>
+      {% else %}
+        <span class="count">{{ _('0 Datasets') }}</span>
+      {% endif %}
     {% endif %}
   {% endblock %}
   {% block link %}
