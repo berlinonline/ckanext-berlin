@@ -168,6 +168,11 @@
     </div>
   {% endif %}
 
-  {{ form.input('berlin_source', label=_('Quelle'), id='field-berlin_source', value=data.berlin_source, error=errors.berlin_source, classes=['control-medium']) }}
+  <div class="control-group control-medium" style="display: none;">
+    <label class="control-label" for="field-berlin_source">Quelle</label>
+    <div class="controls ">
+    <input id="field-berlin_source" type="text" name="berlin_source" {% if data.berlin_source %} value="{{data.berlin_source}}" {% else %} value="webform" {% endif %} placeholder="">
+    </div>
+  </div>
 
 {% endblock %}
