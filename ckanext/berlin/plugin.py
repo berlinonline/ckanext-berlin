@@ -179,6 +179,7 @@ def geo_granularity_select_options():
         { u'id': u'Quartiersmanagement', u'label': u'Quartiersmanagement' } ,
         { u'id': u'Wohnanlage', u'label': u'Wohnanlage' } ,
         { u'id': u'Wahlkreis', u'label': u'Wahlkreis' } ,
+        { u'id': u'Adresse', u'label': u'Adresse' } ,
     ]
 
 def state_mapping():
