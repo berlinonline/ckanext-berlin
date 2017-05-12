@@ -1,6 +1,17 @@
 CKANEXT-BERLIN CHANGELOG
 ++++++++++++++++++++++++
 
+v2.1
+====
+
+* adjustments for CKAN 2.6.2
+
+v2.0
+====
+
+* reimplemented for CKAN 2.4
+
+
 release v1.0-regelbetrieb
 =========================
 

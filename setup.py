@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '2.0a'
+version = '2.1a'
 
 setup(
 	name='ckanext-berlin',
@@ -12,8 +12,6 @@ setup(
 	This includes interface customisations (custom page templates, icons, css) and a custom
 	dataset form aimed at the administration staff of the various Berlin departments and 
 	administrative offices.
-
-	This verion is re-implemented from scratch for CKAN-2.4
 	""",
 	classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
 	keywords='',
