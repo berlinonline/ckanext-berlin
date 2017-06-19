@@ -17,9 +17,10 @@ def isodate_notime(value, context):
         return None
     try:
         date = datetime.strptime(value[:10], "%Y-%m-%d")
+        date = date.__format__("%Y-%m-%d")
     except (TypeError, ValueError), e:
-        raise Invalid(_('Date format incorrect. Use ISO8601: YYYY-MM-DD'))
-    return date.__format__("%Y-%m-%d")
+        raise Invalid(_('Date format incorrect. Use ISO8601: YYYY-MM-DD. Only dates after 1900 allowed!'))
+    return date
 
 def contained_in_enum(value, context):
     # TODO: this does not work. How can I pass a list of terms (the enum) 
