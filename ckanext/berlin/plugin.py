@@ -331,6 +331,12 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             ]
         })
         schema.update({
+            'attribution_text': [
+                toolkit.get_validator('ignore_missing'),
+                toolkit.get_converter('convert_to_extras')                
+            ]
+        })
+        schema.update({
             'temporal_granularity': [
                 toolkit.get_validator('ignore_missing'),
                 # TODO: add validation
@@ -402,6 +408,12 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'date_updated': [
                 toolkit.get_converter('convert_from_extras'),
                 berlin_validators.isodate_notime,
+                toolkit.get_validator('ignore_missing')
+            ]
+        })
+        schema.update({
+            'attribution_text': [
+                toolkit.get_converter('convert_from_extras'),
                 toolkit.get_validator('ignore_missing')
             ]
         })

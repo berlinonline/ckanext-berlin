@@ -46,6 +46,8 @@
 </div>
 {% endblock %}
 
+  {{ form.input('attribution_text', label=_('Text für Namensnennung'), id='field-attribution_text', placeholder=_('Der exakte Text, der im Rahmen der Namensnennung anzugeben ist.'), value=data.attribution_text, error=errors.attribution_text, classes=['control-full']) }}
+
   <hr/>
 
   {{ form.input('date_released', label=_('Veröffentlichungs-datum'), id='field-date_released', placeholder=_('Format: JJJJ-MM-TT'), value=data.date_released, error=errors.date_released, classes=['control-medium']) }}
