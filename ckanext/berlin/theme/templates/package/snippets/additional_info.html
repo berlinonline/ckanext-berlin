@@ -75,6 +75,15 @@
           <th scope="row" class="dataset-label">{{ _('Lizenz') }}</th>
           <td class="dataset-details">{{ pkg_dict.license_title }} ({{ pkg_dict.license_id }})</td>
         </tr>
+        {# Attribution #}
+        <tr>
+          <th scope="row" class="dataset-label">{{ _('Text für Namensnennung') }}</th>
+          {% if pkg_dict.attribution_text == None %}
+            <td class="dataset-details none-value">undefiniert</td>
+          {% else %}
+            <td class="dataset-details">{{ pkg_dict.attribution_text }}</td>
+          {% endif %}
+        </tr>
 
         {# Veröffentlichungsdatum #}
         <tr>
@@ -170,7 +179,7 @@
       </thead>
       <tbody>
       {% block extras scoped %}
-        {% for extra in h.sorted_extras(pkg_dict.extras, exclude=['berlin.type', 'username', 'date_released', 'date_updated', 'temporal_coverage_from', 'temporal_coverage_to', 'temporal_granularity', 'geographical_coverage']) %}
+        {% for extra in h.sorted_extras(pkg_dict.extras, exclude=['berlin.type', 'username', 'attribution_text', 'date_released', 'date_updated', 'temporal_coverage_from', 'temporal_coverage_to', 'temporal_granularity', 'geographical_coverage']) %}
           {% set key, value = extra %}
           <tr rel="dc:relation" resource="_:extra{{ i }}">
             <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
