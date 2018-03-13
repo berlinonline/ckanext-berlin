@@ -59,6 +59,7 @@ def geo_coverage_select_options():
         { u'id': u'Buckow', u'label': u'Buckow' } ,
         { u'id': u'Charlottenburg', u'label': u'Charlottenburg' } ,
         { u'id': u'Charlottenburg-Nord', u'label': u'Charlottenburg-Nord' } ,
+        { u'id': u'Charlottenburg-Wilmersdorf', u'label': u'Charlottenburg-Wilmersdorf' } ,
         { u'id': u'Dahlem', u'label': u'Dahlem' } ,
         { u'id': u'Deutschland', u'label': u'Deutschland' } ,
         { u'id': u'Friedenau', u'label': u'Friedenau' } ,
