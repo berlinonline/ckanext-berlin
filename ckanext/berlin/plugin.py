@@ -29,9 +29,6 @@ def dataset_type_mapping():
       'app': 'Anwendung'
     }
 
-def author_select_options():
-    return org_register().org_hierarchy_list()
-
 # eventually, these values should come from a JSON API
 # ids should be URIs, not just the label string
 def geo_coverage_select_options():
@@ -237,7 +234,6 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         return {
             'berlin_dataset_type_mapping': dataset_type_mapping ,
             'berlin_type_mapping_select_options': type_mapping_select_options ,
-            'berlin_author_select_options': author_select_options ,
             'berlin_temporal_granularity_select_options': temporal_granularity_select_options ,
             'berlin_geo_granularity_select_options': geo_granularity_select_options ,
             'berlin_geo_coverage_select_options':
