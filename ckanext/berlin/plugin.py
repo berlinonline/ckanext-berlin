@@ -229,7 +229,7 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         config['ckan.favicon'] = "/favicon.ico"
         config['ckan.locale_default'] = "de"
         config['ckan.locale_order'] = "de en"
-        config['ckan.locales_filtered_out'] = "ar bg ca cs_CZ da_DK el en_AU es fa_IR fi fr he hr hu id is it ja km ko_KR lt lv mn_MN ne nl no pl pt_BR pt_PT ro ru sk sl sq sr sr_Latn sv th tr uk_UA vi zh_CN zh_TW"
+        config['ckan.locales_offered'] = "de en"
         site_url = config.get('ckan.site_url', None)
         port = 80
         url_parts = site_url.split(":")
