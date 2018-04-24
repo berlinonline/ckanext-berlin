@@ -21,14 +21,6 @@ from pylons import config
 
 log = logging.getLogger(__name__)
 
-# rather brutal implementation: if you're not logged in,
-# you're not allowd to see anything. Not even the landing page
-def berlin_site_read(context, data_dict=None):
-    if context['user']:
-        return { 'success': True }
-    else:
-        return { 'success': False }
-
 
 def dataset_type_mapping():
     return {
@@ -198,6 +190,7 @@ def organizations_for_user(user, permission='create_dataset'):
     data_dict = {'permission': permission}
     return logic.get_action('organization_list_for_user')(context, data_dict)
 
+
 def is_sysadmin(user_name):
     user = model.User.get(unicode(user_name))
     return user.sysadmin
@@ -208,8 +201,6 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer, inherit=False)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IDatasetForm)
-    plugins.implements(plugins.IAuthFunctions)
-    # plugins.implements(plugins.IActions, inherit=False)
 
     # -------------------------------------------------------------------
     # Implementation IConfigurer
@@ -237,18 +228,6 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             port = url_parts[2]
         config['licenses_group_url'] = "http://localhost:{}{}".format(port, "/licenses/berlin-od-portal.json")
 
-        # authentication stuff:
-        config['ckan.auth.anon_create_dataset'] = False
-        config['ckan.auth.create_unowned_dataset'] = True
-        config['ckan.auth.create_dataset_if_not_in_organization'] = True
-        config['ckan.auth.user_create_groups'] = False
-        config['ckan.auth.user_create_organizations'] = False
-        config['ckan.auth.user_delete_groups'] = False
-        config['ckan.auth.user_delete_organizations'] = False
-        config['ckan.auth.create_user_via_api'] = False
-        config['ckan.auth.create_user_via_web'] = False
-        config['ckan.auth.roles_that_cascade_to_sub_groups'] = 'admin'
-
 
     # -------------------------------------------------------------------
     # Implementation ITemplateHelpers
@@ -266,15 +245,6 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'berlin_state_mapping': state_mapping ,
             'berlin_user_orgs': organizations_for_user ,
             'berlin_is_sysadmin': is_sysadmin ,
-        }
-
-    # -------------------------------------------------------------------
-    # Implementation IAuthFunctions
-    # -------------------------------------------------------------------
-    
-    def get_auth_functions(self):
-        return {
-            'site_read': berlin_site_read ,
         }
 
     # -------------------------------------------------------------------
