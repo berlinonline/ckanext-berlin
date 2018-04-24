@@ -210,11 +210,8 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         # overriding configuration fields:
         # set our local template and resource overrides
         toolkit.add_public_directory(config, our_public_dir)
-        toolkit.add_template_directory(config, template_dir)
 
         config['ckan.site_title'] = "Datenregister Berlin"
-        config['ckan.site_logo'] = "/images/berlin_open_data.png"
-        config['ckan.favicon'] = "/favicon.ico"
         config['ckan.locale_default'] = "de"
         config['ckan.locale_order'] = "de en"
         config['ckan.locales_offered'] = "de en"
