@@ -230,7 +230,12 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         config['ckan.locale_default'] = "de"
         config['ckan.locale_order'] = "de en"
         config['ckan.locales_filtered_out'] = "ar bg ca cs_CZ da_DK el en_AU es fa_IR fi fr he hr hu id is it ja km ko_KR lt lv mn_MN ne nl no pl pt_BR pt_PT ro ru sk sl sq sr sr_Latn sv th tr uk_UA vi zh_CN zh_TW"
-        config['licenses_group_url'] = "https://datenregister.berlin.de/licenses/berlin-od-portal.json"
+        site_url = config.get('ckan.site_url', None)
+        port = 80
+        url_parts = site_url.split(":")
+        if len(url_parts) > 2:
+            port = url_parts[2]
+        config['licenses_group_url'] = "http://localhost:{}{}".format(port, "/licenses/berlin-od-portal.json")
 
         # authentication stuff:
         config['ckan.auth.anon_create_dataset'] = False
