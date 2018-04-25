@@ -2,22 +2,9 @@
 
 import os
 import logging
-import ckan.model as model
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-import ckan.logic.validators as validators
 import validation as berlin_validators
-import ckan.lib.plugins as lib_plugins
-import ckan.logic as logic
-# import ckan.logic.action.get as get
-# import ckan.logic.action.update as update
-# import ckan.logic.converters as converters
-import ckan.lib.base as base
-
-# import validation as helper
-# from ckan.lib.navl.dictization_functions import DataError, StopOnError
-from routes import url_for as url_for
-from pylons import config
 
 log = logging.getLogger(__name__)
 
@@ -33,7 +20,6 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
     def update_config(self, config):  
         our_public_dir = os.path.join('theme', 'public')
-        template_dir = os.path.join('theme', 'templates')
 
         # overriding configuration fields:
         # set our local template and resource overrides
@@ -49,24 +35,6 @@ class BerlinPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         if len(url_parts) > 2:
             port = url_parts[2]
         config['licenses_group_url'] = "http://localhost:{}{}".format(port, "/licenses/berlin-od-portal.json")
-
-
-    # -------------------------------------------------------------------
-    # Implementation ITemplateHelpers
-    # -------------------------------------------------------------------
-
-    def get_helpers(self):
-        return {
-            'berlin_dataset_type_mapping': dataset_type_mapping ,
-            'berlin_type_mapping_select_options': type_mapping_select_options ,
-            'berlin_temporal_granularity_select_options': temporal_granularity_select_options ,
-            'berlin_geo_granularity_select_options': geo_granularity_select_options ,
-            'berlin_geo_coverage_select_options':
-                geo_coverage_select_options ,
-            'berlin_state_mapping': state_mapping ,
-            'berlin_user_orgs': organizations_for_user ,
-            'berlin_is_sysadmin': is_sysadmin ,
-        }
 
     # -------------------------------------------------------------------
     # Implementation IDatasetForm
