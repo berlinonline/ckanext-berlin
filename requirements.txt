@@ -1,0 +1,6 @@
+git+https://github.com/berlinonline/ckanext-berlintheme.git@master#egg=ckanext-berlintheme
+git+https://github.com/berlinonline/ckanext-berlinauth.git@master#egg=ckanext-berlinauth
+git+https://github.com/berlinonline/ckanext-berlin_dataset_schema.git@master#egg=ckanext-berlin_dataset_schema
+git+https://github.com/berlinonline/ckanext-dcatde_berlin.git@master#egg=ckanext-dcatde_berlin
+git+https://github.com/knudmoeller/fisbroker.git@develop#egg=ckanext-fisbroker
+git+https://github.com/knudmoeller/ckanext-stromnetzberlin.git@develop#egg=ckanext-stromnetzberlin
