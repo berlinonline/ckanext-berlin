@@ -11,9 +11,5 @@ ckanext-berlin is the container plugin for a range of plugins that together form
 * ckanext-fisbroker: a harvester for the FIS-Broker Geo-Portal
 * ckanext-stromnetzberlin: a harvester for the StromnetzBerlin data portal
 
-Additionally, ckanext-berlin requires specific forks of the following plugins:
-
-* ckanext-spatial: https://github.com/berlinonline/ckanext-spatial.git@develop
-
 
 Developed by Knud Möller for [BerlinOnline](http://berlinonline.de)
