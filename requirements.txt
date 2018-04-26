@@ -1,6 +1,18 @@
+# CKAN:
+-e git+https://github.com/berlinonline/ckan.git@devel/register_overhaul#egg=ckan
+
+# The required plugins:
 -e git+https://github.com/berlinonline/ckanext-berlintheme.git@master#egg=ckanext-berlintheme
 -e git+https://github.com/berlinonline/ckanext-berlinauth.git@master#egg=ckanext-berlinauth
 -e git+https://github.com/berlinonline/ckanext-berlin_dataset_schema.git@master#egg=ckanext-berlin_dataset_schema
 -e git+https://github.com/berlinonline/ckanext-dcatde_berlin.git@master#egg=ckanext-dcatde_berlin
 -e git+https://github.com/knudmoeller/fisbroker.git@develop#egg=ckanext-fisbroker
 -e git+https://github.com/knudmoeller/ckanext-stromnetzberlin.git@develop#egg=ckanext-stromnetzberlin
+
+# The requirements of the plugins (I wish pip would process requirements.txt files recursively):
+## ckanext-fisbroker
+-e 'git+https://github.com/ckan/ckanext-harvest.git@0918a9a3415#egg=ckanext-harvest'
+-e 'git+https://github.com/berlinonline/ckanext-spatial.git@develop#egg=ckanext-spatial'
+
+## ckanext-dcatde_berlin
+ckanext-dcat==0.0.6
