@@ -15,4 +15,4 @@
 -e 'git+https://github.com/berlinonline/ckanext-spatial.git@develop#egg=ckanext-spatial'
 
 ## ckanext-dcatde_berlin
-ckanext-dcat==0.0.6
+-e 'git+https://github.com/ckan/ckanext-dcat.git@v0.0.7#egg=ckanext-dcat'
