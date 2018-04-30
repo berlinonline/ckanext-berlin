@@ -2,8 +2,8 @@
 -e git+https://github.com/berlinonline/ckan.git@devel/register_overhaul#egg=ckan
 
 # The required plugins:
--e git+https://github.com/berlinonline/ckanext-berlintheme.git@master#egg=ckanext-berlintheme
--e git+https://github.com/berlinonline/ckanext-berlinauth.git@master#egg=ckanext-berlinauth
+-e git+https://github.com/berlinonline/ckanext-berlintheme.git@feature/register-mode#egg=ckanext-berlintheme
+-e git+https://github.com/berlinonline/ckanext-berlinauth.git@feature/register-mode#egg=ckanext-berlinauth
 -e git+https://github.com/berlinonline/ckanext-berlin_dataset_schema.git@master#egg=ckanext-berlin_dataset_schema
 -e git+https://github.com/berlinonline/ckanext-dcatde_berlin.git@master#egg=ckanext-dcatde_berlin
 -e git+https://github.com/knudmoeller/fisbroker.git@develop#egg=ckanext-fisbroker
