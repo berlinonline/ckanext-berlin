@@ -28,9 +28,5 @@ class BerlinPlugin(plugins.SingletonPlugin):
         config['ckan.locale_order'] = "de en"
         config['ckan.locales_offered'] = "de en"
         site_url = config.get('ckan.site_url', None)
-        port = 80
-        url_parts = site_url.split(":")
-        if len(url_parts) > 2:
-            port = url_parts[2]
-        config['licenses_group_url'] = "http://localhost:{}{}".format(port, "/licenses/berlin-od-portal.json")
+        config['licenses_group_url'] = "{}{}".format(site_url, "/licenses/berlin-od-portal.json")
 
