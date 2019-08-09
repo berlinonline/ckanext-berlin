@@ -65,6 +65,19 @@
     "url": "https://www.govdata.de/dl-de/zero-2-0" 
   }, 
   {
+    "domain_content": false, 
+    "domain_data": true, 
+    "domain_software": false, 
+    "family": "", 
+    "id": "dl-de-by-2.0", 
+    "is_okd_compliant": true, 
+    "is_osi_compliant": false, 
+    "maintainer": "", 
+    "status": "active", 
+    "title": "Datenlizenz Deutschland – Namensnennung – Version 2.0", 
+    "url": "http://www.govdata.de/dl-de/by-2-0" 
+  }, 
+  {
     "domain_content": true, 
     "domain_data": true, 
     "domain_software": false, 
